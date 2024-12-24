@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="208" height="208" viewBox="0 0 208 208">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" y1="1" x2="0.344" y2="0.327" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffaf61"/>
+      <stop offset="0.197" stop-color="#d29b65"/>
+      <stop offset="0.343" stop-color="#c98c4f"/>
+      <stop offset="1" stop-color="#8d4907"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1040" data-name="Group 1040" transform="translate(-436 -748)">
+    <g id="Rectangle_180" data-name="Rectangle 180" transform="translate(436 748)" fill="#0e0b0a" stroke="#707070" stroke-width="1">
+      <rect width="208" height="208" rx="82" stroke="none"/>
+      <rect x="0.5" y="0.5" width="207" height="207" rx="81.5" fill="none"/>
+    </g>
+    <path id="calendar-check" d="M97.024,15.524H85.381V2.911A2.911,2.911,0,0,0,82.47,0h-9.7a2.911,2.911,0,0,0-2.911,2.911V15.524H38.81V2.911A2.911,2.911,0,0,0,35.9,0H26.2a2.911,2.911,0,0,0-2.911,2.911V15.524H11.643A11.643,11.643,0,0,0,0,27.167v85.381A11.643,11.643,0,0,0,11.643,124.19H97.024a11.643,11.643,0,0,0,11.643-11.643V27.167A11.643,11.643,0,0,0,97.024,15.524Zm-1.455,97.024H13.1a1.455,1.455,0,0,1-1.455-1.455V38.81H97.024v72.283a1.455,1.455,0,0,1-1.455,1.455ZM82.749,63.878,48.231,98.12a2.911,2.911,0,0,1-4.116-.017L25.9,79.742a2.911,2.911,0,0,1,.016-4.116l5.511-5.466a2.91,2.91,0,0,1,4.116.017l10.7,10.784L73.183,54.235a2.911,2.911,0,0,1,4.116.016l5.466,5.51a2.911,2.911,0,0,1-.017,4.116Z" transform="translate(486 790)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

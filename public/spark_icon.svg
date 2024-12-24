@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50.706" height="72.116" viewBox="0 0 50.706 72.116">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffaf61"/>
+      <stop offset="0.197" stop-color="#d29b65"/>
+      <stop offset="0.343" stop-color="#c98c4f"/>
+      <stop offset="1" stop-color="#8d4907"/>
+    </linearGradient>
+  </defs>
+  <g id="spark-icon" transform="matrix(0.998, 0.07, -0.07, 0.998, 4.818, 0)">
+    <path id="Path_228" data-name="Path 228" d="M18.579,35.482,0,33.734,15.4,0H36.46L24.521,19.355,46,21.732,6.571,69.076Z" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

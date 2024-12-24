@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- loading screen start -->
+    <div class="loading_screen hide">
+      <img
+        class="loading_screen_img"
+        src="/public/loading_screen.png"
+        alt="loadind_screen"
+      />
+    </div>
+    <!-- loading screen end -->
+
+    <!-- welcome screen start -->
+    <div class="welcome_screen hide">
+      <img
+        height="150px"
+        class="lepasa_logo"
+        src="/public/lepasa_logo_small.svg"
+        alt="lepasa_logo"
+      />
+      <div class="welcome_screen_content">
+        <div class="welcome_hand_div">
+          <img height="19px" src="/public/hand.png" />Hey!
+        </div>
+        <p>You've been in Telegram for a while, it's time to get rewarded!</p>
+        <button class="welcome_claim_button">Claim</button>
+      </div>
+    </div>
+    <!-- welcome screen end -->
+
+    <!-- welcome bonus screen start -->
+    <div class="welcome_bonus_wrapper hide">
+      <div class="welcome_bonus hide">
+        <h1>Expert</h1>
+        <div class="welcome_bonus_body">
+          <img
+            src="/public/spinner_electric.png"
+            alt="spinner_electric"
+            height="300px"
+          />
+          <p>3</p>
+        </div>
+        <div class="circles_div">
+          <div class="circle"></div>
+          <div class="circle disabled"></div>
+        </div>
+        <button class="continue_btn">Continue</button>
+      </div>
+
+      <div class="welcome_reward hide">
+        <div class="welcome_reward_header">
+          <h1>You are amazing!</h1>
+          <p>Here is your Lepa rewards</p>
+        </div>
+        <div class="welcome_reward_body">
+          <img
+            src="/public/lepasa_logo_small.svg"
+            alt="lepasa_logo"
+            height="150px"
+          />
+          <p>1250</p>
+        </div>
+        <p class="thanks_message">Thanks for your time on telegram.</p>
+        <div class="circles_div">
+          <div class="circle"></div>
+          <div class="circle disabled"></div>
+        </div>
+        <button class="continue_btn">Continue</button>
+      </div>
+    </div>
+    <!-- welcome bonus screen end -->
+
+    <!-- verifying details start -->
+    <div class="login_verification hide">
+      <h1>Checking your account</h1>
+      <div class="login_verification_content">
+        <div class="login_verification_content_box">
+          <div class="login_verification_content_body">
+            <p>Account Age Verified</p>
+            <img
+              src="/public/check.svg"
+              alt="check"
+              height="15px"
+              width="15px"
+            />
+          </div>
+          <div class="progress_bar"></div>
+        </div>
+
+        <div class="login_verification_content_box">
+          <div class="login_verification_content_body">
+            <p>Activity Level Analyzed</p>
+            <img
+              src="/public/check.svg"
+              alt="check"
+              height="15px"
+              width="15px"
+            />
+          </div>
+          <div class="progress_bar"></div>
+        </div>
+
+        <div class="login_verification_content_box">
+          <div class="login_verification_content_body">
+            <p>Telegram Premium Checked</p>
+            <img
+              src="/public/check.svg"
+              alt="check"
+              height="15px"
+              width="15px"
+            />
+          </div>
+          <div class="progress_bar"></div>
+        </div>
+
+        <div class="login_verification_content_box">
+          <div class="login_verification_content_body">
+            <p>OG Status Confirmed</p>
+            <img
+              src="/public/check.svg"
+              alt="check"
+              height="15px"
+              width="15px"
+            />
+          </div>
+          <div class="progress_bar"></div>
+        </div>
+      </div>
+
+      <div class="login_verification_footer">
+        <button class="login_verification_button">Continue</button>
+      </div>
+    </div>
+    <!-- verifying details end -->
+
+    <!-- play container start -->
+    <div class="play_container hide">
+      <div class="body_content">
+        <div class="body_header">
+          <div class="speed">
+            <img src="/public/cooling-fan.png" height="30px" width="30px" />
+            <h4>1.5/s</h4>
+          </div>
+          <div class="coin">
+            <img src="/public/coin.png" height="30px" width="30px" />
+            <h2>3,179</h2>
+          </div>
+        </div>
+
+        <div class="league_info">
+          <img
+            src="/public/bronze.png"
+            alt="league"
+            height="30px"
+            width="50px"
+          />
+          <h3>BRONZE</h3>
+          <h3>></h3>
+        </div>
+
+        <div class="fidget_spinner">
+          <img src="/public/fidget.png" alt="fidget" height="350px" />
+          <img
+            class="fidget_spinner_logo"
+            src="/public/logo.svg"
+            alt="logo"
+            height="50px"
+          />
+        </div>
+
+        <div class="body_footer">
+          <div class="spark_div">
+            <img
+              src="/public/spark_icon.svg"
+              alt="spark"
+              height="30px"
+              width="30px"
+            />
+            <h4>0</h4>
+            <h4>/</h4>
+            <h4>500</h4>
+          </div>
+          <div class="progress_bar"></div>
+        </div>
+      </div>
+    </div>
+    <!-- play container ends -->
+
+    <!-- earn main container start -->
+    <div class="earn_container hide">
+      <div class="earn_header">
+        <p class="community">Community</p>
+        <div class="earn_header_divider"></div>
+        <p class="daily_task">Daily Task</p>
+        <div class="earn_header_divider"></div>
+        <p class="rewards" onclick="openDrawer()">Rewards</p>
+      </div>
+      <div class="earn_body">
+        <!-- community code starts here -->
+        <div class="community_div hide">
+          <div class="community_card">
+            <div class="community_card_title">
+              <p>Lepasa</p>
+              <div class="community_body_divider"></div>
+            </div>
+            <div class="community_card_content">
+              <div class="community_info">
+                <img
+                  src="/public/logo_white.svg"
+                  alt="logo"
+                  height="30px"
+                  width="30px"
+                />
+                <div class="community_name">
+                  <p>TON Fiesta</p>
+                </div>
+              </div>
+              <div>></div>
+            </div>
+          </div>
+          <div class="community_card_partner">
+            <div class="community_card_title">
+              <p>Partners</p>
+              <div class="community_body_divider"></div>
+            </div>
+            <div class="community_card_partner_content">
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>VOOI</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Top Dawg</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Qfan</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Bitbot</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Golden Gold</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Pehe</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Hive</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+              <div class="community_card_content partner_content">
+                <div class="community_info">
+                  <img
+                    src="/public/logo_white.svg"
+                    alt="logo"
+                    height="30px"
+                    width="30px"
+                  />
+                  <div class="community_name">
+                    <p>Habit</p>
+                  </div>
+                </div>
+                <div>></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- community code ends here -->
+
+        <!-- daily task code starts here -->
+        <div class="task_container">
+          <div class="task_container_card" onclick="openDrawer()">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+          <div class="task_container_card">
+            <div class="task_card_content">
+              <img
+                class="task_card_logo"
+                src="/public/ton_symbol.svg"
+                height="30px"
+                width="30px"
+              />
+              <div class="task_card_content_body">
+                <p>TON</p>
+                <p class="profit_per_hour">Profit Per Hour</p>
+                <div class="task_card_content_footer">
+                  <img src="/public/coin.png" height="20px" width="20px" />
+                  <p>5</p>
+                </div>
+              </div>
+            </div>
+            <div class="task_card_footer">
+              <p class="task_card_footer_p">L-1</p>
+              <div class="task_card_footer_divider"></div>
+              <div class="task_card_footer_coin_div">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- daily task code ends here -->
+
+        <div class="rewards_container hide">
+          <div class="rewards_container_header">
+            <h2 class="reward_title">Daily Reward</h2>
+            <p class="reward_subtitle">Don't break your streak</p>
+          </div>
+          <div class="rewards_container_content">
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 1</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">500</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim">Check In</button>
+            </div>
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 2</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">2000</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim disabled">Check In</button>
+            </div>
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 3</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">2500</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim disabled">Check In</button>
+            </div>
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 4</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">5000</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim disabled">Check In</button>
+            </div>
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 5</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">10000</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim disabled">Check In</button>
+            </div>
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 6</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">25000</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim disabled">Check In</button>
+            </div>
+            <div class="daily_reward_card">
+              <div class="daily_reward_info">
+                <img
+                  height="30px"
+                  src="/public/daily_rewards.svg"
+                  alt="reward_icon"
+                />
+                <div class="daily_reward_detail">
+                  <p class="day_count">Day 7</p>
+                  <div class="daily_reward_amount">
+                    <img height="20px" src="/public/coin.png" />
+                    <p class="reward_amount">50000</p>
+                  </div>
+                </div>
+              </div>
+              <button class="claim disabled">Check In</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- earn main container ends -->
+
+    <!-- earn individual detail community container start -->
+    <div class="earn_detail_container hide">
+      <div class="back_container">
+        <p><</p>
+        <p>Earn</p>
+      </div>
+      <div class="title_content">
+        <p class="title_content_heading">TON Fiesta</p>
+        <p class="title_content_sub_heading">
+          Welcome to Ton Fiesta, A dynamic gaming experience within Telegram
+          where you can earn points, level up, and unlock exclusive rewards.
+        </p>
+      </div>
+      <div class="earn_detail_content">
+        <div class="earn_card_content">
+          <div class="community_info">
+            <img
+              src="/public/twitter.svg"
+              alt="twitter"
+              height="25px"
+              width="25px"
+            />
+            <div class="community_name">
+              <p>Join twitter</p>
+              <div class="community_desc">
+                <img
+                  height="20px"
+                  width="20px"
+                  src="/public/coin.png"
+                  alt="coin"
+                />
+                <p>5000</p>
+              </div>
+            </div>
+          </div>
+          <button class="claim">Claim</button>
+        </div>
+        <div class="earn_card_content">
+          <div class="community_info">
+            <img
+              src="/public/telegram.svg"
+              alt="telegram"
+              height="25px"
+              width="25px"
+            />
+            <div class="community_name">
+              <p>Join telegram</p>
+              <div class="community_desc">
+                <img
+                  height="20px"
+                  width="20px"
+                  src="/public/coin.png"
+                  alt="coin"
+                />
+                <p>5000</p>
+              </div>
+            </div>
+          </div>
+          <button class="claim">Claim</button>
+        </div>
+        <div class="earn_card_content">
+          <div class="community_info">
+            <img
+              src="/public/wallet.svg"
+              alt="wallet"
+              height="25px"
+              width="25px"
+            />
+            <div class="community_name">
+              <p>Connect Wallet</p>
+              <div class="community_desc">
+                <img
+                  height="20px"
+                  width="20px"
+                  src="/public/coin.png"
+                  alt="coin"
+                />
+                <p>10000</p>
+              </div>
+            </div>
+          </div>
+          <button class="connect">Connect</button>
+        </div>
+      </div>
+    </div>
+    <!-- earn individual detail community container end -->
+
+    <!-- referral content start -->
+    <div class="ref_container hide">
+      <div class="ref_stats">
+        <h2>0 Referrals</h2>
+        <img src="/public/ref_icon.svg" height="60px" width="60px" />
+      </div>
+      <div class="ref_cta">
+        <div class="ref_share">
+          <img src="/public/share_icon.svg" height="20px" width="20px" />
+          <p>Share Now</p>
+        </div>
+        <div class="ref_copy">
+          <img src="/public/copy.svg" height="20px" width="20px" />
+        </div>
+      </div>
+      <h4>Referral Earn:</h4>
+      <ul class="ref_list">
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 1 Friend</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>2000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 1 Friend</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>2000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 3 Friends</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>3000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 5 Friends</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>5000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 10 Friends</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>10000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 25 Friends</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>25000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+
+        <li class="ref_item">
+          <div class="ref_item_container">
+            <div class="ref_item_content">
+              <p>Invite 50 Friends</p>
+              <div class="ref_coin">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50000</p>
+              </div>
+            </div>
+            <img src="/public/claim.svg" height="20px" width="20px" />
+          </div>
+          <div class="progress_bar"></div>
+        </li>
+      </ul>
+    </div>
+    <!-- referral content end -->
+
+    <!-- shop content start -->
+    <div class="shop_container hide">
+      <div class="shop_header">
+        <div class="shop_item">
+          <img src="/public/shop_energy.svg" height="30px" width="30px" />
+          <div class="shop_item_content">
+            <p>Energy Bar Refill</p>
+            <p class="shop_item_num">3/3</p>
+          </div>
+        </div>
+
+        <div class="shop_header_divider"></div>
+
+        <div class="shop_item">
+          <img src="/public/shop_gpu.svg" height="30px" width="30px" />
+          <div class="shop_item_content">
+            <p>GPU Booster</p>
+            <p class="shop_item_num">3/3</p>
+          </div>
+        </div>
+      </div>
+
+      <ul class="shop_level_list">
+        <li class="shop_level_item">
+          <img src="/public/shop_spinner.svg" height="30px" width="30px" />
+          <div class="shop_level_item_content">
+            <p>Bar Refill Speed</p>
+            <div class="shop_level_item_stats">
+              <div class="shop_level_item_coins">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>4,000</p>
+              </div>
+              <p>| 2 level</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="shop_level_item">
+          <img src="/public/shop_energy_two.svg" height="30px" width="30px" />
+          <div class="shop_level_item_content">
+            <p>Energy Bar Capacity</p>
+            <div class="shop_level_item_stats">
+              <div class="shop_level_item_coins">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>4,000</p>
+              </div>
+              <p>| 2 level</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="shop_level_item" onclick="openDrawer()">
+          <img src="/public/shop_gpu_two.svg" height="30px" width="30px" />
+          <div class="shop_level_item_content">
+            <p>GPU Upgrade</p>
+            <div class="shop_level_item_stats">
+              <div class="shop_level_item_coins">
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>4,000</p>
+              </div>
+              <p>| 2 level</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- shop content end -->
+
+    <!-- league content start -->
+    <div class="leagues_container hide">
+      <div class="leagues_header">
+        <div class="leagues_header_content">
+          <h3>Leagues</h3>
+          <p>Your number of points determines the league you enter.</p>
+        </div>
+        <div class="leagues_close_icon">
+          <img src="/public/close.svg" height="20px" width="20px" />
+        </div>
+      </div>
+
+      <div class="leagues_content">
+        <p>Bonus for leveling up:</p>
+
+        <div class="leagues_list">
+          <div class="leagues_item">
+            <div class="leagues_item_container">
+              <div class="leagues_item_subcontainer">
+                <img
+                  src="/public/leagues/bronze.png"
+                  height="25px"
+                  width="40px"
+                />
+                <div class="leagues_item_content">
+                  <p>Bronze</p>
+                  <div class="leagues_coin">
+                    <img src="/public/coin.png" height="20px" width="20px" />
+                    <p>4999</p>
+                  </div>
+                </div>
+              </div>
+              <div class="leagues_item_claim">Claim</div>
+            </div>
+            <div class="leagues_item_bar"></div>
+          </div>
+
+          <div class="leagues_item">
+            <div class="leagues_item_container">
+              <div class="leagues_item_subcontainer">
+                <img
+                  src="/public/leagues/silver.png"
+                  height="25px"
+                  width="40px"
+                />
+                <div class="leagues_item_content">
+                  <p>Silver</p>
+                  <div class="leagues_coin">
+                    <img src="/public/coin.png" height="20px" width="20px" />
+                    <p>24999</p>
+                  </div>
+                </div>
+              </div>
+              <div class="leagues_item_claim">Claim</div>
+            </div>
+            <div class="leagues_item_bar_incomplete">
+              <div class="leagues_item_bar_stat"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- league content end -->
+
+    <!-- more content start -->
+    <div class="more_container">
+      <div class="more_header hide">
+        <p class="cards">Cards</p>
+        <div class="more_header_divider"></div>
+        <p class="boost-stake">Boost-Stake</p>
+        <div class="more_header_divider"></div>
+        <p class="info">Info</p>
+      </div>
+
+      <div class="more_cards hide">
+        <h2 class="more_cards_heading">Gold - GD 7080x</h2>
+        <div class="more_card_content">
+          <h3>GD 7080x</h3>
+          <img src="/public/cooling-fan.png" alt="fan" />
+          <h3>TF V-FORCE</h3>
+        </div>
+        <h3>10,198 / 49,999</h3>
+        <div class="progress_bar"></div>
+      </div>
+
+      <div class="more_boost-stake">
+        <h2>Coming Soon...</h2>
+      </div>
+
+      <div class="more_info hide">
+        <div class="more_info_leaderboard">
+          <p>Leaderboards</p>
+          <div class="more_info_leaderboard_cards">
+            <p>Referral</p>
+          </div>
+          <div class="more_info_leaderboard_cards">
+            <p>Players</p>
+          </div>
+        </div>
+        <div class="more_info_other">
+          <p>Other</p>
+          <div class="more_info_other_cards">
+            <p>Fidget</p>
+            <div class="more_info_other_fidget_switch">
+              <p>Tap / Swipe</p>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" />
+                <span class="switch-label"></span>
+                <span class="switch-handle"></span>
+              </label>
+            </div>
+          </div>
+          <div class="more_info_other_cards">
+            <p>Profit per Hour</p>
+            <p class="more_info_profit_per_hour">0 %</p>
+          </div>
+          <div id="how_to_play_div" class="more_info_other_cards" onclick="openDrawer()">
+            <p>How To Play?</p>
+          </div>
+          <div id="faqs_div" class="more_info_other_cards">
+            <p>FAQs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- more content end -->
+
+    <!-- footer containing ref, earn, play, shop and info start -->
+    <div class="footer">
+      <div class="footer_content">
+        <img src="/public/ref_icon.svg" height="60px" width="60px" />
+        <img src="/public/earn_icon.svg" height="60px" width="60px" />
+        <img src="/public/play_icon.svg" height="60px" width="60px" />
+        <img src="/public/shop_icon.svg" height="60px" width="60px" />
+        <img src="/public/more_hori.svg" height="60px" width="60px" />
+      </div>
+    </div>
+    <!-- footer containing ref, earn, play, shop and info end -->
+
+    <!-- drawer content start -->
+    <div>
+      <div class="backdrop" id="backdrop" onclick="closeDrawer()"></div>
+
+      <div class="drawer" id="drawer">
+        <div class="drawer_container">
+          <div class="drawer_close_icon" onclick="closeDrawer()">
+            <img src="/public/close.svg" height="20px" width="20px" />
+          </div>
+
+          <div class="drawer_content hide">
+            <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
+
+            <h1>GPU Upgrade</h1>
+            <h6>Increase Pixel Rate By</h6>
+
+            <p class="chip">4 /sec</p>
+            <div class="drawer_upgrade">Upgrade</div>
+          </div>
+
+          <div class="drawer_content_daily_rewards hide" id="daily_reward_drawer">
+            <img src="/public/daily_rewards.svg" height="70px" width="70px" />
+
+            <h1>Daily Reward</h1>
+            <h5>Don't break your streak</h5>
+
+            <div class="daily_rewards_list">
+              <div class="daily_rewards_item current">
+                <p>Day 1</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>500</p>
+              </div>
+
+              <div class="daily_rewards_item">
+                <p>Day 2</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>2000</p>
+              </div>
+
+              <div class="daily_rewards_item">
+                <p>Day 3</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>2500</p>
+              </div>
+
+              <div class="daily_rewards_item">
+                <p>Day 4</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>5000</p>
+              </div>
+
+              <div class="daily_rewards_item">
+                <p>Day 5</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>10000</p>
+              </div>
+
+              <div class="daily_rewards_item">
+                <p>Day 6</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>25000</p>
+              </div>
+
+              <div class="daily_rewards_item">
+                <p>Day 7</p>
+                <img src="/public/coin.png" height="20px" width="20px" />
+                <p>50000</p>
+              </div>
+            </div>
+
+            <div class="drawer_upgrade">Claim</div>
+          </div>
+
+          <div class="drawer_content_how_to_play hide" id="how_to_play_drawer">
+            <h1>How To Play ?</h1>
+            <p class="how_to_play_instruction">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugia
+            </p>
+          </div>
+
+          <div class="drawer_content_faq hide" id="faq_drawer">
+            <h1>Faqs</h1>
+            <p class="faq_instruction">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugia
+            </p>
+          </div>
+
+          <div class="drawer_individual_task_content hide" id="individual_task_drawer">
+            <div class="individual_taks_logo_div">
+              <img
+                height="30px"
+                src="/public/ton_symbol.svg"
+                alt="partner_logo"
+              />
+            </div>
+            <h1>Ton</h1>
+            <p class="individual_task_description">
+              Dive into the TONverse, where innovation meets the blockchain
+              frontier!
+            </p>
+            <p class="individual_task_profit_per_hour">Profit per Hour</p>
+            <div class="individual_task_coin_info">
+              <img height="20px" src="/public/coin.png" alt="coin_img" />
+              <p class="individual_task_coin_amount">20</p>
+            </div>
+            <div class="individual_task_claim_btn">
+              <div class="individual_task_coin_detail">
+                <img height="20px" src="/public/coin.png" alt="coin_img" />
+                <p>200</p>
+              </div>
+              <div class="individual_task_divider"></div>
+              <div class="individual_task_claim">
+                <p>Claim</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- drawer content end -->
+
+    <!-- script to render drawer content start -->
+    <script>
+      function openDrawer() {
+        document.getElementById("drawer").style.bottom = "0";
+        document.getElementById("backdrop").style.opacity = "1";
+        document.getElementById("backdrop").style.visibility = "visible";
+      }
+
+      // Function to close the drawer
+      function closeDrawer() {
+        document.getElementById("drawer").style.bottom = "-100%";
+        document.getElementById("backdrop").style.opacity = "0";
+        document.getElementById("backdrop").style.visibility = "hidden";
+      }
+    </script>
+    <!-- script to render drawer content end -->
+  </body>
+</html>

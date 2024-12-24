@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="208" height="208" viewBox="0 0 208 208">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffaf61"/>
+      <stop offset="0.197" stop-color="#d29b65"/>
+      <stop offset="0.343" stop-color="#c98c4f"/>
+      <stop offset="1" stop-color="#8d4907"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1035" data-name="Group 1035" transform="translate(-436 -1004)">
+    <g id="Rectangle_180" data-name="Rectangle 180" transform="translate(436 1004)" fill="#0e0b0a" stroke="#707070" stroke-width="1">
+      <rect width="208" height="208" rx="82" stroke="none"/>
+      <rect x="0.5" y="0.5" width="207" height="207" rx="81.5" fill="none"/>
+    </g>
+    <path id="arrow-alt-from-bottom" d="M90.283,139.289H2.912A2.921,2.921,0,0,1,0,136.377v-1.942a2.921,2.921,0,0,1,2.912-2.912H90.283a2.921,2.921,0,0,1,2.912,2.912v1.942A2.921,2.921,0,0,1,90.283,139.289Zm-53.126-23.3H56.014a3.9,3.9,0,0,0,3.883-3.883V77.159H82.687a1.939,1.939,0,0,0,1.383-3.3L49.34,39.007a3.882,3.882,0,0,0-5.509,0L9.125,73.858a1.934,1.934,0,0,0,1.383,3.3H33.3v34.948a3.858,3.858,0,0,0,3.859,3.883m0,7.766a11.652,11.652,0,0,1-11.649-11.649V84.925h-15A9.7,9.7,0,0,1,3.64,68.373L38.346,33.522a11.66,11.66,0,0,1,16.5,0l34.73,34.827A9.7,9.7,0,0,1,82.711,84.9H67.688v27.182a11.652,11.652,0,0,1-11.649,11.649H37.157Z" transform="translate(493 1022.9)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

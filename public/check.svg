@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="47" viewBox="0 0 47 47">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffaf61"/>
+      <stop offset="0.197" stop-color="#d29b65"/>
+      <stop offset="0.343" stop-color="#c98c4f"/>
+      <stop offset="1" stop-color="#8d4907"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_1053" data-name="Group 1053" transform="translate(-919 -913)">
+    <path id="check-square" d="M34.963,50.406,19.916,65.333a1.046,1.046,0,0,1-1.48-.006l-7.915-7.979a1.046,1.046,0,0,1,.006-1.48L12.509,53.9a1.046,1.046,0,0,1,1.48.006L19.2,59.165,31.525,46.94a1.046,1.046,0,0,1,1.48.006l1.965,1.981A1.046,1.046,0,0,1,34.963,50.406Z" transform="translate(919.754 880.364)" fill="url(#linear-gradient)"/>
+    <g id="Ellipse_43" data-name="Ellipse 43" transform="translate(919 913)" fill="none" stroke="#b8793b" stroke-width="3">
+      <circle cx="23.5" cy="23.5" r="23.5" stroke="none"/>
+      <circle cx="23.5" cy="23.5" r="22" fill="none"/>
+    </g>
+  </g>
+</svg>
