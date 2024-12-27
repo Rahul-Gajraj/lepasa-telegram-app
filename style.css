@@ -7,7 +7,7 @@ body {
   padding: 0;
   margin: 0;
   color: white;
-  font-family: "Poppins", serif;
+  font-family: "Roboto", serif;
   font-weight: 500;
   font-style: normal;
 }
@@ -220,7 +220,8 @@ body {
   background: transparent url(/public/background_img.png) 0% 0% no-repeat
     padding-box;
   background-size: cover;
-  height: 100%;
+  /* height: 100%; */
+  height: calc(100vh - 85px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -228,6 +229,10 @@ body {
 
 .body_content {
   padding: 0px 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .body_header {
@@ -252,7 +257,7 @@ body {
 }
 
 .fidget_spinner {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   text-align: center;
   position: relative;
 }
@@ -270,7 +275,7 @@ body {
 }
 
 .body_footer {
-  margin-top: 20px;
+  margin: 20px 0px;
 }
 
 .spark_div {
@@ -301,6 +306,8 @@ body {
 .earn_container {
   background: #040502;
   padding: 10px;
+  padding-bottom: 7px;
+  height: calc(100vh - 100px);
   /* height: 100vh */
 }
 
@@ -329,7 +336,8 @@ body {
 
 .earn_body {
   /* height: calc(100vh - 225px); */
-  height: calc(100vh - 170px);
+  /* height: calc(100vh - 151px); */
+  /* padding: 0px; */
   /* overflow: auto; */
 }
 
@@ -370,7 +378,7 @@ body {
 }
 
 .community_card_partner_content {
-  height: calc(100vh - 375px);
+  height: calc(100vh - 310px);
   overflow: auto;
 }
 
@@ -391,9 +399,9 @@ body {
 /* earn detail container starts */
 .earn_detail_container {
   background: #040502;
-  padding: 10px;
+  padding: 7px 10px;
   /* height: calc(100vh - 180px); */
-  height: calc(100vh - 120px);
+  height: calc(100vh - 100px);
 }
 
 .back_container {
@@ -418,13 +426,14 @@ body {
   color: #ffffff;
   border: none;
   padding: 7px;
+  border-radius: 3px;
 }
 
 .task_container {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 190px);
   overflow: auto;
   margin-top: 20px;
 }
@@ -433,8 +442,8 @@ body {
   border: 3px solid #161716;
   border-radius: 10px;
   padding: 10px;
-  height: 140px;
-  width: 140px;
+  height: 92px;
+  /* width: 140px; */
 }
 
 .task_card_content {
@@ -479,6 +488,10 @@ body {
   border-top: 1px solid #272727;
 }
 
+.task_card_footer p {
+  margin: 7px;
+}
+
 .task_card_footer_divider {
   background: #272727;
   height: 15px;
@@ -494,7 +507,7 @@ body {
 
 /* footer container start */
 .footer {
-  padding: 10px;
+  padding: 7px;
   background-color: #040502;
 }
 
@@ -503,14 +516,15 @@ body {
   justify-content: space-between;
   background-color: #161716;
   border-radius: 20px;
-  padding: 10px;
+  padding: 7px;
 }
 /* footer container end */
 
 /* referral container start */
 .ref_container {
   background-color: #0e0b0a;
-  height: 100%;
+  /* height: 100%; */
+  height: calc(100vh - 93px);
   padding: 5px 10px;
   color: #fff;
 }
@@ -549,13 +563,22 @@ body {
 .ref_list {
   list-style-type: none;
   padding: 0;
-  /* height: 370px; */
-  height: calc(100vh - 303px);
+  height: 410px;
+  margin-top: 5px;
+  /* height: calc(100vh - 303px); */
   overflow: auto;
+}
+
+.ref_title {
+  margin-bottom: 0;
 }
 
 .ref_list li {
   margin-top: 10px;
+}
+
+.ref_list li:nth-child(1) {
+  margin-top: 2px;
 }
 
 .ref_item {
@@ -578,12 +601,18 @@ body {
 
 .ref_item_content > p {
   margin-bottom: 0;
+  margin-top: 9px;
 }
 
 .ref_coin {
   display: flex;
   align-items: center;
-  gap: 8px;
+  margin: 3px 0px;
+  gap: 5px;
+}
+
+.ref_coin p {
+  margin: 0px;
 }
 /* referral container end */
 
@@ -597,10 +626,11 @@ body {
 /* shop container start */
 .shop_container {
   background-color: #0e0b0a;
-  height: 100%;
-  padding: 5px 10px;
+  /* height: 100%; */
+  height: calc(100vh - 100px);
+  padding: 7px 10px;
   color: #fff;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 .shop_container p {
@@ -614,6 +644,7 @@ body {
   border-top: 2px solid #171717;
   border-bottom: 2px solid #171717;
   padding: 10px 0px;
+  margin-top: 20px;
 }
 
 .shop_item {
@@ -632,7 +663,8 @@ body {
 .shop_item_num {
   background-color: #171717;
   width: fit-content;
-  padding: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
   border-radius: 15px;
 }
 
@@ -810,7 +842,7 @@ body {
 /* leagues start */
 .leagues_container {
   background-color: #0e0b0a;
-  height: 100vh;
+  height: calc(100vh - 10px);
   color: #fff;
   padding: 5px 10px;
 }
@@ -844,7 +876,7 @@ body {
 
 .leagues_item {
   background-color: #171717;
-  width: 70%;
+  width: 90%;
   padding: 5px 10px;
 }
 
@@ -902,9 +934,9 @@ body {
 
 /* more container start */
 .more_container {
-  height: calc(100vh - 120px);
+  height: calc(100vh - 100px);
   background: #040502;
-  padding: 10px;
+  padding: 8px 10px;
 }
 
 .more_boost-stake {
@@ -1041,7 +1073,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+}
+
+.daily_reward_card:nth-child(7) {
+  margin-bottom: 0px !important;
 }
 
 .daily_reward_info {
