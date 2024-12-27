@@ -441,7 +441,7 @@ body {
 .task_container_card {
   border: 3px solid #161716;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6.5px;
   height: 92px;
   /* width: 140px; */
 }
