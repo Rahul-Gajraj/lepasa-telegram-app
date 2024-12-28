@@ -14,7 +14,7 @@
   </head>
   <body>
     <!-- loading screen start -->
-    <div class="loading_screen hide">
+    <div class="loading_screen">
       <img
         class="loading_screen_img"
         src="/public/loading_screen.png"
@@ -172,7 +172,8 @@
         </div>
 
         <div class="fidget_spinner">
-          <img src="/public/fidget.png" alt="fidget" height="350px" />
+          <input type="hidden" id="svalue" class="hide"/>
+          <canvas id="spinnerCanvas" height="300" width="300"></canvas>
           <img
             class="fidget_spinner_logo"
             src="/public/logo.svg"
@@ -1166,7 +1167,7 @@
     <!-- league content end -->
 
     <!-- more content start -->
-    <div class="more_container">
+    <div class="more_container hide">
       <div class="more_header hide">
         <p class="cards">Cards</p>
         <div class="more_header_divider"></div>
@@ -1229,7 +1230,7 @@
     <!-- more content end -->
 
     <!-- footer containing ref, earn, play, shop and info start -->
-    <div class="footer">
+    <div class="footer hide">
       <div class="footer_content">
         <img src="/public/ref_icon.svg" height="60px" width="60px" />
         <img src="/public/earn_icon.svg" height="60px" width="60px" />
@@ -1378,7 +1379,9 @@
       </div>
     </div>
     <!-- drawer content end -->
-
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/navigation.js"></script>
+<script src="/js/spinner.js"></script>
     <!-- script to render drawer content start -->
     <script>
       function openDrawer() {
