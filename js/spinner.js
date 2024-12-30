@@ -44,7 +44,8 @@ canvas.addEventListener('mousedown', function (_ref) {
 });
 canvas.addEventListener('touchstart', function (_ref2) {
   var originalEvent = _ref2.originalEvent;
-
+  if(originalEvent==undefined)
+    originalEvent=_ref2;
   dragStart = {
     clientX: originalEvent.touches[0].pageX,
     clientY: originalEvent.touches[0].pageY
@@ -60,6 +61,8 @@ canvas.addEventListener('mousemove', function (_ref3) {
 });
 canvas.addEventListener('touchmove', function (_ref4) {
   var originalEvent = _ref4.originalEvent;
+  if(originalEvent==undefined)
+    originalEvent=_ref4;
   return dragStart && function () {
     updateSpeed(dragStart, {
       clientX: originalEvent.touches[0].pageX,
