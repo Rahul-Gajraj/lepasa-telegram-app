@@ -54,7 +54,7 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
-    getVestingAmount(){
-        return this.#userInfoData.vestingAmount;
+    getUserInfoData(){
+        return this.#userInfoData;
     }
 }

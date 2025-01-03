@@ -71,12 +71,17 @@ class Navigator {
         this.hideAll();
         $(".play_container").removeClass('hide');
         $(".footer").removeClass('hide');
-        var vestingAmt = this.#controller.getVestingAmount();
+        this.updatePlayePageUi();
+        var vestingAmt = this.#controller.getUserInfoData().vestingAmount;
         if (vestingAmt > 0) {
 
         }
     }
     updatePlayePageUi() {
+        var userInfoData = this.#controller.getUserInfoData();
+        $("#txtMiningRate").text(userInfoData.miningRate + ' /s');
+        $("#txtActiveBalance").text(userInfoData.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        $("#txtBarCapacityRate").text(userInfoData.capacityRate);
     }
 }
 

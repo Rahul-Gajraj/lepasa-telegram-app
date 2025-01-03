@@ -17,6 +17,7 @@ body {
   height: 100%;
   width: 100%;
 }
+
 /* loading screen start */
 
 /* welcome screen start */
@@ -60,11 +61,11 @@ body {
   left: 25%;
   color: #ffffff;
 }
+
 /* welcome screen end */
 
 .welcome_bonus_wrapper {
-  background: transparent url("/public/welcome_bonus_bg_image.png") 0% 0%
-    no-repeat padding-box;
+  background: transparent url("/public/welcome_bonus_bg_image.png") 0% 0% no-repeat padding-box;
   background-size: cover;
 }
 
@@ -77,19 +78,20 @@ body {
   align-items: center;
 }
 
-.welcome_bonus > h1 {
+.welcome_bonus>h1 {
   margin: 0;
   position: absolute;
   top: 5%;
   /* left: 35%; */
 }
 
-.welcome_bonus_body > img {
+.welcome_bonus_body>img {
   position: absolute;
   top: 25%;
   left: 5%;
 }
-.welcome_bonus_body > p {
+
+.welcome_bonus_body>p {
   position: absolute;
   top: -18.5%;
   left: 30%;
@@ -124,6 +126,7 @@ body {
 .circle.disabled {
   background-color: #707070;
 }
+
 /* welcome bonus screen end */
 
 /* welcome reward screen start */
@@ -141,20 +144,21 @@ body {
   left: 20px;
 }
 
-.welcome_reward_header > h1 {
+.welcome_reward_header>h1 {
   margin-bottom: 0px;
 }
 
-.welcome_reward_header > p {
+.welcome_reward_header>p {
   margin: 0px;
 }
 
-.welcome_reward_body > img {
+.welcome_reward_body>img {
   position: absolute;
   top: 30%;
   left: 25%;
 }
-.welcome_reward_body > p {
+
+.welcome_reward_body>p {
   position: absolute;
   top: 47%;
   left: 35%;
@@ -166,6 +170,7 @@ body {
   bottom: 17.5%;
   font-size: 13px;
 }
+
 /* welcome reward screen end */
 
 /* account verification start */
@@ -200,7 +205,7 @@ body {
   justify-content: space-between;
 }
 
-.login_verification_content_body > p {
+.login_verification_content_body>p {
   margin: 3px;
 }
 
@@ -213,12 +218,12 @@ body {
   padding: 7px;
   border-radius: 10px;
 }
+
 /* account verification end */
 
 /* play container start */
 .play_container {
-  background: transparent url(/public/background_img.png) 0% 0% no-repeat
-    padding-box;
+  background: transparent url(/public/background_img.png) 0% 0% no-repeat padding-box;
   background-size: cover;
   /* height: 100%; */
   height: calc(100vh - 85px);
@@ -240,14 +245,13 @@ body {
   justify-content: space-between;
 }
 
-.body_header > .speed,
-.body_header > .coin {
+.body_header>.speed,
+.body_header>.coin {
   display: flex;
   align-items: center;
   gap: 10px;
   color: white;
 }
-
 .league_info {
   display: flex;
   align-items: center;
@@ -268,7 +272,7 @@ body {
   left: 43.5%;
 }
 
-.fidget_spinner > h2 {
+.fidget_spinner>h2 {
   float: left;
   color: #ffffff;
   margin-top: 100px;
@@ -300,6 +304,7 @@ body {
   border-radius: 10px;
   background-color: #b8793b9c;
 }
+
 /* play container end */
 
 /* earn container start */
@@ -394,6 +399,7 @@ body {
 .earn_card_content {
   margin-bottom: 10px;
 }
+
 /* earn container ends */
 
 /* earn detail container starts */
@@ -503,6 +509,7 @@ body {
   align-items: center;
   gap: 3px;
 }
+
 /* earn detail container ends */
 
 /* footer container start */
@@ -518,6 +525,7 @@ body {
   border-radius: 20px;
   padding: 7px;
 }
+
 /* footer container end */
 
 /* referral container start */
@@ -591,7 +599,7 @@ body {
   align-items: center;
 }
 
-.ref_item_container > img {
+.ref_item_container>img {
   flex: 1;
 }
 
@@ -599,7 +607,7 @@ body {
   flex: 5;
 }
 
-.ref_item_content > p {
+.ref_item_content>p {
   margin-bottom: 0;
   margin-top: 9px;
 }
@@ -614,6 +622,7 @@ body {
 .ref_coin p {
   margin: 0px;
 }
+
 /* referral container end */
 
 /* .progress_bar {
@@ -713,6 +722,7 @@ body {
 .shop_level_item_coins {
   gap: 5px;
 }
+
 /* shop container end */
 
 /* drawer start */
@@ -758,7 +768,8 @@ body {
   bottom: 0;
   left: 0;
   z-index: -1;
-  border-radius: inherit; /* !importanté */
+  border-radius: inherit;
+  /* !importanté */
   background: #0e0b0a;
 }
 
@@ -837,6 +848,7 @@ body {
   margin: 0;
   font-size: 12px;
 }
+
 /* drawer end */
 
 /* leagues start */
@@ -930,6 +942,7 @@ body {
   height: 6px;
   border-radius: 10px;
 }
+
 /* league container end */
 
 /* more container start */
@@ -957,7 +970,7 @@ body {
   margin-left: 5px;
 }
 
-.more_info_leaderboard_cards > p {
+.more_info_leaderboard_cards>p {
   margin: 3;
 }
 
@@ -1010,7 +1023,7 @@ body {
   border-radius: 100%;
 }
 
-.switch-input:checked ~ .switch-handle {
+.switch-input:checked~.switch-handle {
   left: 33px;
 }
 
@@ -1043,9 +1056,10 @@ body {
   border: 4px solid #b900d1;
 }
 
-.more_card_content > p {
+.more_card_content>p {
   font-weight: 600;
 }
+
 /* more container end */
 
 /* info container start */
@@ -1108,6 +1122,7 @@ button.disabled {
   background-color: #fcc187a8;
   color: rgb(219, 213, 213);
 }
+
 /* info container end */
 
 /* how to play and faq drawer start*/
@@ -1116,6 +1131,7 @@ button.disabled {
   height: 300px;
   overflow: auto;
 }
+
 /* how to play and faq drawer end */
 
 /* individual task drawer start */
@@ -1175,6 +1191,7 @@ button.disabled {
   align-items: center;
   gap: 7px;
 }
+
 /* individual task drawer end */
 
 /* dot pulse start */
@@ -1197,6 +1214,7 @@ button.disabled {
   animation: dot-pulse 1.5s infinite linear;
   animation-delay: 0.25s;
 }
+
 .dot-pulse::before,
 .dot-pulse::after {
   content: "";
@@ -1209,11 +1227,13 @@ button.disabled {
   background-color: #FFAF61;
   color: #FFAF61;
 }
+
 .dot-pulse::before {
   box-shadow: 9984px 0 0 -5px;
   animation: dot-pulse-before 1.5s infinite linear;
   animation-delay: 0s;
 }
+
 .dot-pulse::after {
   box-shadow: 10014px 0 0 -5px;
   animation: dot-pulse-after 1.5s infinite linear;
@@ -1225,37 +1245,45 @@ button.disabled {
     box-shadow: 9984px 0 0 -5px;
     right: 7px;
   }
+
   30% {
     box-shadow: 9984px 0 0 2px;
     right: 7px;
   }
+
   60%,
   100% {
     box-shadow: 9984px 0 0 -5px;
     right: 7px;
   }
 }
+
 @keyframes dot-pulse {
   0% {
     box-shadow: 9999px 0 0 -5px;
   }
+
   30% {
     box-shadow: 9999px 0 0 2px;
   }
+
   60%,
   100% {
     box-shadow: 9999px 0 0 -5px;
   }
 }
+
 @keyframes dot-pulse-after {
   0% {
     box-shadow: 10014px 0 0 -5px;
     left: 7px;
   }
+
   30% {
     box-shadow: 10014px 0 0 2px;
     left: 7px;
   }
+
   60%,
   100% {
     box-shadow: 10014px 0 0 -5px;
@@ -1264,3 +1292,21 @@ button.disabled {
 }
 
 /* dot pulse end */
+
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+.rotate {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
