@@ -12,7 +12,7 @@ image.addEventListener('load',function(){
       var y = canvas.height / 2;
       var width = image.width;
       var height = image.height;
-      ctx.drawImage(image, 0, 0, width, height);
+      ctx.drawImage(image, 10, 10, width, height);
 });
 
 
