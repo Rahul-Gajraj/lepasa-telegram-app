@@ -74,8 +74,13 @@ class Navigator {
         this.updatePlayePageUi();
         var vestingAmt = this.#controller.getUserInfoData().vestingAmount;
         if (vestingAmt > 0) {
-
+            this.updateVestingAmount(vestingAmt)
         }
+    }
+    updateVestingAmount(vestingAmt) {
+        openDrawer();
+        $(".automated_teller_drawer").removeClass('hide');
+        $("#vesting_amount").text(vestingAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     }
     updatePlayePageUi() {
         var userInfoData = this.#controller.getUserInfoData();

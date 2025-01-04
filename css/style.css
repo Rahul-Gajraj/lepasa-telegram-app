@@ -268,8 +268,8 @@ body {
 
 .fidget_spinner_logo {
   position: absolute;
-  top: 41%;
-  left: 43.5%;
+  top: 44%;
+  left: 45%;
 }
 
 .fidget_spinner>h2 {
@@ -1310,3 +1310,57 @@ button.disabled {
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
 }
+
+/* automated teller drawer start */
+.automated_teller_drawer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.automated_teller_img_content {
+  position: relative;
+}
+
+#automated_teller_spinner_electric {
+  position: absolute;
+  left: -100px;
+}
+
+#automated_teller_fidget_electrified {
+  position: absolute;
+  left: -70px;
+  top: 30px;
+}
+
+.automated_teller_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  top: 180px;
+}
+
+.automated_teller_sub_title {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.automated_teller_amount_content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.automated_teller_amount_content h1 {
+  margin: 0;
+}
+
+#automated_teller_claim {
+  width: 300px;
+  height: 40px;
+}
+/* automated teller drawer end */

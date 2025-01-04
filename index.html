@@ -146,7 +146,7 @@
       <div class="fidget_spinner">
         <input type="hidden" id="svalue" class="hide" />
         <canvas id="spinnerCanvas" height="310" width="310"></canvas>
-        <img class="fidget_spinner_logo" src="/public/logo.svg" alt="logo" height="50px" />
+        <img class="fidget_spinner_logo" src="/public/logo.svg" alt="logo" height="45px" width="45px" />
       </div>
 
       <div class="body_footer">
@@ -1079,6 +1079,27 @@
         <div class="drawer_close_icon" onclick="closeDrawer()">
           <img src="/public/close.svg" height="20px" width="20px" />
         </div>
+
+        <!-- automated_teller_drawer start -->
+        <div class="automated_teller_drawer" id="automated_teller_drawer">
+          <div class="automated_teller_img_content" id="automated_teller_img_content">
+            <img id="automated_teller_fidget_electrified" src="/public/fidget_electrified.png" height="130px" width="130px" />
+            <img id="automated_teller_spinner_electric" src="/public/spinner_electric.png" height="185px" width="185px" />
+          </div>
+
+          <div class="automated_teller_content">
+            <h2 class="automated_teller_title">Automated Teller</h2>
+            <h5 class="automated_teller_sub_title">Here's what your tasks have earned for you!</h5>
+  
+            <div class="automated_teller_amount_content">
+              <img src="/public/coin.png" height="40px" width="40px" />
+              <h1 class="automated_teller_amount" id="vesting_amount">90</h1>
+            </div>
+  
+            <button class="claim" id="automated_teller_claim">Get It!</button>
+          </div>
+        </div>
+        <!-- automated_teller_drawer end -->
 
         <div class="drawer_content hide">
           <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
