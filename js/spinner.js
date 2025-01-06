@@ -4,15 +4,15 @@ var canvas = document.getElementById('spinnerCanvas');
 var ctx = canvas.getContext('2d');
 
 const image = document.createElement("img");
-image.height=300;
-image.width=300;
+image.height = 300;
+image.width = 300;
 image.src = "/public/fidget.png";
-image.addEventListener('load',function(){
-      var x = canvas.width / 2;
-      var y = canvas.height / 2;
-      var width = image.width;
-      var height = image.height;
-      ctx.drawImage(image, 10, 10, width, height);
+image.addEventListener('load', function () {
+  var x = canvas.width / 2;
+  var y = canvas.height / 2;
+  var width = image.width;
+  var height = image.height;
+  ctx.drawImage(image, 10, 10, width, height);
 });
 
 
@@ -26,12 +26,12 @@ var speed = 0;
 document.getElementById("svalue").innerHTML = speed;
 
 function spin() {
-    speed = document.getElementById("svalue").innerHTML;
+  speed = document.getElementById("svalue").innerHTML;
 }
 
 function verifyorder() {
-    speed = document.getElementById('value').value;
-    document.getElementById("svalue").innerHTML = speed;
+  speed = document.getElementById('value').value;
+  document.getElementById("svalue").innerHTML = speed;
 }
 
 
@@ -44,8 +44,8 @@ canvas.addEventListener('mousedown', function (_ref) {
 });
 canvas.addEventListener('touchstart', function (_ref2) {
   var originalEvent = _ref2.originalEvent;
-  if(originalEvent==undefined)
-    originalEvent=_ref2;
+  if (originalEvent == undefined)
+    originalEvent = _ref2;
   dragStart = {
     clientX: originalEvent.touches[0].pageX,
     clientY: originalEvent.touches[0].pageY
@@ -61,8 +61,8 @@ canvas.addEventListener('mousemove', function (_ref3) {
 });
 canvas.addEventListener('touchmove', function (_ref4) {
   var originalEvent = _ref4.originalEvent;
-  if(originalEvent==undefined)
-    originalEvent=_ref4;
+  if (originalEvent == undefined)
+    originalEvent = _ref4;
   return dragStart && function () {
     updateSpeed(dragStart, {
       clientX: originalEvent.touches[0].pageX,
@@ -86,26 +86,26 @@ function updateSpeed(startPos, endPos) {
 }
 
 function render() {
-  if(speed>0){
+  if (speed > 0) {
     ctx.clearRect(0, 0, 400, 400);
 
     angle += step * speed;
     speed = Math.max(speed - 0.08, Math.min(speed + 0.08, 0));
-  
-      var x = canvas.width / 2;
-      var y = canvas.height / 2;
-      var width = image.width;
-      var height = image.height;
-  
-      console.log('X-'+x+', Y-'+y);
-      console.log('Speed-'+speed);
-      ctx.translate(x, y);
-      ctx.rotate(angle);
-      ctx.drawImage(image, -width / 2, -height / 2, width, height);
-      ctx.rotate(-angle);
-      ctx.translate(-x, -y);
-    }
-    
+
+    var x = canvas.width / 2;
+    var y = canvas.height / 2;
+    var width = image.width;
+    var height = image.height;
+
+    console.log('X-' + x + ', Y-' + y);
+    console.log('Speed-' + speed);
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.drawImage(image, -width / 2, -height / 2, width, height);
+    ctx.rotate(-angle);
+    ctx.translate(-x, -y);
+  }
+
   window.requestAnimationFrame(render);
 }
 

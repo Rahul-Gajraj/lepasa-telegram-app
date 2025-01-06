@@ -5,6 +5,8 @@ class Navigator {
     init() {
         var that = this;
         this.#controller.getLandingPageInfo(function (controllerData) { that.landingPage(controllerData); });
+        $("#btnGoToRefPage").click(function () { that.gotoRefPage(); });
+        $("#btnGoToPlayPage").click(function () { that.gotoPlayPage(); });
     }
     hideAll() {
         $(".loading_screen").addClass('hide');
@@ -71,22 +73,75 @@ class Navigator {
         this.hideAll();
         $(".play_container").removeClass('hide');
         $(".footer").removeClass('hide');
-        this.updatePlayePageUi();
+        this.#updatePlayePageUi();
         var vestingAmt = this.#controller.getUserInfoData().vestingAmount;
         if (vestingAmt > 0) {
-            this.updateVestingAmount(vestingAmt)
+            this.openAutomatedTellerDrawer(vestingAmt)
         }
     }
-    updateVestingAmount(vestingAmt) {
-        openDrawer();
-        $(".automated_teller_drawer").removeClass('hide');
-        $("#vesting_amount").text(vestingAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    openAutomatedTellerDrawer(vestingAmt) {
+        that.openDrawer();
+        $("#automated_teller_drawer").removeClass('hide');
+        $("#txtVestingAmount").text(vestingAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        var that = this;
+        $("#automated_teller_claim").off('click').on('click', function () {
+            that.#controller.claimVestingAmount(function () {
+                that.#updatePlayePageUi();
+                $("#automated_teller_drawer").addClass('hide');
+                that.closeDrawer();
+            });
+        });
     }
-    updatePlayePageUi() {
+    #updatePlayePageUi() {
         var userInfoData = this.#controller.getUserInfoData();
         $("#txtMiningRate").text(userInfoData.miningRate + ' /s');
         $("#txtActiveBalance").text(userInfoData.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         $("#txtBarCapacityRate").text(userInfoData.capacityRate);
+    }
+    gotoRefPage() {
+        this.hideAll();
+        $(".ref_container").removeClass('hide');
+        $(".footer").removeClass('hide');
+        this.#controller.getReferralList(function (dataList) {
+            var ulReferralListContainer = $("#ulReferralListContainer");
+            for (var i = 0; i < dataList.length; i++) {
+                var dataRow=dataList[i];
+                var html = `
+                <li class="ref_item">
+                    <div class="ref_item_container">
+                        <div class="ref_item_content">
+                            <p>${dataRow.txt}</p>
+                            <div class="ref_coin">
+                                <img src="/public/coin.png" height="20px" width="20px" />
+                                <p>${dataRow.referralBonus}</p>
+                            </div>
+                        </div>
+                        ${(dataRow.claimed === false && dataRow.current === dataRow.max ? `<button type="button" class="claim" id="btnReferralClaim_${i}">Claim</button>` : '')}                        
+                    </div>
+                    <div class="progress_bar"></div>
+                </li>
+                `;
+                ulReferralListContainer.append(html);
+                $("btnReferralClaim_" + i).click(function () {
+
+                });
+            }
+        });
+    }
+
+
+
+    openDrawer() {
+        document.getElementById("drawer").style.bottom = "0";
+        document.getElementById("backdrop").style.opacity = "1";
+        document.getElementById("backdrop").style.visibility = "visible";
+    }
+
+    // Function to close the drawer
+    closeDrawer() {
+        document.getElementById("drawer").style.bottom = "-100%";
+        document.getElementById("backdrop").style.opacity = "0";
+        document.getElementById("backdrop").style.visibility = "hidden";
     }
 }
 

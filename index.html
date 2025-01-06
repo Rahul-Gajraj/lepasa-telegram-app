@@ -769,104 +769,8 @@
       </div>
     </div>
     <h4 class="ref_title">Referral Earn:</h4>
-    <ul class="ref_list">
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 1 Friend</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>2000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
-
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 1 Friend</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>2000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
-
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 3 Friends</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>3000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
-
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 5 Friends</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>5000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
-
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 10 Friends</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>10000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
-
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 25 Friends</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>25000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
-
-      <li class="ref_item">
-        <div class="ref_item_container">
-          <div class="ref_item_content">
-            <p>Invite 50 Friends</p>
-            <div class="ref_coin">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p>50000</p>
-            </div>
-          </div>
-          <button class="claim">Claim</button>
-        </div>
-        <div class="progress_bar"></div>
-      </li>
+    <ul class="ref_list" id="ulReferralListContainer">
+      
     </ul>
   </div>
   <!-- referral content end -->
@@ -1061,9 +965,9 @@
   <!-- footer containing ref, earn, play, shop and info start -->
   <div class="footer hide">
     <div class="footer_content">
-      <img src="/public/ref_icon.svg" height="55px" width="60px" />
+      <img src="/public/ref_icon.svg" height="55px" width="60px" id="btnGoToRefPage" />
       <img src="/public/earn_icon.svg" height="55px" width="60px" />
-      <img src="/public/play_icon.svg" height="55px" width="60px" />
+      <img src="/public/play_icon.svg" height="55px" width="60px" id="btnGoToPlayPage" />
       <img src="/public/shop_icon.svg" height="55px" width="60px" />
       <img src="/public/more_hori.svg" height="55px" width="60px" />
     </div>
@@ -1081,7 +985,7 @@
         </div>
 
         <!-- automated_teller_drawer start -->
-        <div class="automated_teller_drawer" id="automated_teller_drawer">
+        <div class="automated_teller_drawer hide" id="automated_teller_drawer">
           <div class="automated_teller_img_content" id="automated_teller_img_content">
             <img id="automated_teller_fidget_electrified" src="/public/fidget_electrified.png" height="130px" width="130px" />
             <img id="automated_teller_spinner_electric" src="/public/spinner_electric.png" height="185px" width="185px" />
@@ -1093,7 +997,7 @@
   
             <div class="automated_teller_amount_content">
               <img src="/public/coin.png" height="40px" width="40px" />
-              <h1 class="automated_teller_amount" id="vesting_amount">90</h1>
+              <h1 class="automated_teller_amount" id="txtVestingAmount"></h1>
             </div>
   
             <button class="claim" id="automated_teller_claim">Get It!</button>
@@ -1229,23 +1133,7 @@
   <script src="/js/config.js"></script>
   <script src="/js/navigation.js"></script>
   <script src="/js/spinner.js"></script>
-  <script src="/js/controller.js"></script>
-  <!-- script to render drawer content start -->
-  <script>
-    function openDrawer() {
-      document.getElementById("drawer").style.bottom = "0";
-      document.getElementById("backdrop").style.opacity = "1";
-      document.getElementById("backdrop").style.visibility = "visible";
-    }
-
-    // Function to close the drawer
-    function closeDrawer() {
-      document.getElementById("drawer").style.bottom = "-100%";
-      document.getElementById("backdrop").style.opacity = "0";
-      document.getElementById("backdrop").style.visibility = "hidden";
-    }
-  </script>
-  <!-- script to render drawer content end -->
+  <script src="/js/controller.js"></script> 
 </body>
 
 </html>
