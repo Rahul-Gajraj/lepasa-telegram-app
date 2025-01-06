@@ -12,6 +12,25 @@ body {
   font-style: normal;
 }
 
+/* common progress bar start */
+.progress_bar_container {
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  border: 2px solid #FFAF611A;
+  background-color: #FFAF6108;
+  padding: 1px;
+}
+
+.progress_bar {
+  width: 0%;
+  background-color: #b8793b9c;
+  height: 8px;
+  border-radius: 10px;
+}
+/* common progress bar end */
+
+
 /* loading screen start */
 .loading_screen_img {
   height: 100%;
@@ -288,21 +307,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 3px;
-}
-
-.progress_bar {
-  /*
-  width: 80%;
-  height: 20px;
-  border: 1px solid #d49b64;
-  background-color: #b8793b9c;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  */
-  width: 100%;
-  height: 10px;
-  border-radius: 10px;
-  background-color: #b8793b9c;
 }
 
 /* play container end */
@@ -625,13 +629,6 @@ body {
 
 /* referral container end */
 
-/* .progress_bar {
-  width: 80%;
-  height: 10px;
-  border-radius: 10px;
-  background-color: #b8793b9c;
-} */
-
 /* shop container start */
 .shop_container {
   background-color: #0e0b0a;
@@ -926,21 +923,6 @@ body {
   height: 6px;
   border-radius: 10px;
   background-color: #b8793b9c;
-}
-
-.leagues_item_bar_incomplete {
-  width: 100%;
-  height: 6px;
-  border-radius: 10px;
-  border: 1px solid #b8793b9c;
-  padding: 1px;
-}
-
-.leagues_item_bar_stat {
-  width: 30px;
-  background-color: #b8793b9c;
-  height: 6px;
-  border-radius: 10px;
 }
 
 /* league container end */

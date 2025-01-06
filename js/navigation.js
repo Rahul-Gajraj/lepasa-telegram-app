@@ -116,7 +116,9 @@ class Navigator {
                         </div>
                         ${(dataRow.claimed === false && dataRow.current === dataRow.max ? `<button type="button" class="claim" id="btnReferralClaim_${i}">Claim</button>` : '')}                        
                     </div>
-                    <div class="progress_bar"></div>
+                    <div class="progress_bar_container">
+                        <div class="progress_bar"></div>
+                    </div>
                 </li>
                 `;
                 ulReferralListContainer.append(html);
