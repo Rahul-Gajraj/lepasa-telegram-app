@@ -54,7 +54,7 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
-    claimVestingAmount(){
+    claimVestingAmount(successCallback){
         var that = this;
         $.ajax({
             url: that.#baseApiUrl + '/user/claim-vesting-amount',
@@ -87,7 +87,6 @@ class Controller {
             }),
             success: function (returnData) {
                 if (returnData.status === true) {
-                    that.#userInfoData = returnData.data;                    
                     if (successCallback)
                         successCallback(returnData.data);
                 }

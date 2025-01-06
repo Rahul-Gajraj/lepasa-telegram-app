@@ -5,8 +5,6 @@ class Navigator {
     init() {
         var that = this;
         this.#controller.getLandingPageInfo(function (controllerData) { that.landingPage(controllerData); });
-        $("#btnGoToRefPage").click(function () { that.gotoRefPage(); });
-        $("#btnGoToPlayPage").click(function () { that.gotoPlayPage(); });
     }
     hideAll() {
         $(".loading_screen").addClass('hide');
@@ -80,7 +78,7 @@ class Navigator {
         }
     }
     openAutomatedTellerDrawer(vestingAmt) {
-        that.openDrawer();
+        this.openDrawer();
         $("#automated_teller_drawer").removeClass('hide');
         $("#txtVestingAmount").text(vestingAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         var that = this;
@@ -148,5 +146,8 @@ class Navigator {
 $(document).ready(function () {
     var navigator = new Navigator();
     navigator.init();
+    $("#btnGoToRefPage").click(function () { navigator.gotoRefPage(); });
+    $("#btnGoToPlayPage").click(function () { navigator.gotoPlayPage(); });
+
 });
 
