@@ -12,6 +12,31 @@ body {
   font-style: normal;
 }
 
+/* toast start */
+#toast_div {
+  width: 150px;
+  height: 20px;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #7e5730;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px;
+  /* opacity: 0.8; */
+  text-align: center;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 0px 15px -1px rgba(56, 56, 56, 1);
+  -moz-box-shadow: 0px 0px 15px -1px rgba(56, 56, 56, 1);
+  box-shadow: 0px 0px 15px -1px rgba(56, 56, 56, 1);
+}
+
+#toast_msg {
+  margin: 0;
+}
+/* toast end */
+
 /* common progress bar start */
 .progress_bar_container {
   width: 100%;
