@@ -87,6 +87,7 @@ class Navigator {
                 that.#updatePlayePageUi();
                 $("#automated_teller_drawer").addClass('hide');
                 that.closeDrawer();
+                alert('Claimed Successfully');
             });
         });
     }
@@ -100,10 +101,15 @@ class Navigator {
         this.hideAll();
         $(".ref_container").removeClass('hide');
         $(".footer").removeClass('hide');
+        var that = this;
         this.#controller.getReferralList(function (dataList) {
             var ulReferralListContainer = $("#ulReferralListContainer");
+            ulReferralListContainer.empty();
             for (var i = 0; i < dataList.length; i++) {
-                var dataRow=dataList[i];
+                var dataRow = dataList[i];
+                var progressPercent = dataRow.current * 100 / dataRow.max;
+                if (progressPercent > 100)
+                    progressPercent = 100;
                 var html = `
                 <li class="ref_item">
                     <div class="ref_item_container">
@@ -114,22 +120,44 @@ class Navigator {
                                 <p>${dataRow.referralBonus}</p>
                             </div>
                         </div>
-                        ${(dataRow.claimed === false && dataRow.current === dataRow.max ? `<button type="button" class="claim" id="btnReferralClaim_${i}">Claim</button>` : '')}                        
+                        ${(dataRow.claimed === false && dataRow.current >= dataRow.max ? `<button type="button" class="claim" id="btnReferralClaim_${i}">Claim</button>` : '')
+                    + (dataRow.claimed === true ? `<span>Claimed</span>` : '')
+                    }                        
                     </div>
                     <div class="progress_bar_container">
-                        <div class="progress_bar"></div>
+                        <div class="progress_bar" style="width:${progressPercent}%;"></div>
                     </div>
                 </li>
                 `;
                 ulReferralListContainer.append(html);
-                $("btnReferralClaim_" + i).click(function () {
-
+                $("#btnReferralClaim_" + i).data('referralId', dataRow.id).click(function () {
+                    var referralData = $(this).data('referralId');
+                    that.#controller.claimReferralAmount(referralData, function () {
+                        alert('Claimed Successfully');
+                        that.gotoRefPage();
+                    });
                 });
             }
         });
+        $("#CopyRefUrlInput").val(this.#controller.getUserInfoData().referralLink);
     }
+    shareReferral() {
+        window.open(this.#controller.getUserInfoData().referralLink, '_blank');
+    }
+    copyToCLipboardRefUrl() {
+        // Get the text field
+        var copyText = document.getElementById("CopyRefUrlInput");
 
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
 
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+    }
 
     openDrawer() {
         document.getElementById("drawer").style.bottom = "0";
@@ -150,6 +178,7 @@ $(document).ready(function () {
     navigator.init();
     $("#btnGoToRefPage").click(function () { navigator.gotoRefPage(); });
     $("#btnGoToPlayPage").click(function () { navigator.gotoPlayPage(); });
-
+    $("#btnShareReferral").click(function () { navigator.shareReferral(); });
+    $("#btnCopyRefUrl").click(function () { navigator.copyToCLipboardRefUrl(); });
 });
 
