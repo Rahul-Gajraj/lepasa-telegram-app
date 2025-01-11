@@ -117,6 +117,48 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    getEarnPageData(successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/daily-bonus-report',
+            type: 'POST',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
+    claimPartnerTask(taskId, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/claim-partner-task',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                taskId: taskId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(that.#userInfoData);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }

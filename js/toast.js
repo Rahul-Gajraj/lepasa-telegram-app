@@ -5,7 +5,6 @@ class Toast {
         $("#toast_div").stop().fadeIn(400).delay(3000).fadeOut(500);
     }
 }
+const toast = new Toast();
 
-const toast = new Toast()
-toast.show('This is a test toast.');
 

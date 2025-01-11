@@ -18,17 +18,17 @@
 </head>
 
 <body>
-    <!-- toast start -->
-      <div class='toast' id="toast_div" style='display:none'></div>
-    <!-- toast end -->
+  <!-- toast start -->
+  <div class='toast' id="toast_div" style='display:none'></div>
+  <!-- toast end -->
 
-    <!-- dot pulse start -->
-    <div class="snippet hide" data-title="dot-pulse">
-      <div class="stage">
-        <div class="dot-pulse"></div>
-      </div>
+  <!-- dot pulse start -->
+  <div class="snippet hide" data-title="dot-pulse">
+    <div class="stage">
+      <div class="dot-pulse"></div>
     </div>
-    <!-- dot pulse end -->
+  </div>
+  <!-- dot pulse end -->
 
   <!-- loading screen start -->
   <div class="loading_screen">
@@ -176,17 +176,17 @@
   <!-- play container ends -->
 
   <!-- earn main container start -->
-  <div class="earn_container hide">
+  <div class="earn_container tab-wrapper hide">
     <div class="earn_header">
-      <p class="community">Community</p>
+      <p class="community tab-title" data-tab="community_div" id="tabCommunity">Community</p>
       <div class="earn_header_divider"></div>
-      <p class="daily_task">Daily Task</p>
+      <p class="daily_task tab-title" data-tab="task_container" id="tabDailyTask">Daily Task</p>
       <div class="earn_header_divider"></div>
-      <p class="rewards" onclick="openDrawer()">Rewards</p>
+      <p class="rewards tab-title" data-tab="rewards_container" id="tabRewards">Rewards</p>
     </div>
     <div class="earn_body">
       <!-- community code starts here -->
-      <div class="community_div hide">
+      <div class="community_div tab-container hide">
         <div class="community_card">
           <div class="community_card_title">
             <p>Lepasa</p>
@@ -199,7 +199,7 @@
                 <p>TON Fiesta</p>
               </div>
             </div>
-            <div>></div>
+            <div>&gt;</div>
           </div>
         </div>
         <div class="community_card_partner">
@@ -208,85 +208,14 @@
             <div class="community_body_divider"></div>
           </div>
           <div class="community_card_partner_content">
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>VOOI</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Top Dawg</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Qfan</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Bitbot</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Golden Gold</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Pehe</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Hive</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
-            <div class="community_card_content partner_content">
-              <div class="community_info">
-                <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
-                <div class="community_name">
-                  <p>Habit</p>
-                </div>
-              </div>
-              <div>></div>
-            </div>
+
           </div>
         </div>
       </div>
       <!-- community code ends here -->
 
       <!-- daily task code starts here -->
-      <div class="task_container">
+      <div class="task_container tab-container hide">
         <div class="task_container_card" onclick="openDrawer()">
           <div class="task_card_content">
             <img class="task_card_logo" src="/public/ton_symbol.svg" height="30px" width="30px" />
@@ -563,7 +492,7 @@
       </div>
       <!-- daily task code ends here -->
 
-      <div class="rewards_container hide">
+      <div class="rewards_container tab-container hide">
         <div class="rewards_container_header">
           <h2 class="reward_title">Daily Reward</h2>
           <p class="reward_subtitle">Don't break your streak</p>
@@ -711,18 +640,17 @@
   <!-- earn individual detail community container start -->
   <div class="earn_detail_container hide">
     <div class="back_container">
-      <p>
-        << /p>
-          <p>Earn</p>
+      <p id="btnBackToEarnPage">&lt;</p>
+      <p>Earn</p>
     </div>
     <div class="title_content">
-      <p class="title_content_heading">TON Fiesta</p>
-      <p class="title_content_sub_heading">
+      <p class="title_content_heading" id="earn_detail_title">TON Fiesta</p>
+      <p class="title_content_sub_heading" id="earn_detail_description">
         Welcome to Ton Fiesta, A dynamic gaming experience within Telegram
         where you can earn points, level up, and unlock exclusive rewards.
       </p>
     </div>
-    <div class="earn_detail_content">
+    <div class="earn_detail_content" id="earn_detail_content">
       <div class="earn_card_content">
         <div class="community_info">
           <img src="/public/twitter.svg" alt="twitter" height="25px" width="25px" />
@@ -780,12 +708,12 @@
       <div class="ref_copy" id="btnCopyRefUrl">
         <img src="/public/copy.svg" height="20px" width="20px" />
       </div>
-      <input type="text" id="CopyRefUrlInput" style="display: none;width: 0px;height: 0px;"/>
+      <input type="text" id="CopyRefUrlInput" style="display: none;width: 0px;height: 0px;" />
 
     </div>
     <h4 class="ref_title">Referral Earn:</h4>
     <ul class="ref_list" id="ulReferralListContainer">
-      
+
     </ul>
   </div>
   <!-- referral content end -->
@@ -985,7 +913,7 @@
   <div class="footer hide">
     <div class="footer_content">
       <img src="/public/ref_icon.svg" height="55px" width="60px" id="btnGoToRefPage" />
-      <img src="/public/earn_icon.svg" height="55px" width="60px" />
+      <img src="/public/earn_icon.svg" height="55px" width="60px" id="btnGoToEarnPage" />
       <img src="/public/play_icon.svg" height="55px" width="60px" id="btnGoToPlayPage" />
       <img src="/public/shop_icon.svg" height="55px" width="60px" />
       <img src="/public/more_hori.svg" height="55px" width="60px" />
@@ -1006,19 +934,21 @@
         <!-- automated_teller_drawer start -->
         <div class="automated_teller_drawer hide" id="automated_teller_drawer">
           <div class="automated_teller_img_content" id="automated_teller_img_content">
-            <img id="automated_teller_fidget_electrified" src="/public/fidget_electrified.png" height="130px" width="130px" />
-            <img id="automated_teller_spinner_electric" src="/public/spinner_electric.png" height="185px" width="185px" />
+            <img id="automated_teller_fidget_electrified" src="/public/fidget_electrified.png" height="130px"
+              width="130px" />
+            <img id="automated_teller_spinner_electric" src="/public/spinner_electric.png" height="185px"
+              width="185px" />
           </div>
 
           <div class="automated_teller_content">
             <h2 class="automated_teller_title">Automated Teller</h2>
             <h5 class="automated_teller_sub_title">Here's what your tasks have earned for you!</h5>
-  
+
             <div class="automated_teller_amount_content">
               <img src="/public/coin.png" height="40px" width="40px" />
               <h1 class="automated_teller_amount" id="txtVestingAmount"></h1>
             </div>
-  
+
             <button class="claim" id="automated_teller_claim">Get It!</button>
           </div>
         </div>
@@ -1153,7 +1083,7 @@
   <script src="/js/config.js"></script>
   <script src="/js/navigation.js"></script>
   <script src="/js/spinner.js"></script>
-  <script src="/js/controller.js"></script> 
+  <script src="/js/controller.js"></script>
 </body>
 
 </html>
