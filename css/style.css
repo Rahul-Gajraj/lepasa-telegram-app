@@ -1371,3 +1371,33 @@ button.disabled {
   height: 40px;
 }
 /* automated teller drawer end */
+
+/* animate text start */
+.animated-text {
+  position: absolute;
+  left: 25%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: #ffffff;
+  opacity: 0;
+  /* animation: floatUpFadeOut 2s ease-out forwards; */
+  animation: floatUpFadeOut 2s ease-out infinite;
+  z-index: 1;
+}
+
+@keyframes floatUpFadeOut {
+  0% {
+    bottom: 27%;
+    opacity: 1;
+    
+  }
+  50% {
+    bottom: 50%;
+    opacity: 0.5;
+  }
+  70% {
+    bottom: 50%;
+    opacity: 0;
+  }
+}
+/* animate text end */
