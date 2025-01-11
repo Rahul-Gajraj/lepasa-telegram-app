@@ -159,6 +159,50 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    claimTONFiestaSocialTask(socialName, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/check-social-reward',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                type: socialName
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    if (returnData.data && returnData.data.balance)
+                        that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(returnData);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
+    claimDailyRewards(successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/claim-daily-bonus',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(that.#userInfoData);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }

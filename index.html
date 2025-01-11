@@ -205,7 +205,7 @@
                 <p>TON Fiesta</p>
               </div>
             </div>
-            <div>&gt;</div>
+            <div id="btnGotoTONFiestaEarnDetails">&gt;</div>
           </div>
         </div>
         <div class="community_card_partner">
@@ -503,18 +503,11 @@
           <h2 class="reward_title">Daily Reward</h2>
           <p class="reward_subtitle">Don't break your streak</p>
         </div>
-        <div class="rewards_container_content">
+        <div class="rewards_container_content" id="rewards_container_content">
           <div class="daily_reward_card">
             <div class="daily_reward_info">
-              <!-- <img
-                  height="30px"
-                  src="/public/daily_rewards.svg"
-                  alt="reward_icon"
-                /> -->
               <img height="23px" src="/public/calender/1.svg" alt="calender-1" />
-
               <div class="daily_reward_detail">
-                <!-- <p class="day_count">Day 1</p> -->
                 <div class="daily_reward_amount">
                   <img height="20px" src="/public/coin.png" />
                   <p class="reward_amount">500</p>
@@ -650,11 +643,8 @@
       <p>Earn</p>
     </div>
     <div class="title_content">
-      <p class="title_content_heading" id="earn_detail_title">TON Fiesta</p>
-      <p class="title_content_sub_heading" id="earn_detail_description">
-        Welcome to Ton Fiesta, A dynamic gaming experience within Telegram
-        where you can earn points, level up, and unlock exclusive rewards.
-      </p>
+      <p class="title_content_heading" id="earn_detail_title"></p>
+      <p class="title_content_sub_heading" id="earn_detail_description"></p>
     </div>
     <div class="earn_detail_content" id="earn_detail_content">
       <div class="earn_card_content">
@@ -932,19 +922,21 @@
 
   <!-- drawer content start -->
   <div>
-    <div class="backdrop" id="backdrop" onclick="closeDrawer()"></div>
+    <div class="backdrop" id="backdrop"></div>
 
     <div class="drawer" id="drawer">
       <div class="drawer_container">
-        <div class="drawer_close_icon" onclick="closeDrawer()">
+        <div class="drawer_close_icon" id="btnCloseDrawer">
           <img src="/public/close.svg" height="20px" width="20px" />
         </div>
 
         <!-- automated_teller_drawer start -->
         <div class="automated_teller_drawer hide" id="automated_teller_drawer">
           <div class="automated_teller_img_content" id="automated_teller_img_content">
-            <img id="automated_teller_fidget_electrified" src="/public/fidget_electrified.png" height="130px" width="130px" />
-            <img id="automated_teller_spinner_electric" src="/public/spinner_electric.png" height="185px" width="185px" />
+            <img id="automated_teller_fidget_electrified" src="/public/fidget_electrified.png" height="130px"
+              width="130px" />
+            <img id="automated_teller_spinner_electric" src="/public/spinner_electric.png" height="185px"
+              width="185px" />
           </div>
 
           <div class="automated_teller_content">
@@ -1088,6 +1080,8 @@
   <script src="/js/jquery-3.7.1.min.js"></script>
   <script src="/js/toast.js"></script>
   <script src="/js/config.js"></script>
+  <script src="/js/helper.js"></script>
+  <script src="/js/earnpage.js"></script>
   <script src="/js/navigation.js"></script>
   <script src="/js/spinner.js"></script>
   <script src="/js/controller.js"></script>

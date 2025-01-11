@@ -1,10 +1,17 @@
 class Navigator {
     #controller = new Controller();
+    #helper = new Helper();
+    #earnPage = null;
     constructor() {
+        this.#earnPage = new EarnPage(this);
     }
     init() {
         var that = this;
         this.#controller.getLandingPageInfo(function (controllerData) { that.landingPage(controllerData); });
+        $("#btnCloseDrawer,#backdrop").click(function () {
+            that.#helper.closeDrawer();
+        });
+
     }
     hideAll() {
         $(".loading_screen").addClass('hide');
@@ -81,7 +88,7 @@ class Navigator {
         }
     }
     openAutomatedTellerDrawer(vestingAmt) {
-        this.openDrawer();
+        this.#helper.openDrawer();
         $("#automated_teller_drawer").removeClass('hide');
         $("#txtVestingAmount").text(vestingAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
         var that = this;
@@ -89,7 +96,7 @@ class Navigator {
             that.#controller.claimVestingAmount(function () {
                 that.#updatePlayePageUi();
                 $("#automated_teller_drawer").addClass('hide');
-                that.closeDrawer();
+                that.#helper.closeDrawer();
                 toast.show('Claimed Successfully');
             });
         });
@@ -153,122 +160,33 @@ class Navigator {
         $(".footer").removeClass('hide');
         $(".community_div").removeClass('hide');
 
-        //// Open close tabs
-        $("#tabCommunity,#tabDailyTask,#tabRewards").off('click').on('click', function () { that.activateTab(this); });
+        //// Bind open close tabs
+        $("#tabCommunity,#tabDailyTask,#tabRewards").off('click').on('click', function () { that.#helper.activateTab(this); });
         this.#controller.getEarnPageData(function (dataset) {
+            //// Bind TON Fiesta Earnpage details
+            that.#earnPage.bindEarnDetailPageForTONFiesta(dataset);
+
             //// Load partners
-            var partnerContainer = $(".community_card_partner_content");
-            partnerContainer.empty();
-            var partnerData = dataset.partners;
-            //// Loop through partner dataset
-            for (var i = 0; i < partnerData.length; i++) {
-                var dataRow = partnerData[i];
-                var html = `
-                <div class="community_card_content partner_content">
-                    <div class="community_info">
-                        <img src="${dataRow.partner_logo}" alt="logo" height="30px" width="30px" />
-                        <div class="community_name">
-                        <p>${dataRow.name}</p>
-                        </div>
-                    </div>
-                    <div id="gotoEarnDetailPage_${i}">&gt;</div>
-                </div>
-                `;
-                partnerContainer.append(html);
-                //// Binding click event for go to earn detail page
-                $("#gotoEarnDetailPage_" + i).data('partnerInfo', dataRow).click(function () {
-                    var partnerInfo = $(this).data('partnerInfo');
-                    $("#earn_detail_title").text(partnerInfo.name);
-                    $("#earn_detail_description").text(partnerInfo.description);
-                    var earnDetailContainer = $("#earn_detail_content");
-                    earnDetailContainer.empty();
-                    //// Before showing earn detail page, loop through selected partner and show its task
-                    for (var j = 0; j < partnerInfo.tasks.length; j++) {
-                        var taskHtml = `
-                                  <div class="earn_card_content">
-                                    <div class="community_info">
-                                    <img src="${partnerInfo.tasks[j].logo}" alt="twitter" height="25px" width="25px" />
-                                    <div class="community_name">
-                                        <p>${partnerInfo.tasks[j].task_name}</p>
-                                        <div class="community_desc">
-                                            <img height="20px" width="20px" src="/public/coin.png" alt="coin" />
-                                            <p>${partnerInfo.tasks[j].amount}</p>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    ${(partnerInfo.tasks[j].status === true ? `<span>Claimed</span>` : `<button class="claim" id="btnEarnPartnerTaskClaim_${j}">Claim</button>`)}                                    
-                                </div>
-                        `;
-                        earnDetailContainer.append(taskHtml);
-                        //// Bind the click event of task claim button
-                        $("#btnEarnPartnerTaskClaim_" + j).data('partnerTaskInfo', partnerInfo.tasks[j]).data('rowIndex', i)
-                            .click(function () {
-                                var partnerTaskInfo = $(this).data('partnerTaskInfo');
-                                //// If first click then open link in new window and set text as verifying
-                                if ($(this).data('isClaimClicked') !== true) {
-                                    $(this).data('isClaimClicked', true);
-                                    window.open(partnerTaskInfo.link, '_blank');
-                                    $(this).text('Verify');
-                                }
-                                else {
-                                    //// If second click then call controller
-                                    $(this).text('Verifying...').attr('disabled', 'disabled');
-                                    var $btnRef = $(this);
-                                    setTimeout(() => {
-                                        that.claimPartnerTask(partnerTaskInfo.id, function (claimPartnerTaskResponse) {
-                                            var rowIndex = $btnRef.data('rowIndex');
-                                            toast.show('Claimed successfully.');
-                                            $("#gotoEarnDetailPage_" + rowIndex).click();
-                                        });
-                                    }, 3000);
-                                }
-                            });
-                    }
+            that.#earnPage.loadPartners(dataset);
 
-                    $(".earn_container").addClass('hide');
-                    $(".earn_detail_container").removeClass('hide');
-                });
-            }
-
-            //// Load Daily tasks
-
+            //// Load Daily rewards
+            that.#earnPage.loadDailyRewards(dataset);
         });
+    }
+    claimPartnerTask(taskId, callbackFn) {
+        this.#controller.claimPartnerTask(taskId, callbackFn);
+    }
+    claimTONFiestaSocialTask(socialName, callbackFn) {
+        this.#controller.claimTONFiestaSocialTask(socialName, callbackFn);
+    }
+    claimDailyRewards(callbackFn) {
+        this.#controller.claimDailyRewards(callbackFn);
     }
     shareReferral() {
         window.open(this.#controller.getUserInfoData().referralLink, '_blank');
     }
     copyToCLipboardRefUrl() {
-        // Get the text field
-        var copyText = document.getElementById("CopyRefUrlInput");
-
-        // Select the text field
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); // For mobile devices
-
-        // Copy the text inside the text field
-        navigator.clipboard.writeText(copyText.value);
-
-        // Alert the copied text
-        toast.show("Copied the text: " + copyText.value);
-    }
-
-    openDrawer() {
-        document.getElementById("drawer").style.bottom = "0";
-        document.getElementById("backdrop").style.opacity = "1";
-        document.getElementById("backdrop").style.visibility = "visible";
-    }
-
-    // Function to close the drawer
-    closeDrawer() {
-        document.getElementById("drawer").style.bottom = "-100%";
-        document.getElementById("backdrop").style.opacity = "0";
-        document.getElementById("backdrop").style.visibility = "hidden";
-    }
-    activateTab(tabToActivate) {
-        var tabWrapper = $(tabToActivate).parents('.tab-wrapper');
-        var listContainers = tabWrapper.find('.tab-container');
-        listContainers.each(function () { $(this).addClass('hide'); });
-        tabWrapper.find('.' + $(tabToActivate).attr('data-tab')).removeClass('hide');
+        this.#helper.copyToCLipboardRefUrl("CopyRefUrlInput");
     }
 }
 
