@@ -1,7 +1,9 @@
 class EarnPage {
     #navigationReference = null;
+    #helper = null;
     constructor(navigationReference) {
         this.#navigationReference = navigationReference;
+        this.#helper = new Helper();
     }
     loadPartners(dataset) {
         var partnerContainer = $(".community_card_partner_content");
@@ -193,7 +195,8 @@ class EarnPage {
                     ${(
                     dataRow.status === 1
                         ? `<button class="claim" id="btnDailyRewardClaim_${i}">Check In</button>`
-                        : `<button class="claim disabled" disabled="disabled">Check In</button>`
+                        : dataRow.status === 2 ? `<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />`
+                            : `<button class="claim disabled" disabled="disabled">Check In</button>`
                 )}  
                 </div>
             `;
@@ -206,6 +209,65 @@ class EarnPage {
                     toast.show('Claimed successfully.');
                     $elem.replaceWith('<button class="claim disabled" disabled="disabled">Check In</button>');
                 });
+            });
+        }
+    }
+    loadDailyTask(dataset) {
+        var dailyTaskContainer = $("#dailyTaskContainer");
+        dailyTaskContainer.empty();
+        //// Loop through dataset
+        for (var i = 0; i < dataset.length; i++) {
+            var dataRow = dataset[i];
+            var html = `
+                <div class="task_container_card ${dataRow.isOpen === true ? `` : `disabled`}" id="btnDailyTask${dataRow.isOpen === true ? `` : `Non`}Opener_${i}">
+                    <div class="task_card_content">
+                        <img class="task_card_logo" src="${dataRow.symbol}" height="30px" width="30px" />
+                        <div class="task_card_content_body">
+                            <p>${dataRow.name}</p>
+                            <p class="profit_per_hour">Profit Per Hour</p>
+                            <div class="task_card_content_footer">
+                                <img src="/public/coin.png" height="20px" width="20px" />
+                                <p>${dataRow.earning}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task_card_footer">
+                        <p class="task_card_footer_p">${dataRow.stage}</p>
+                        <div class="task_card_footer_divider"></div>
+                        <div class="task_card_footer_coin_div">
+                            <img src="/public/coin.png" height="20px" width="20px" />
+                            <p>${dataRow.price}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            dailyTaskContainer.append(html);
+            var that = this;
+            //// Binding click event for go to daily task detail page
+            $("#btnDailyTaskOpener_" + i).data('dailyTaskData', dataRow).click(function () {
+                var dailyTaskData = $(this).data('dailyTaskData');
+                $("#individual_task_logo").attr('src', dailyTaskData.symbol);
+                $("#individual_task_name").text(dailyTaskData.name);
+                $("#individual_task_description").text(dailyTaskData.desc);
+                $("#individual_task_earning").text(dailyTaskData.earning);
+                $("#individual_task_price").text(dailyTaskData.price);
+                //// Open drawer
+                that.#navigationReference.hideAllDrawerContents();
+                $("#individual_task_drawer").removeClass('hide');
+                that.#helper.openDrawer();
+
+                if (dailyTaskData.isOpen === true){
+                    $("#btnIndividualTaskClaim").removeClass('hide').off('click.dailytask').on('click.dailytask', function () {
+                        that.#navigationReference.claimDailyTask(dailyTaskData.taskId, dailyTaskData.stageId, function (claimResponse) {
+                            that.#helper.closeDrawer();
+                            toast.show('Claimed successfully.');
+                            $("#tabDailyTask").trigger('click.load');
+                        });
+                    });
+                }
+                else{
+                    $("#btnIndividualTaskClaim").addClass('hide');
+                }
             });
         }
     }

@@ -35,6 +35,7 @@ body {
 #toast_msg {
   margin: 0;
 }
+
 /* toast end */
 
 /* common progress bar start */
@@ -53,6 +54,7 @@ body {
   height: 8px;
   border-radius: 10px;
 }
+
 /* common progress bar end */
 
 
@@ -296,6 +298,7 @@ body {
   gap: 10px;
   color: white;
 }
+
 .league_info {
   display: flex;
   align-items: center;
@@ -479,6 +482,10 @@ body {
   padding: 6.5px;
   height: 92px;
   /* width: 140px; */
+}
+
+.task_container_card.disabled {
+  opacity: 0.4;
 }
 
 .task_card_content {
@@ -1300,18 +1307,25 @@ button.disabled {
 
 /* dot pulse end */
 
-@-moz-keyframes spin { 
-  100% { -moz-transform: rotate(360deg); } 
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
 }
-@-webkit-keyframes spin { 
-  100% { -webkit-transform: rotate(360deg); } 
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
-@keyframes spin { 
-  100% { 
-      -webkit-transform: rotate(360deg); 
-      transform:rotate(360deg); 
-  } 
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
+
 .rotate {
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
@@ -1370,6 +1384,7 @@ button.disabled {
   width: 300px;
   height: 40px;
 }
+
 /* automated teller drawer end */
 
 /* animate text start */
@@ -1389,15 +1404,18 @@ button.disabled {
   0% {
     bottom: 27%;
     opacity: 1;
-    
+
   }
+
   50% {
     bottom: 50%;
     opacity: 0.5;
   }
+
   70% {
     bottom: 50%;
     opacity: 0;
   }
 }
+
 /* animate text end */

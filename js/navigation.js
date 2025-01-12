@@ -29,6 +29,15 @@ class Navigator {
         $(".leagues_container").addClass('hide');
         $(".more_container").addClass('hide');
         $(".footer").addClass('hide');
+
+    }
+    hideAllDrawerContents() {
+        $("#automated_teller_drawer").addClass('hide');
+        $("#shop_gpu_upgrade_drawer").addClass('hide');
+        $("#daily_reward_drawer").addClass('hide');
+        $("#how_to_play_drawer").addClass('hide');
+        $("#faq_drawer").addClass('hide');
+        $("#individual_task_drawer").addClass('hide');
     }
     landingPage(controllerData) {
         console.log('On landing page');
@@ -161,7 +170,7 @@ class Navigator {
         $(".community_div").removeClass('hide');
 
         //// Bind open close tabs
-        $("#tabCommunity,#tabDailyTask,#tabRewards").off('click').on('click', function () { that.#helper.activateTab(this); });
+        $("#tabCommunity,#tabDailyTask,#tabRewards").off('click.tabnav').on('click.tabnav', function () { that.#helper.activateTab(this); });
         this.#controller.getEarnPageData(function (dataset) {
             //// Bind TON Fiesta Earnpage details
             that.#earnPage.bindEarnDetailPageForTONFiesta(dataset);
@@ -172,6 +181,9 @@ class Navigator {
             //// Load Daily rewards
             that.#earnPage.loadDailyRewards(dataset);
         });
+        $("#tabDailyTask").off('click.load').on('click.load', function () {
+            that.loadDailyTask();
+        });
     }
     claimPartnerTask(taskId, callbackFn) {
         this.#controller.claimPartnerTask(taskId, callbackFn);
@@ -181,6 +193,15 @@ class Navigator {
     }
     claimDailyRewards(callbackFn) {
         this.#controller.claimDailyRewards(callbackFn);
+    }
+    loadDailyTask() {
+        var that = this;
+        this.#controller.getDailyTask(function (dataset) {
+            that.#earnPage.loadDailyTask(dataset);
+        });
+    }
+    claimDailyTask(taskId, stageId, callbackFn) {
+        this.#controller.claimDailyTask(taskId, stageId, callbackFn);
     }
     shareReferral() {
         window.open(this.#controller.getUserInfoData().referralLink, '_blank');

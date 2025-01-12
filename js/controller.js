@@ -203,6 +203,50 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    getDailyTask(successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/daily-task',
+            type: 'POST',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+
+    }
+    claimDailyTask(taskId, stageId, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/claim-daily-task',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                taskId: taskId,
+                stageId: stageId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(that.#userInfoData);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }
