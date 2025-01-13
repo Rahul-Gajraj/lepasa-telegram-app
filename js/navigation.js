@@ -7,7 +7,10 @@ class Navigator {
     }
     init() {
         var that = this;
-        this.#controller.getLandingPageInfo(function (controllerData) { that.landingPage(controllerData); });
+        this.#controller.getLandingPageInfo(function (controllerData) {
+            that.landingPage(controllerData);
+            that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
+        });
         $("#btnCloseDrawer,#backdrop").click(function () {
             that.#helper.closeDrawer();
         });
@@ -209,6 +212,61 @@ class Navigator {
     copyToCLipboardRefUrl() {
         this.#helper.copyToCLipboardRefUrl("CopyRefUrlInput");
     }
+    setLeagueInfoOnPlayPage(data) {
+        var currentLeague = null;
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].claimed === true)
+                currentLeague = data[i].name;
+        }
+        $("#currentLeague_Name").text(currentLeague);
+        $("#currentLeague_Img").attr('src', `/public/leagues/${currentLeague.toLowerCase()}.png`);
+    }
+    gotoLeagueInfoPage() {
+        this.hideAll();
+        $(".leagues_container").removeClass('hide');
+        var that = this;
+        var data = this.#controller.getLeagueInfoData();
+        var userInfoData = this.#controller.getUserInfoData();
+        var leaguesListContainer = $("#leaguesListContainer");
+        leaguesListContainer.empty();
+        for (var i = 0; i < data.length; i++) {
+            var leagueInfo = data[i];
+            var progressPercent = userInfoData.balance * 100 / leagueInfo.endRange;
+            if (progressPercent > 100)
+                progressPercent = 100;
+            var html = `
+                <div class="leagues_item">
+                    <div class="leagues_item_container">
+                        <div class="leagues_item_subcontainer">
+                            <img src="/public/leagues/${leagueInfo.name.toLowerCase()}.png" height="25px" width="40px" />
+                            <div class="leagues_item_content">
+                                <p>${leagueInfo.name}</p>
+                                <div class="leagues_coin">
+                                    <img src="/public/coin.png" height="20px" width="20px" />
+                                    <p>${leagueInfo.endRange}</p>
+                                </div>
+                            </div>
+                        </div>
+                        ${(leagueInfo.claimed === false && leagueInfo.status === true ?
+                    `<button class="claim" id="btnLeagueClaim_${i}">Claim</button>`
+                    : leagueInfo.claimed === true && leagueInfo.status === false ?
+                        `<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />`
+                        : ``)}                        
+                    </div>
+                    <div class="progress_bar_container">
+                        <div class="progress_bar" style="width:${progressPercent}%;"></div>
+                    </div>
+                </div>            
+            `;
+            leaguesListContainer.append(html);
+            $("#btnLeagueClaim_" + i).off('click').on('click', function () {
+                that.#controller.claimLeagueAmount(function () {
+                    toast.show('Claimed Successfully');
+                    $("#btnGotoLeagueInfoPage").click();
+                });
+            });
+        }
+    }
 }
 
 $(document).ready(function () {
@@ -223,5 +281,7 @@ $(document).ready(function () {
         $(".earn_container").removeClass('hide');
         $(".earn_detail_container").addClass('hide');
     });
+    $("#btnGotoLeagueInfoPage").click(function () { navigator.gotoLeagueInfoPage(); });
+    $(".leagues_close_icon").click(function () { navigator.gotoPlayPage(); });
 });
 

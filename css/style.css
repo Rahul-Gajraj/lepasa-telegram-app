@@ -886,6 +886,7 @@ body {
   height: calc(100vh - 10px);
   color: #fff;
   padding: 5px 10px;
+  overflow-y: auto;
 }
 
 .leagues_header {
