@@ -267,6 +267,23 @@ class Navigator {
             });
         }
     }
+    gotoShopPage() {
+        this.hideAll();
+        var that = this;
+
+        //// Show hide page
+        $(".shop_container").removeClass('hide');
+        $(".footer").removeClass('hide');
+    }
+    gotoMorePage() {
+        this.hideAll();
+        var that = this;
+
+        //// Show hide page
+        $(".more_container").removeClass('hide');
+        $(".footer").removeClass('hide');
+
+    }
 }
 
 $(document).ready(function () {
@@ -283,5 +300,8 @@ $(document).ready(function () {
     });
     $("#btnGotoLeagueInfoPage").click(function () { navigator.gotoLeagueInfoPage(); });
     $(".leagues_close_icon").click(function () { navigator.gotoPlayPage(); });
+    $("#btnGoToShopPage").click(function () { navigator.gotoShopPage(); });
+    $("#btnGoToMorePage").click(function () { navigator.gotoMorePage(); });
+    
 });
 
