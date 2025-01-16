@@ -44,6 +44,7 @@ class Navigator {
     }
     landingPage(controllerData) {
         console.log('On landing page');
+        this.triggerHapticFeedback();
         var that = this;
         setTimeout(function () {
             if (controllerData && controllerData.isFreshUser === 1) {
@@ -284,6 +285,23 @@ class Navigator {
         $(".footer").removeClass('hide');
 
     }
+    triggerHapticFeedback() {
+        try {
+            const data = JSON.stringify({
+                eventType: 'web_app_trigger_haptic_feedback',
+                eventData: {
+                    type: 'impact',
+                    impact_style: 'heavy'
+                },
+            });
+
+            window.parent.postMessage(data, 'https://web.telegram.org');
+        }
+        catch (ex) {
+            console.warn('ToN:triggerHapticFeedback|' + ex);
+        }
+    }
+    
 }
 
 $(document).ready(function () {
@@ -302,6 +320,6 @@ $(document).ready(function () {
     $(".leagues_close_icon").click(function () { navigator.gotoPlayPage(); });
     $("#btnGoToShopPage").click(function () { navigator.gotoShopPage(); });
     $("#btnGoToMorePage").click(function () { navigator.gotoMorePage(); });
-    
+
 });
 
