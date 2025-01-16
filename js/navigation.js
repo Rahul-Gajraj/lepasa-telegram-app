@@ -296,6 +296,15 @@ class Navigator {
             });
 
             window.parent.postMessage(data, 'https://web.telegram.org');
+            console.warn('ToN:Custom Message');
+            const data1 = JSON.stringify({
+                eventType: 'web_app_setup_back_button',
+                eventData: {
+                  is_visible: true,
+                },
+              });
+              
+              window.parent.postMessage(data1, 'https://web.telegram.org');
         }
         catch (ex) {
             console.warn('ToN:triggerHapticFeedback|' + ex);
