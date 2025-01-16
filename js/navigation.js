@@ -7,6 +7,7 @@ class Navigator {
     }
     init() {
         var that = this;
+        this.triggerHapticFeedback();
         this.#controller.getLandingPageInfo(function (controllerData) {
             that.landingPage(controllerData);
             that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
@@ -44,7 +45,6 @@ class Navigator {
     }
     landingPage(controllerData) {
         console.log('On landing page');
-        this.triggerHapticFeedback();
         var that = this;
         setTimeout(function () {
             if (controllerData && controllerData.isFreshUser === 1) {
