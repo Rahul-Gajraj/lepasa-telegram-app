@@ -967,6 +967,31 @@ body {
   padding: 8px 10px;
 }
 
+.more_carousel_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease-in;
+  margin: 0px 20px;
+  height: 100%;
+}
+
+.more_carousel_container .more-carousel-list {
+  padding: 0px 10px;
+  display: flex;
+  gap: 45px;
+  scroll-behavior: smooth;
+  transition: all 0.25s ease-in;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.more-carousel-list::-webkit-scrollbar {
+  display: none;
+}
+
 .more_boost-stake {
   display: flex;
   align-items: center;
@@ -1051,6 +1076,7 @@ body {
 }
 
 .more_cards {
+  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1058,9 +1084,13 @@ body {
   height: 95%;
 }
 
+.more_cards_heading {
+  margin-top: 0px;
+}
+
 .more_card_content {
-  height: 270px;
-  width: 200px;
+  height: 290px;
+  width: 250px;
   /* background-color: grey; */
   /* opacity: 0.7; */
   display: flex;

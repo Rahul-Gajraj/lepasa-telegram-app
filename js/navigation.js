@@ -238,7 +238,7 @@ class Navigator {
                 <div class="leagues_item">
                     <div class="leagues_item_container">
                         <div class="leagues_item_subcontainer">
-                            <img src="/public/leagues/${leagueInfo.name.toLowerCase()}.png" height="25px" width="40px" />
+                            <img src="/public/leagues/${leagueInfo.name.toLowerCase()}.png" height="40px" width="40px" />
                             <div class="leagues_item_content">
                                 <p>${leagueInfo.name}</p>
                                 <div class="leagues_coin">
