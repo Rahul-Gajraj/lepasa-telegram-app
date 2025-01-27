@@ -157,8 +157,10 @@
 
       <div class="league_info">
         <img src="/public/bronze.png" alt="league" height="50px" width="50px" id="currentLeague_Img" />
-        <h3 id="currentLeague_Name">BRONZE</h3>
-        <h3 id="btnGotoLeagueInfoPage">&gt;</h3>
+        <h3 id="currentLeague_Name" style="margin: 0;">BRONZE</h3>
+        <h3 id="btnGotoLeagueInfoPage" style="margin: 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path xmlns="http://www.w3.org/2000/svg" fill="white" d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"/></svg>
+        </h3>
       </div>
 
       <div class="fidget_spinner">
@@ -206,7 +208,9 @@
                 <p>TON Fiesta</p>
               </div>
             </div>
-            <div id="btnGotoTONFiestaEarnDetails">&gt;</div>
+            <div id="btnGotoTONFiestaEarnDetails">
+              <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path xmlns="http://www.w3.org/2000/svg" fill="white" d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"/></svg>
+            </div>
           </div>
         </div>
         <div class="community_card_partner">
@@ -368,8 +372,8 @@
   <!-- earn individual detail community container start -->
   <div class="earn_detail_container hide">
     <div class="back_container">
-      <p id="btnBackToEarnPage">&lt;</p>
-      <p>Earn</p>
+      <p id="btnBackToEarnPage"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path fill="white" d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z"/></svg>
+      <p style="margin: 0;">Earn</p>
     </div>
     <div class="title_content">
       <p class="title_content_heading" id="earn_detail_title"></p>
@@ -660,11 +664,26 @@
   <!-- footer containing ref, earn, play, shop and info start -->
   <div class="footer hide">
     <div class="footer_content">
-      <img src="/public/ref_icon.svg" height="55px" width="60px" id="btnGoToRefPage" />
-      <img src="/public/earn_icon.svg" height="55px" width="60px" id="btnGoToEarnPage" />
-      <img src="/public/play_icon.svg" height="55px" width="60px" id="btnGoToPlayPage" />
-      <img src="/public/shop_icon.svg" height="55px" width="60px" id="btnGoToShopPage" />
-      <img src="/public/more_hori.svg" height="55px" width="60px" id="btnGoToMorePage" />
+      <div class="footer_div">
+        <img src="/public/ref_icon.svg" height="23px" width="23px" id="btnGoToRefPage" />
+        <p id="refText">Ref</p>
+      </div>
+      <div class="footer_div">
+        <img src="/public/earn_icon.svg" height="23px" width="23px" id="btnGoToEarnPage" />
+        <p id="earnText">Earn</p>
+      </div>
+      <div class="footer_div">
+        <img src="/public/play_icon.svg" height="23px" width="23px" id="btnGoToPlayPage" class="footer_icon"/>
+        <p id="playText" class="footer_p">Play</p>
+      </div>
+      <div class="footer_div">
+        <img src="/public/shop_icon.svg" height="23px" width="23px" id="btnGoToShopPage" />
+        <p id="shotText">Shop</p>
+      </div>
+      <div class="footer_div">
+        <img src="/public/more_hori.svg" height="23px" width="23px" id="btnGoToMorePage" />
+        <p id="moreText">More</p>
+      </div>
     </div>
   </div>
   <!-- footer containing ref, earn, play, shop and info end -->

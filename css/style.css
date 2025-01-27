@@ -43,8 +43,8 @@ body {
   width: 100%;
   height: 8px;
   border-radius: 10px;
-  border: 2px solid #FFAF611A;
-  background-color: #FFAF6108;
+  border: 2px solid #ffaf611a;
+  background-color: #ffaf6108;
   padding: 1px;
 }
 
@@ -56,7 +56,6 @@ body {
 }
 
 /* common progress bar end */
-
 
 /* loading screen start */
 .loading_screen_img {
@@ -111,7 +110,8 @@ body {
 /* welcome screen end */
 
 .welcome_bonus_wrapper {
-  background: transparent url("/public/background_img.jpg") 0% 0% no-repeat padding-box;
+  background: transparent url(/public/background_img.jpg) 0% 0% no-repeat
+    padding-box;
   background-size: cover;
 }
 
@@ -124,20 +124,20 @@ body {
   align-items: center;
 }
 
-.welcome_bonus>h1 {
+.welcome_bonus > h1 {
   margin: 0;
   position: absolute;
   top: 5%;
   /* left: 35%; */
 }
 
-.welcome_bonus_body>img {
+.welcome_bonus_body > img {
   position: absolute;
   top: 25%;
   left: 5%;
 }
 
-.welcome_bonus_body>p {
+.welcome_bonus_body > p {
   position: absolute;
   top: -18.5%;
   left: 30%;
@@ -190,21 +190,21 @@ body {
   left: 20px;
 }
 
-.welcome_reward_header>h1 {
+.welcome_reward_header > h1 {
   margin-bottom: 0px;
 }
 
-.welcome_reward_header>p {
+.welcome_reward_header > p {
   margin: 0px;
 }
 
-.welcome_reward_body>img {
+.welcome_reward_body > img {
   position: absolute;
   top: 30%;
   left: 25%;
 }
 
-.welcome_reward_body>p {
+.welcome_reward_body > p {
   position: absolute;
   top: 47%;
   left: 35%;
@@ -251,7 +251,7 @@ body {
   justify-content: space-between;
 }
 
-.login_verification_content_body>p {
+.login_verification_content_body > p {
   margin: 3px;
 }
 
@@ -269,7 +269,8 @@ body {
 
 /* play container start */
 .play_container {
-  background: transparent url(/public/background_img.jpg) 0% 0% no-repeat padding-box;
+  background: transparent url(/public/background_img.jpg) 0% 0% no-repeat
+    padding-box;
   background-size: cover;
   /* height: 100%; */
   height: calc(100vh - 85px);
@@ -291,8 +292,8 @@ body {
   justify-content: space-between;
 }
 
-.body_header>.speed,
-.body_header>.coin {
+.body_header > .speed,
+.body_header > .coin {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -319,7 +320,7 @@ body {
   left: 45%;
 }
 
-.fidget_spinner>h2 {
+.fidget_spinner > h2 {
   float: left;
   color: #ffffff;
   margin-top: 100px;
@@ -371,12 +372,12 @@ body {
   gap: 10px;
 }
 
-.earn_body {
-  /* height: calc(100vh - 225px); */
-  /* height: calc(100vh - 151px); */
-  /* padding: 0px; */
-  /* overflow: auto; */
-}
+/* .earn_body {
+  height: calc(100vh - 225px);
+  height: calc(100vh - 151px);
+  padding: 0px;
+  overflow: auto;
+} */
 
 .community_body_divider {
   background: #272727;
@@ -562,6 +563,31 @@ body {
   padding: 7px;
 }
 
+.footer_content * p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.footer_div {
+  background-color: black;
+  padding: 7px 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.footer_icon {
+  filter: brightness(0) saturate(100%) invert(90%) sepia(46%) saturate(3516%)
+    hue-rotate(307deg) brightness(94%) contrast(114%);
+}
+
+.footer_p {
+  color: #ffae60;
+}
+
 /* footer container end */
 
 /* referral container start */
@@ -635,7 +661,7 @@ body {
   align-items: center;
 }
 
-.ref_item_container>img {
+.ref_item_container > img {
   flex: 1;
 }
 
@@ -643,7 +669,7 @@ body {
   flex: 5;
 }
 
-.ref_item_content>p {
+.ref_item_content > p {
   margin-bottom: 0;
   margin-top: 9px;
 }
@@ -1010,7 +1036,7 @@ body {
   margin-left: 5px;
 }
 
-.more_info_leaderboard_cards>p {
+.more_info_leaderboard_cards > p {
   margin: 3;
 }
 
@@ -1063,7 +1089,7 @@ body {
   border-radius: 100%;
 }
 
-.switch-input:checked~.switch-handle {
+.switch-input:checked ~ .switch-handle {
   left: 33px;
 }
 
@@ -1106,7 +1132,7 @@ body {
   width: 220px;
 }
 
-.more_card_content>p {
+.more_card_content > p {
   font-weight: 600;
 }
 
@@ -1258,8 +1284,8 @@ button.disabled {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #FFAF61;
-  color: #FFAF61;
+  background-color: #ffaf61;
+  color: #ffaf61;
   box-shadow: 9999px 0 0 -5px;
   animation: dot-pulse 1.5s infinite linear;
   animation-delay: 0.25s;
@@ -1274,8 +1300,8 @@ button.disabled {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #FFAF61;
-  color: #FFAF61;
+  background-color: #ffaf61;
+  color: #ffaf61;
 }
 
 .dot-pulse::before {
@@ -1440,7 +1466,6 @@ button.disabled {
   0% {
     bottom: 27%;
     opacity: 1;
-
   }
 
   50% {
