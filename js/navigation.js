@@ -7,7 +7,6 @@ class Navigator {
     }
     init() {
         var that = this;
-        this.triggerHapticFeedback();
         this.#controller.getLandingPageInfo(function (controllerData) {
             that.landingPage(controllerData);
             that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
@@ -275,6 +274,7 @@ class Navigator {
         //// Show hide page
         $(".shop_container").removeClass('hide');
         $(".footer").removeClass('hide');
+        
     }
     gotoMorePage() {
         this.hideAll();
