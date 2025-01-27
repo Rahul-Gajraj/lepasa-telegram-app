@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="155" height="175" viewBox="0 0 155 175">
-  <g id="Group_1012" data-name="Group 1012" transform="translate(-842 -26)">
-    <rect id="Rectangle_37" data-name="Rectangle 37" width="155" height="175" rx="40" transform="translate(842 26)" fill="#060402" opacity="0.62"/>
-    <text id="More" transform="translate(921 171)" fill="#fff" font-size="28" font-family="Inter-Regular, Inter"><tspan x="-33" y="0">More</tspan></text>
-    <g id="Group_14244" data-name="Group 14244" transform="translate(6.922 -3.333)">
-      <g id="Ellipse_75" data-name="Ellipse 75" transform="translate(866.078 91.333)" fill="none" stroke="#fff" stroke-width="3.5">
-        <ellipse cx="11.5" cy="11" rx="11.5" ry="11" stroke="none"/>
-        <ellipse cx="11.5" cy="11" rx="9.75" ry="9.25" fill="none"/>
-      </g>
-      <g id="Ellipse_76" data-name="Ellipse 76" transform="translate(902.078 91.333)" fill="none" stroke="#fff" stroke-width="3.5">
-        <circle cx="11" cy="11" r="11" stroke="none"/>
-        <circle cx="11" cy="11" r="9.25" fill="none"/>
-      </g>
-      <g id="Ellipse_77" data-name="Ellipse 77" transform="translate(937.078 91.333)" fill="none" stroke="#fff" stroke-width="3.5">
-        <ellipse cx="11.5" cy="11" rx="11.5" ry="11" stroke="none"/>
-        <ellipse cx="11.5" cy="11" rx="9.75" ry="9.25" fill="none"/>
-      </g>
-    </g>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="31 62 94 22">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #fff;
+        stroke-width: 3.5px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <ellipse class="cls-2" cx="42.5" cy="73" rx="11.5" ry="11"/>
+  <ellipse class="cls-1" cx="42.5" cy="73" rx="9.75" ry="9.25"/>
+  <circle class="cls-2" cx="78" cy="73" r="11"/>
+  <circle class="cls-1" cx="78" cy="73" r="9.25"/>
+  <ellipse class="cls-2" cx="113.5" cy="73" rx="11.5" ry="11"/>
+  <ellipse class="cls-1" cx="113.5" cy="73" rx="9.75" ry="9.25"/>
 </svg>
