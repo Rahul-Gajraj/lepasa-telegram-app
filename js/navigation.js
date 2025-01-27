@@ -274,7 +274,9 @@ class Navigator {
         //// Show hide page
         $(".shop_container").removeClass('hide');
         $(".footer").removeClass('hide');
-        
+        this.#controller.getUpgradeList(function(dataset){
+            
+        });
     }
     gotoMorePage() {
         this.hideAll();

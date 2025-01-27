@@ -295,6 +295,28 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    getUpgradeList(successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/upgrade-list',
+            type: 'POST',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    ////TODO: Update local userInfoData with relevent values.
+                    //that.#userInfoData.something = returnData.data.something;
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert("Something went wrong. Please try again later.");
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }
