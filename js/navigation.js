@@ -36,7 +36,8 @@ class Navigator {
     }
     hideAllDrawerContents() {
         $("#automated_teller_drawer").addClass('hide');
-        $("#shop_gpu_upgrade_drawer").addClass('hide');
+        $("#shop_booster_update_drawer").addClass('hide');
+        $("#shop_level_upgrade_drawer").addClass('hide');
         $("#daily_reward_drawer").addClass('hide');
         $("#how_to_play_drawer").addClass('hide');
         $("#faq_drawer").addClass('hide');
@@ -274,8 +275,70 @@ class Navigator {
         //// Show hide page
         $(".shop_container").removeClass('hide');
         $(".footer").removeClass('hide');
-        this.#controller.getUpgradeList(function(dataset){
-            
+        this.#controller.getUpgradeList(function (dataset) {
+            ////Updating UI
+            $("#btnOpenEnergyBarRefillModal .shop_item_content .shop_item_num")
+                .text(dataset.boosterStatus.currentEnergyCount + '/' + dataset.boosterStatus.energyDailyLimit);
+            $("#btnOpenGPUBoosterModal .shop_item_content .shop_item_num")
+                .text(dataset.boosterStatus.currentGPUCount + '/' + dataset.boosterStatus.gpuDailyLimit);
+
+            $("#btnOpen_BarRefillSpeed_LevelUpgrade .shop_level_item_stats .cost-text").text(dataset.spinLevel.nextUpgradeCost);
+            $("#btnOpen_BarRefillSpeed_LevelUpgrade .shop_level_item_stats .level-text").text('| ' + (Number(dataset.spinLevel.id) + 1) + ' level');
+
+            $("#btnOpen_EnergyBarCapacity_LevelUpgrade .shop_level_item_stats .cost-text").text(dataset.capacityLevel.nextUpgradeCost);
+            $("#btnOpen_EnergyBarCapacity_LevelUpgrade .shop_level_item_stats .level-text").text('| ' + (Number(dataset.capacityLevel.id) + 1) + ' level');
+
+            $("#btnOpen_GPUUpgrade_LevelUpgrade .shop_level_item_stats .cost-text").text(dataset.miningLevel.nextUpgradeCost);
+            $("#btnOpen_GPUUpgrade_LevelUpgrade .shop_level_item_stats .level-text").text('| ' + (Number(dataset.miningLevel.id) + 1) + ' level');
+
+            ////Binding click events for booster update
+            $("#btnOpenEnergyBarRefillModal").data('upgradeListData', dataset).off('click').on('click', function () {
+                var dataset = $(this).data('upgradeListData');
+                that.hideAllDrawerContents();
+                that.#helper.openDrawer();
+                $("#shop_booster_update_drawer").removeClass('hide');
+                $("#shop_booster_update_drawer .drawer_shop_heading").text('Energy Bar Refill');
+                $("#shop_booster_update_drawer .drawer_shop_subheading").text('Refill your spark tank to hundred persent.');
+                $("#shop_booster_update_drawer .chip").text(dataset.boosterStatus.currentEnergyCount + '/' + dataset.boosterStatus.energyDailyLimit);
+            });
+            $("#btnOpenGPUBoosterModal").data('upgradeListData', dataset).off('click').on('click', function () {
+                var dataset = $(this).data('upgradeListData');
+                that.hideAllDrawerContents();
+                that.#helper.openDrawer();
+                $("#shop_booster_update_drawer").removeClass('hide');
+                $("#shop_booster_update_drawer .drawer_shop_heading").text('GPU Booster');
+                $("#shop_booster_update_drawer .drawer_shop_subheading").text('Convert all energy into points at once.');
+                $("#shop_booster_update_drawer .chip").text(dataset.boosterStatus.currentGPUCount + '/' + dataset.boosterStatus.gpuDailyLimit);
+            });
+
+            ////Binding click events for level upgrade
+            $("#btnOpen_BarRefillSpeed_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
+                var dataset = $(this).data('upgradeListData');
+                that.hideAllDrawerContents();
+                that.#helper.openDrawer();
+                $("#shop_level_upgrade_drawer").removeClass('hide');
+                $("#shop_level_upgrade_drawer .drawer_shop_heading").text('Bar Refill Speed');
+                $("#shop_level_upgrade_drawer .drawer_shop_subheading").text('Increase Recharging Speed By');
+                $("#shop_level_upgrade_drawer .chip").text((Number(dataset.spinLevel.id) + 1) + '/ Per Spin');
+            });
+            $("#btnOpen_EnergyBarCapacity_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
+                var dataset = $(this).data('upgradeListData');
+                that.hideAllDrawerContents();
+                that.#helper.openDrawer();
+                $("#shop_level_upgrade_drawer").removeClass('hide');
+                $("#shop_level_upgrade_drawer .drawer_shop_heading").text('Energy Bar');
+                $("#shop_level_upgrade_drawer .drawer_shop_subheading").text('Increase Capacity By');
+                $("#shop_level_upgrade_drawer .chip").text(dataset.capacityLevel.nextGrowthValue + ' Energy');
+            });
+            $("#btnOpen_GPUUpgrade_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
+                var dataset = $(this).data('upgradeListData');
+                that.hideAllDrawerContents();
+                that.#helper.openDrawer();
+                $("#shop_level_upgrade_drawer").removeClass('hide');
+                $("#shop_level_upgrade_drawer .drawer_shop_heading").text('GPU Upgrade');
+                $("#shop_level_upgrade_drawer .drawer_shop_subheading").text('Increase Pixel Rate By');
+                $("#shop_level_upgrade_drawer .chip").text(dataset.miningLevel.nextGrowthValue + '/ sec');
+            });
         });
     }
     gotoMorePage() {
@@ -302,17 +365,17 @@ class Navigator {
             const data1 = JSON.stringify({
                 eventType: 'web_app_setup_back_button',
                 eventData: {
-                  is_visible: true,
+                    is_visible: true,
                 },
-              });
-              
-              window.parent.postMessage(data1, 'https://web.telegram.org');
+            });
+
+            window.parent.postMessage(data1, 'https://web.telegram.org');
         }
         catch (ex) {
             console.warn('ToN:triggerHapticFeedback|' + ex);
         }
     }
-    
+
 }
 
 $(document).ready(function () {
