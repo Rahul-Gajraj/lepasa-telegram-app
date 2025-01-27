@@ -3,6 +3,8 @@ class Controller {
     #baseApiUrl = null;
     #userInfoData = null;
     #leagueInfoData = null;
+    #energyValue = 0;
+    #balanceToSync = 0;
     constructor() {
         this.#baseApiUrl = (new Config()).getBaseApiUrl();
         if (Telegram.WebApp.initData && Telegram.WebApp.initData !== "")
@@ -33,7 +35,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -54,7 +56,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -76,7 +78,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -96,7 +98,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -118,7 +120,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -138,7 +140,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -160,7 +162,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -183,7 +185,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -204,7 +206,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -224,7 +226,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -247,7 +249,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -268,7 +270,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -290,7 +292,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -312,7 +314,51 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert("Something went wrong. Please try again later.");
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
+    shopUpdateBooster(updateType, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/update-booster',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                type: updateType
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
+    shopUpgradeLevel(updateType, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/upgrade-level',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                type: updateType
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -322,5 +368,31 @@ class Controller {
     }
     getLeagueInfoData() {
         return this.#leagueInfoData;
+    }
+    increaseEnergyValue() {
+        var spinRate = this.#userInfoData.spinRate;
+        var capacityRate = this.#userInfoData.capacityRate;
+        var currentEnergyVal = this.#energyValue;
+        currentEnergyVal = currentEnergyVal + Math.ceil(spinRate);
+        if (currentEnergyVal > capacityRate)
+            currentEnergyVal = capacityRate;
+        this.#energyValue = currentEnergyVal;
+    }
+    mineEnergyValue() {
+        var energyValue = this.#energyValue;
+        if (energyValue > 0) {
+            var miningRate = this.#userInfoData.miningRate;
+            var miningEnergy = energyValue > miningRate ? miningRate : energyValue;
+            var pointsGenerated = miningEnergy + this.#userInfoData.rankId;
+            this.#energyValue -= miningEnergy;
+            this.#userInfoData.balance += pointsGenerated;
+            this.#balanceToSync += pointsGenerated;
+        }
+    }
+    getEnergyValue() {
+        return this.#energyValue;
+    }
+    getEnergyValueInPercent() {
+        return (this.#energyValue / this.#userInfoData.capacityRate) * 100;
     }
 }

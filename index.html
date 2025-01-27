@@ -20,8 +20,8 @@
 
 <body>
   <!-- animate text start -->
-  <div class="animation-container">
-    <div class="animated-text">+3</div>
+  <div class="animation-container hide" id="miningAnimationValue">
+    <div class="animated-text"></div>
   </div>
   <!-- animate text end -->
 
@@ -177,7 +177,7 @@
           <h4 id="txtBarCapacityRate"></h4>
         </div>
         <div class="progress_bar_container">
-          <div style="width: 30%" class="progress_bar"></div>
+          <div style="width: 0%" class="progress_bar" id="progressMainPlay"></div>
         </div>
       </div>
     </div>
@@ -724,20 +724,20 @@
         <div class="drawer_content hide" id="shop_booster_update_drawer">
           <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
 
-          <h1 class="drawer_shop_heading">GPU Upgrade</h1>
-          <h6 class="drawer_shop_subheading">Increase Pixel Rate By</h6>
+          <h1 class="drawer_shop_heading"></h1>
+          <h6 class="drawer_shop_subheading"></h6>
 
-          <p class="chip">4 /sec</p>
+          <p class="chip"></p>
           <div class="drawer_upgrade" id="btnShopBoosterUpdate">Boost</div>
         </div>
 
         <div class="drawer_content hide" id="shop_level_upgrade_drawer">
           <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
 
-          <h1 class="drawer_shop_heading">GPU Upgrade</h1>
-          <h6 class="drawer_shop_subheading">Increase Pixel Rate By</h6>
+          <h1 class="drawer_shop_heading"></h1>
+          <h6 class="drawer_shop_subheading"></h6>
 
-          <p class="chip">4 /sec</p>
+          <p class="chip"></p>
           <div class="drawer_upgrade" id="btnShopLevelUpgrade">Upgrade</div>
         </div>
 
@@ -861,8 +861,8 @@
   <script src="/js/helper.js"></script>
   <script src="/js/earnpage.js"></script>
   <script src="/js/navigation.js"></script>
-  <script src="/js/spinner.js"></script>
   <script src="/js/controller.js"></script>
+  <script src="/js/spinner.js"></script>
 </body>
 
 </html>
