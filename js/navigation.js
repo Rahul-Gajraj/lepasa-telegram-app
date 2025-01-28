@@ -2,6 +2,7 @@ class Navigator {
     #controller = new Controller();
     #helper = new Helper();
     #earnPage = null;
+    #mineSyncCounter = 0;
     constructor() {
         this.#earnPage = new EarnPage(this);
     }
@@ -17,8 +18,11 @@ class Navigator {
 
         //// Run function each second to see if energy bar has some value
         setInterval(function () {
-            that.#controller.mineEnergyValue();
+            that.#controller.mineEnergyValue(that.#mineSyncCounter);
             that.#updatePlayePageUi();
+            that.#mineSyncCounter++;
+            if (that.#mineSyncCounter > 50)
+                that.#mineSyncCounter = 0;
         }, 1000);
     }
     hideAll() {

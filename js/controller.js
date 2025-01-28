@@ -363,6 +363,38 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    syncBalance() {
+        var that = this;
+        var balanceToSync = that.#balanceToSync;
+        that.#balanceToSync = 0;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/earn-reward',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                initData: that.#initData,
+                balance: balanceToSync,
+                timestamp: (new Date()).getTime()
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    // that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else {
+                    that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
+                    alert(returnData.error);
+                }
+            },
+            error: function () {
+                that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
+                alert("Something went wrong. Please try again later.");
+            }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }
@@ -378,7 +410,7 @@ class Controller {
             currentEnergyVal = capacityRate;
         this.#energyValue = currentEnergyVal;
     }
-    mineEnergyValue() {
+    mineEnergyValue(syncCounter) {
         var energyValue = this.#energyValue;
         if (energyValue > 0) {
             var miningRate = this.#userInfoData.miningRate;
@@ -387,6 +419,11 @@ class Controller {
             this.#energyValue -= miningEnergy;
             this.#userInfoData.balance += pointsGenerated;
             this.#balanceToSync += pointsGenerated;
+
+            ///// Sync to server each 5 seconds
+            if (syncCounter % 5 === 0) {
+                this.syncBalance();
+            }
         }
     }
     getEnergyValue() {

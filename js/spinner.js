@@ -71,15 +71,17 @@ canvas.addEventListener('touchmove', function (_ref4) {
       clientX: originalEvent.touches[0].pageX,
       clientY: originalEvent.touches[0].pageY
     };
+    customNavigator.increaseEnergyValue();
   }();
+});
+canvas.addEventListener('touchend', function (_ref4) {
+  customNavigator.increaseEnergyValue();
 });
 window.addEventListener('mouseup', function () {
   dragStart = false;
-  customNavigator.increaseEnergyValue();
 });
 window.addEventListener('touchend', function () {
   dragStart = false;
-  customNavigator.increaseEnergyValue();
 });
 
 function updateSpeed(startPos, endPos) {
