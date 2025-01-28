@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 208">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #0e0b0a;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #707070;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" y="0" width="208" height="208" rx="82" ry="82"/>
+  <rect class="cls-3" x=".5" y=".5" width="207" height="207" rx="81.5" ry="81.5"/>
+  <g id="spark-icon">
+    <path id="Path_228" data-name="Path 228" class="cls-1" d="M96.08,106.36l-29.44-4.87,28.34-52.08,33.59,2.36-21.21,29.54,33.99,6.19-68.19,71.1,22.91-52.24Z"/>
+  </g>
+</svg>
