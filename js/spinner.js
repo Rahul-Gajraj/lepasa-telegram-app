@@ -16,8 +16,7 @@ image.addEventListener('load', function () {
 });
 
 
-
-var step = 2 * Math.PI / 360;
+var step = 0.8 * Math.PI / 360;
 var radius = 150;
 
 var dragStart = false;
@@ -76,9 +75,11 @@ canvas.addEventListener('touchmove', function (_ref4) {
 });
 window.addEventListener('mouseup', function () {
   dragStart = false;
+  customNavigator.increaseEnergyValue();
 });
 window.addEventListener('touchend', function () {
   dragStart = false;
+  customNavigator.increaseEnergyValue();
 });
 
 function updateSpeed(startPos, endPos) {
@@ -90,15 +91,14 @@ function render() {
     ctx.clearRect(0, 0, 400, 400);
 
     angle += step * speed;
-    speed = Math.max(speed - 0.08, Math.min(speed + 0.08, 0));
+    speed = Math.max(speed - 0.2, Math.min(speed + 0.2, 0));
 
     var x = canvas.width / 2;
     var y = canvas.height / 2;
     var width = image.width;
     var height = image.height;
 
-    console.log('X-' + x + ', Y-' + y);
-    console.log('Speed-' + speed);
+    console.log('Speed ' + speed);
     ctx.translate(x, y);
     ctx.rotate(angle);
     ctx.drawImage(image, -width / 2, -height / 2, width, height);

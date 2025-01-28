@@ -20,8 +20,8 @@
 
 <body>
   <!-- animate text start -->
-  <div class="animation-container">
-    <div class="animated-text">+3</div>
+  <div class="animation-container hide" id="miningAnimationValue">
+    <div class="animated-text"></div>
   </div>
   <!-- animate text end -->
 
@@ -177,7 +177,7 @@
           <h4 id="txtBarCapacityRate"></h4>
         </div>
         <div class="progress_bar_container">
-          <div style="width: 30%" class="progress_bar"></div>
+          <div style="width: 0%" class="progress_bar" id="progressMainPlay"></div>
         </div>
       </div>
     </div>
@@ -411,64 +411,64 @@
   <!-- shop content start -->
   <div class="shop_container hide">
     <div class="shop_header">
-      <div class="shop_item">
+      <div class="shop_item" id="btnOpenEnergyBarRefillModal">
         <img src="/public/shop_energy.svg" height="45px" width="45px" />
         <div class="shop_item_content">
           <p>Energy Bar Refill</p>
-          <p class="shop_item_num">3/3</p>
+          <p class="shop_item_num"></p>
         </div>
       </div>
 
       <div class="shop_header_divider"></div>
 
-      <div class="shop_item">
+      <div class="shop_item" id="btnOpenGPUBoosterModal">
         <img src="/public/shop_gpu.svg" height="45px" width="45px" />
         <div class="shop_item_content">
           <p>GPU Booster</p>
-          <p class="shop_item_num">3/3</p>
+          <p class="shop_item_num"></p>
         </div>
       </div>
     </div>
 
     <ul class="shop_level_list">
-      <li class="shop_level_item">
+      <li class="shop_level_item" id="btnOpen_BarRefillSpeed_LevelUpgrade">
         <img src="/public/shop_spinner.svg" height="50px" width="45px" />
         <div class="shop_level_item_content">
           <p>Bar Refill Speed</p>
           <div class="shop_level_item_stats">
             <div class="shop_level_item_coins">
               <img src="/public/coin.png" height="20px" width="20px" />
-              <p>4,000</p>
+              <p class="cost-text">4,000</p>
             </div>
-            <p>| 2 level</p>
+            <p class="level-text">| 2 level</p>
           </div>
         </div>
       </li>
 
-      <li class="shop_level_item">
+      <li class="shop_level_item" id="btnOpen_EnergyBarCapacity_LevelUpgrade">
         <img src="/public/shop_energy_two.svg" height="45px" width="45px" />
         <div class="shop_level_item_content">
           <p>Energy Bar Capacity</p>
           <div class="shop_level_item_stats">
             <div class="shop_level_item_coins">
               <img src="/public/coin.png" height="20px" width="20px" />
-              <p>4,000</p>
+              <p class="cost-text">4,000</p>
             </div>
-            <p>| 2 level</p>
+            <p class="level-text">| 2 level</p>
           </div>
         </div>
       </li>
 
-      <li class="shop_level_item" onclick="openDrawer()">
+      <li class="shop_level_item" id="btnOpen_GPUUpgrade_LevelUpgrade">
         <img src="/public/shop_gpu_two.svg" height="45px" width="45px" />
         <div class="shop_level_item_content">
           <p>GPU Upgrade</p>
           <div class="shop_level_item_stats">
             <div class="shop_level_item_coins">
               <img src="/public/coin.png" height="20px" width="20px" />
-              <p>4,000</p>
+              <p class="cost-text">4,000</p>
             </div>
-            <p>| 2 level</p>
+            <p class="level-text">| 2 level</p>
           </div>
         </div>
       </li>
@@ -535,7 +535,7 @@
   <!-- league content end -->
 
   <!-- more content start -->
-  <div class="more_container">
+  <div class="more_container hide">
     <div class="more_header">
       <p class="cards">Cards</p>
       <div class="more_header_divider"></div>
@@ -721,14 +721,24 @@
         </div>
         <!-- automated_teller_drawer end -->
 
-        <div class="drawer_content hide" id="shop_gpu_upgrade_drawer">
+        <div class="drawer_content hide" id="shop_booster_update_drawer">
           <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
 
-          <h1>GPU Upgrade</h1>
-          <h6>Increase Pixel Rate By</h6>
+          <h1 class="drawer_shop_heading"></h1>
+          <h6 class="drawer_shop_subheading"></h6>
 
-          <p class="chip">4 /sec</p>
-          <div class="drawer_upgrade">Upgrade</div>
+          <p class="chip"></p>
+          <div class="drawer_upgrade" id="btnShopBoosterUpdate">Boost</div>
+        </div>
+
+        <div class="drawer_content hide" id="shop_level_upgrade_drawer">
+          <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
+
+          <h1 class="drawer_shop_heading"></h1>
+          <h6 class="drawer_shop_subheading"></h6>
+
+          <p class="chip"></p>
+          <div class="drawer_upgrade" id="btnShopLevelUpgrade">Upgrade</div>
         </div>
 
         <div class="drawer_content_daily_rewards hide" id="daily_reward_drawer">
@@ -851,8 +861,8 @@
   <script src="/js/helper.js"></script>
   <script src="/js/earnpage.js"></script>
   <script src="/js/navigation.js"></script>
-  <script src="/js/spinner.js"></script>
   <script src="/js/controller.js"></script>
+  <script src="/js/spinner.js"></script>
 </body>
 
 </html>
