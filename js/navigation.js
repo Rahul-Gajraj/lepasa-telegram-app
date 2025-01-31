@@ -452,6 +452,10 @@ class Navigator {
                 }
             }
         });
+
+        //// Bind open close tabs
+        $("#more_card_tab,#more_boost_stake_tab,#more_info_tab").off('click.tabnav').on('click.tabnav', function () { that.#helper.activateTab(this); });
+        $("#more_card_tab").click();
     }
     increaseEnergyValue() {
         this.#controller.increaseEnergyValue();
