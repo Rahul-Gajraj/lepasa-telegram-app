@@ -1121,13 +1121,20 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   /* border-radius: 10px; */
   /* border: 4px solid #b900d1; */
 }
 
-.more_card_content>img {
+.gpu_card_img {
   height: 290px;
   width: 220px;
+}
+
+.gpu_card_lock {
+  position: absolute;
+  top: 35%;
+  
 }
 
 .more_card_content>p {
