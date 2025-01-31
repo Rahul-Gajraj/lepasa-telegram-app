@@ -441,7 +441,8 @@ class Navigator {
                     <div class="more_cards">
                         <h3 class="more_cards_heading">${controllerData[i].cards.name}</h3>
                         <div class="more_card_content">
-                            <img src="${controllerData[i].cards.image}" alt="card" />
+                            ${(currentBalance < controllerData[i].endRange) ? '<img class="gpu_card_lock" src="/public/padlock.svg" height="85px" width="85px" />' : ''}
+                            <img class="gpu_card_img" src="${controllerData[i].cards.image}" alt="card" />
                         </div>
                         <h3>${(currentBalance > controllerData[i].endRange ? controllerData[i].endRange : currentBalance)} / ${controllerData[i].endRange}</h3>
                         <div class="progress_bar_container">
