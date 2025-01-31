@@ -159,12 +159,19 @@
         <img src="/public/bronze.png" alt="league" height="50px" width="50px" id="currentLeague_Img" />
         <h3 id="currentLeague_Name" style="margin: 0;">BRONZE</h3>
         <h3 id="btnGotoLeagueInfoPage" style="margin: 0;">
-          <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path xmlns="http://www.w3.org/2000/svg" fill="white" d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
+            <path xmlns="http://www.w3.org/2000/svg" fill="white"
+              d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z" />
+          </svg>
         </h3>
       </div>
 
       <div class="fidget_spinner">
         <input type="hidden" id="svalue" class="hide" />
+        <div id="electrifiedContainer" class="hide">
+          <img id="electrifiedImg" src="/public/spinner_electric.png" height="310" width="310" />
+          <img id="electrifiedFidget" src="/public/fidget_electrified.png" height="310" width="310" />
+        </div>
         <canvas id="spinnerCanvas" height="310" width="310"></canvas>
         <img class="fidget_spinner_logo" src="/public/logo.svg" alt="logo" height="45px" width="45px" />
       </div>
@@ -209,7 +216,10 @@
               </div>
             </div>
             <div id="btnGotoTONFiestaEarnDetails">
-              <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path xmlns="http://www.w3.org/2000/svg" fill="white" d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
+                <path xmlns="http://www.w3.org/2000/svg" fill="white"
+                  d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z" />
+              </svg>
             </div>
           </div>
         </div>
@@ -372,7 +382,11 @@
   <!-- earn individual detail community container start -->
   <div class="earn_detail_container hide">
     <div class="back_container">
-      <p id="btnBackToEarnPage"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path fill="white" d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z"/></svg>
+      <p id="btnBackToEarnPage"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25"
+          height="25">
+          <path fill="white"
+            d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z" />
+        </svg>
       <p style="margin: 0;">Earn</p>
     </div>
     <div class="title_content">
@@ -546,76 +560,7 @@
 
     <div class="more_carousel_container">
       <div id="more-carousel-list" class="more-carousel-list">
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Gold - GD 7080x</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/gold.png" alt="gold_card" />
-          </div>
-          <h3>10,198 / 49,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Platinum - PT 4080x</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/platinum.png" alt="platinum_card" />
-          </div>
-          <h3>0 / 99,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Titanium - TT 7900x</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/titanium.png" alt="titanium_card" />
-          </div>
-          <h3>0 / 499,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Diamond - DM 7900XTX</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/diamond.png" alt="diamond_card" />
-          </div>
-          <h3>0 / 999,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Ascedent - AD 4090</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/ascedent.png" alt="ascedent_card" />
-          </div>
-          <h3>0 / 4,999,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Immortal IM A100</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/immortal.png" alt="immortal_card" />
-          </div>
-          <h3>0 / 9,999,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
-        <div class="more_cards">
-          <h3 class="more_cards_heading">Radiant RD H100</h3>
-          <div class="more_card_content">
-            <img src="/public/cards/radiant.png" alt="radiant_card" />
-          </div>
-          <h3>0 / 99,999,999</h3>
-          <div class="progress_bar_container">
-            <div class="progress_bar"></div>
-          </div>
-        </div>
+        
       </div>
     </div>
 
@@ -664,24 +609,24 @@
   <!-- footer containing ref, earn, play, shop and info start -->
   <div class="footer hide">
     <div class="footer_content">
-      <div class="footer_div">
-        <img src="/public/ref_icon.svg" height="23px" width="23px" id="btnGoToRefPage" />
+      <div class="footer_div" id="btnGoToRefPage">
+        <img src="/public/ref_icon.svg" height="23px" width="23px" />
         <p id="refText">Ref</p>
       </div>
-      <div class="footer_div">
-        <img src="/public/earn_icon.svg" height="23px" width="23px" id="btnGoToEarnPage" />
+      <div class="footer_div" id="btnGoToEarnPage">
+        <img src="/public/earn_icon.svg" height="23px" width="23px" />
         <p id="earnText">Earn</p>
       </div>
-      <div class="footer_div">
-        <img src="/public/play_icon.svg" height="23px" width="23px" id="btnGoToPlayPage" class="footer_icon"/>
+      <div class="footer_div" id="btnGoToPlayPage">
+        <img src="/public/play_icon.svg" height="23px" width="23px" class="footer_icon" />
         <p id="playText" class="footer_p">Play</p>
       </div>
-      <div class="footer_div">
-        <img src="/public/shop_icon.svg" height="23px" width="23px" id="btnGoToShopPage" />
+      <div class="footer_div" id="btnGoToShopPage">
+        <img src="/public/shop_icon.svg" height="23px" width="23px" />
         <p id="shotText">Shop</p>
       </div>
-      <div class="footer_div">
-        <img src="/public/more_hori.svg" height="23px" width="23px" id="btnGoToMorePage" />
+      <div class="footer_div" id="btnGoToMorePage">
+        <img src="/public/more_hori.svg" height="23px" width="23px" />
         <p id="moreText">More</p>
       </div>
     </div>
@@ -722,7 +667,7 @@
         <!-- automated_teller_drawer end -->
 
         <div class="drawer_content hide" id="shop_booster_update_drawer">
-          <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
+          <img id="shop_booster_update_img" src="/public/drawer_gpu.svg" height="70px" width="70px" />
 
           <h1 class="drawer_shop_heading"></h1>
           <h6 class="drawer_shop_subheading"></h6>
@@ -732,7 +677,7 @@
         </div>
 
         <div class="drawer_content hide" id="shop_level_upgrade_drawer">
-          <img src="/public/drawer_gpu.svg" height="70px" width="70px" />
+          <img id="shop_level_upgrade_img" src="/public/drawer_gpu.svg" height="70px" width="70px" />
 
           <h1 class="drawer_shop_heading"></h1>
           <h6 class="drawer_shop_subheading"></h6>
@@ -857,12 +802,25 @@
   <!-- drawer content end -->
   <script src="/js/jquery-3.7.1.min.js"></script>
   <script src="/js/toast.js"></script>
+  <script src="/js/custom-crypt.js"></script>
   <script src="/js/config.js"></script>
   <script src="/js/helper.js"></script>
   <script src="/js/earnpage.js"></script>
   <script src="/js/navigation.js"></script>
   <script src="/js/controller.js"></script>
   <script src="/js/spinner.js"></script>
+  <script async src="https://tganalytics.xyz/index.js" onload="initAnalytics()" type="text/javascript"></script>
+  <script>
+    function initAnalytics() {
+      var config = new Config();
+      var tganalyticsInfo = config.getTelegraAnalyticsInitialization();
+      if (Telegram.WebApp.initData)
+        window.telegramAnalytics.init({
+          token: tganalyticsInfo.token,
+          appName: tganalyticsInfo.appName,
+        });
+    }
+  </script>
 </body>
 
 </html>

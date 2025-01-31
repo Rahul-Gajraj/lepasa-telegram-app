@@ -11,19 +11,19 @@ class Navigator {
         this.#controller.getLandingPageInfo(function (controllerData) {
             that.landingPage(controllerData);
             that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
+            //// Run function each second to see if energy bar has some value
+            setInterval(function () {
+                that.#controller.mineEnergyValue(that.#mineSyncCounter);
+                that.#updatePlayePageUi();
+                that.#mineSyncCounter++;
+                if (that.#mineSyncCounter > 50)
+                    that.#mineSyncCounter = 0;
+            }, 1000);
+
         });
         $("#btnCloseDrawer,#backdrop").click(function () {
             that.#helper.closeDrawer();
         });
-
-        //// Run function each second to see if energy bar has some value
-        setInterval(function () {
-            that.#controller.mineEnergyValue(that.#mineSyncCounter);
-            that.#updatePlayePageUi();
-            that.#mineSyncCounter++;
-            if (that.#mineSyncCounter > 50)
-                that.#mineSyncCounter = 0;
-        }, 1000);
     }
     hideAll() {
         $(".loading_screen").addClass('hide');
@@ -226,8 +226,8 @@ class Navigator {
     shareReferral() {
         window.open(this.#controller.getUserInfoData().referralLink, '_blank');
     }
-    copyToCLipboardRefUrl() {
-        this.#helper.copyToCLipboardRefUrl("CopyRefUrlInput");
+    copyToClipboardRefUrl() {
+        this.#helper.copyToClipboardRefUrl("CopyRefUrlInput");
     }
     setLeagueInfoOnPlayPage(data) {
         var currentLeague = null;
@@ -325,6 +325,7 @@ class Navigator {
             $("#shop_booster_update_drawer .drawer_shop_heading").text('Energy Bar Refill');
             $("#shop_booster_update_drawer .drawer_shop_subheading").text('Refill your spark tank to hundred persent.');
             $("#shop_booster_update_drawer .chip").text(dataset.boosterStatus.currentEnergyCount + '/' + dataset.boosterStatus.energyDailyLimit);
+            $("#shop_booster_update_img").attr('src', '/public/shop_energy.svg');
             that.#shopBindBoosterUpdateClickEvent('ENERGY');
         });
         $("#btnOpenGPUBoosterModal").data('upgradeListData', dataset).off('click').on('click', function () {
@@ -339,6 +340,7 @@ class Navigator {
             $("#shop_booster_update_drawer .drawer_shop_heading").text('GPU Booster');
             $("#shop_booster_update_drawer .drawer_shop_subheading").text('Convert all energy into points at once.');
             $("#shop_booster_update_drawer .chip").text(dataset.boosterStatus.currentGPUCount + '/' + dataset.boosterStatus.gpuDailyLimit);
+            $("#shop_booster_update_img").attr('src', '/public/shop_gpu.svg');
             that.#shopBindBoosterUpdateClickEvent('GPU');
         });
 
@@ -351,6 +353,7 @@ class Navigator {
             $("#shop_level_upgrade_drawer .drawer_shop_heading").text('Bar Refill Speed');
             $("#shop_level_upgrade_drawer .drawer_shop_subheading").text('Increase Recharging Speed By');
             $("#shop_level_upgrade_drawer .chip").html((Number(dataset.spinLevel.id) + 1) + ' <img src="/public/spark_icon.svg" style="width:15px;margin-bottom:-7px;" /> / Per Spin');
+            $("#shop_level_upgrade_img").attr('src', '/public/shop_spinner.svg');
             that.#shopBindLevelUpgradeClickEvent('SPIN');
         });
         $("#btnOpen_EnergyBarCapacity_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
@@ -361,6 +364,7 @@ class Navigator {
             $("#shop_level_upgrade_drawer .drawer_shop_heading").text('Energy Bar');
             $("#shop_level_upgrade_drawer .drawer_shop_subheading").text('Increase Capacity By');
             $("#shop_level_upgrade_drawer .chip").html(dataset.capacityLevel.nextGrowthValue + ' <img src="/public/spark_icon.svg" style="width:15px;margin-bottom:-7px;" />');
+            $("#shop_level_upgrade_img").attr('src', '/public/shop_energy_two.svg');
             that.#shopBindLevelUpgradeClickEvent('CAPACITY');
         });
         $("#btnOpen_GPUUpgrade_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
@@ -371,6 +375,7 @@ class Navigator {
             $("#shop_level_upgrade_drawer .drawer_shop_heading").text('GPU Upgrade');
             $("#shop_level_upgrade_drawer .drawer_shop_subheading").text('Increase Pixel Rate By');
             $("#shop_level_upgrade_drawer .chip").text(dataset.miningLevel.nextGrowthValue + '/ sec');
+            $("#shop_level_upgrade_img").attr('src', '/public/shop_gpu_two.svg');
             that.#shopBindLevelUpgradeClickEvent('MINING');
         });
     }
@@ -378,10 +383,27 @@ class Navigator {
         var that = this;
         $("#btnShopBoosterUpdate").data('boosterUpdateType', type).off('click').on('click', function () {
             var type = $(this).data('boosterUpdateType');
+            $("#shop_booster_update_drawer").addClass('hide');
+            that.#helper.closeDrawer();
+            that.gotoPlayPage();
             that.#controller.shopUpdateBooster(type, function (dataset) {
-                $("#shop_booster_update_drawer").addClass('hide');
-                that.#helper.closeDrawer();
-                that.gotoShopPage();
+                if (type === "GPU") {
+                    $("#spinnerCanvas").addClass('hide');
+                    $("#electrifiedContainer").removeClass('hide')
+                    $("#electrifiedFidget").addClass('rotate-fast');
+                    $("#progressMainPlay").animate({ 'width': '0%' }, 3000);
+                    setTimeout(() => {
+                        that.#controller.consumeAllEnergyValue();
+                        $("#electrifiedFidget").removeClass('rotate-fast')
+                        $("#electrifiedContainer").addClass('hide');
+                        $("#spinnerCanvas").removeClass('hide');
+                    }, 3000);
+                }
+                else if (type === "ENERGY") {
+                    that.#controller.boostEnergyValue();
+                    $("#progressMainPlay").animate({ 'width': '100%' }, 1000);
+                }
+                that.#updatePlayePageUi();
                 toast.show('Boosted Successfully');
             });
         });
@@ -405,7 +427,31 @@ class Navigator {
         //// Show hide page
         $(".more_container").removeClass('hide');
         $(".footer").removeClass('hide');
-
+        this.#controller.getLeagueInfo(function (controllerData) {
+            var cardContainer = $("#more-carousel-list");
+            cardContainer.empty();
+            var currentBalance = that.#controller.getUserInfoData().balance;
+            for (var i = 0; i < controllerData.length; i++) {
+                if (controllerData[i].cards !== null) {
+                    var completionPercent = 100;
+                    if (currentBalance < controllerData[i].endRange) {
+                        completionPercent = (currentBalance / controllerData[i].endRange) * 100;
+                    }
+                    var cardHtml = `
+                    <div class="more_cards">
+                        <h3 class="more_cards_heading">${controllerData[i].cards.name}</h3>
+                        <div class="more_card_content">
+                            <img src="${controllerData[i].cards.image}" alt="card" />
+                        </div>
+                        <h3>${(currentBalance > controllerData[i].endRange ? controllerData[i].endRange : currentBalance)} / ${controllerData[i].endRange}</h3>
+                        <div class="progress_bar_container">
+                            <div class="progress_bar" style="width:${completionPercent}%;"></div>
+                        </div>
+                    </div>`;
+                    cardContainer.append(cardHtml);
+                }
+            }
+        });
     }
     increaseEnergyValue() {
         this.#controller.increaseEnergyValue();
@@ -445,7 +491,7 @@ $(document).ready(function () {
     $("#btnGoToRefPage").click(function () { customNavigator.gotoRefPage(); });
     $("#btnGoToPlayPage").click(function () { customNavigator.gotoPlayPage(); });
     $("#btnShareReferral").click(function () { customNavigator.shareReferral(); });
-    $("#btnCopyRefUrl").click(function () { customNavigator.copyToCLipboardRefUrl(); });
+    $("#btnCopyRefUrl").click(function () { customNavigator.copyToClipboardRefUrl(); });
     $("#btnGoToEarnPage").click(function () { customNavigator.gotoEarnPage(); });
     $("#btnBackToEarnPage").click(function () {
         $(".earn_container").removeClass('hide');

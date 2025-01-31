@@ -5,6 +5,8 @@ class Controller {
     #leagueInfoData = null;
     #energyValue = 0;
     #balanceToSync = 0;
+
+    #helper = new Helper();
     constructor() {
         this.#baseApiUrl = (new Config()).getBaseApiUrl();
         if (Telegram.WebApp.initData && Telegram.WebApp.initData !== "")
@@ -22,8 +24,8 @@ class Controller {
             data: JSON.stringify({
                 initData: that.#initData,
                 referralCode: null,
-                timeDifference: '+05:30',
-                timezone: 'Asia/Calcutta'
+                timeDifference: that.#helper.getDateTimeDifference(),
+                timezone: that.#helper.getDateTimeZone(),
             }),
             success: function (returnData) {
                 if (returnData.status === true) {
@@ -363,36 +365,42 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
-    syncBalance() {
+    syncBalance(successCallback) {
         var that = this;
         var balanceToSync = that.#balanceToSync;
         that.#balanceToSync = 0;
-        $.ajax({
-            url: that.#baseApiUrl + '/user/earn-reward',
-            contentType: "application/json",
-            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
-            type: 'POST',
-            data: JSON.stringify({
-                encryptId: that.#userInfoData.encryptId,
-                initData: that.#initData,
-                balance: balanceToSync,
-                timestamp: (new Date()).getTime()
-            }),
-            success: function (returnData) {
-                if (returnData.status === true) {
-                    // that.#userInfoData.balance = returnData.data.balance;
-                    if (successCallback)
-                        successCallback(returnData.data);
-                }
-                else {
+        var timestampMills = that.#helper.getTimeStampMiliseconds();
+        doCryptEnc(that.#initData + timestampMills, function (cbData) {
+            $.ajax({
+                url: that.#baseApiUrl + '/user/earn-reward',
+                contentType: "application/json",
+                headers: {
+                    'authorization': 'Bearer ' + that.#userInfoData.authorization,
+                    'token': cbData
+                },
+                type: 'POST',
+                data: JSON.stringify({
+                    encryptId: that.#userInfoData.encryptId,
+                    initData: that.#initData,
+                    balance: balanceToSync,
+                    timestamp: timestampMills
+                }),
+                success: function (returnData) {
+                    if (returnData.status === true) {
+                        // that.#userInfoData.balance = returnData.data.balance;
+                        if (successCallback)
+                            successCallback(returnData.data);
+                    }
+                    else {
+                        that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
+                        alert(returnData.error);
+                    }
+                },
+                error: function () {
                     that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
-                    alert(returnData.error);
+                    alert("Something went wrong. Please try again later.");
                 }
-            },
-            error: function () {
-                that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
-                alert("Something went wrong. Please try again later.");
-            }
+            });
         });
     }
     getUserInfoData() {
@@ -410,6 +418,10 @@ class Controller {
             currentEnergyVal = capacityRate;
         this.#energyValue = currentEnergyVal;
     }
+    boostEnergyValue() {
+        var capacityRate = this.#userInfoData.capacityRate;
+        this.#energyValue = capacityRate;
+    }
     mineEnergyValue(syncCounter) {
         var energyValue = this.#energyValue;
         if (energyValue > 0) {
@@ -419,12 +431,21 @@ class Controller {
             this.#energyValue -= miningEnergy;
             this.#userInfoData.balance += pointsGenerated;
             this.#balanceToSync += pointsGenerated;
-
-            ///// Sync to server each 5 seconds
-            if (syncCounter % 5 === 0) {
-                this.syncBalance();
-            }
         }
+        ///// Sync to server each 5 seconds
+        if (syncCounter % 5 === 0 && this.#balanceToSync > 0) {
+            this.syncBalance();
+        }
+    }
+    consumeAllEnergyValue() {
+        var energyValue = this.#energyValue;
+        if (energyValue > 0) {
+            this.#energyValue = 0;
+            this.#userInfoData.balance += energyValue;
+            this.#balanceToSync += energyValue;
+        }
+        ///// Sync to server each 5 seconds
+        this.syncBalance();
     }
     getEnergyValue() {
         return this.#energyValue;
