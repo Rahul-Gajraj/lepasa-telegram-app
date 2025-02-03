@@ -480,6 +480,9 @@ class Navigator {
         this.#controller.increaseEnergyValue();
         this.#updatePlayePageUi();
     }
+    isSwipeEnabled() {
+        return this.#controller.getUserInfoData().isSwipeFidget === "1";
+    }
     triggerHapticFeedback() {
         try {
             const data = JSON.stringify({
@@ -507,9 +510,8 @@ class Navigator {
     }
 
 }
-var customNavigator = null;
 $(document).ready(function () {
-    customNavigator = new Navigator();
+    var customNavigator = new Navigator();
     customNavigator.init();
     $("#btnGoToRefPage").click(function () { customNavigator.gotoRefPage(); });
     $("#btnGoToPlayPage").click(function () { customNavigator.gotoPlayPage(); });
@@ -525,5 +527,8 @@ $(document).ready(function () {
     $("#btnGoToShopPage").click(function () { customNavigator.gotoShopPage(); });
     $("#btnGoToMorePage").click(function () { customNavigator.gotoMorePage(); });
     $("#chkFidgetControl").change(function () { customNavigator.toggleFidgetControl(); });
+
+    var customSpinner = new Spinner(customNavigator);
+    customSpinner.init();
 });
 
