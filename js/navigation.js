@@ -103,6 +103,8 @@ class Navigator {
         this.hideAll();
         $(".play_container").removeClass('hide');
         $(".footer").removeClass('hide');
+        $(".footer_div.active").removeClass('active');
+        $("#btnGoToPlayPage").addClass('active');
         this.#updatePlayePageUi();
         var vestingAmt = this.#controller.getUserInfoData().vestingAmount;
         if (vestingAmt > 0) {
@@ -143,6 +145,9 @@ class Navigator {
         this.hideAll();
         $(".ref_container").removeClass('hide');
         $(".footer").removeClass('hide');
+        $(".footer_div.active").removeClass('active');
+        $("#btnGoToRefPage").addClass('active');
+
         var that = this;
         this.#controller.getReferralList(function (dataList) {
             var ulReferralListContainer = $("#ulReferralListContainer");
@@ -186,6 +191,8 @@ class Navigator {
     gotoEarnPage() {
         this.hideAll();
         var that = this;
+        $(".footer_div.active").removeClass('active');
+        $("#btnGoToEarnPage").addClass('active');
 
         //// Show hide page
         $(".earn_container").removeClass('hide');
@@ -244,6 +251,7 @@ class Navigator {
     gotoLeagueInfoPage() {
         this.hideAll();
         $(".leagues_container").removeClass('hide');
+
         var that = this;
         var data = this.#controller.getLeagueInfoData();
         var userInfoData = this.#controller.getUserInfoData();
@@ -290,6 +298,8 @@ class Navigator {
     gotoShopPage() {
         this.hideAll();
         var that = this;
+        $(".footer_div.active").removeClass('active');
+        $("#btnGoToShopPage").addClass('active');
 
         //// Show hide page
         $(".shop_container").removeClass('hide');
@@ -426,6 +436,8 @@ class Navigator {
     gotoMorePage() {
         this.hideAll();
         var that = this;
+        $(".footer_div.active").removeClass('active');
+        $("#btnGoToMorePage").addClass('active');
 
         //// Show hide page
         $(".more_container").removeClass('hide');
