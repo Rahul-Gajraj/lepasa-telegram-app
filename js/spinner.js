@@ -18,8 +18,8 @@ class Spinner {
     this.#ctx = ctx;
 
     var image = document.createElement("img");
-    image.height = 300;
-    image.width = 300;
+    image.height = 310;
+    image.width = 310;
     image.src = "/public/fidget.png";
     var that = this;
     image.addEventListener('load', function () {
@@ -27,7 +27,7 @@ class Spinner {
       var y = canvas.height / 2;
       var width = image.width;
       var height = image.height;
-      that.#ctx.drawImage(image, 10, 10, width, height);
+      that.#ctx.drawImage(image, 0, 0, width, height);
     });
     this.#image = image;
     document.getElementById("svalue").innerHTML = this.#speed;
