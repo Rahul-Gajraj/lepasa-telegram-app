@@ -135,6 +135,9 @@ class Navigator {
             $("#miningAnimationValue").removeClass('hide').find('.animated-text').text('+' + (energyValue > userInfoData.miningRate ? userInfoData.miningRate : energyValue));
         else
             $("#miningAnimationValue").addClass('hide');
+
+        $("#more_info_profit_per_hour").text(userInfoData.profitPerHour);
+        $("#chkFidgetControl").prop('checked', (userInfoData.isSwipeFidget === "1"));
     }
     gotoRefPage() {
         this.hideAll();
@@ -441,7 +444,7 @@ class Navigator {
                     <div class="more_cards">
                         <h3 class="more_cards_heading">${controllerData[i].cards.name}</h3>
                         <div class="more_card_content">
-                            ${(currentBalance < controllerData[i].endRange) ? '<img class="gpu_card_lock" src="/public/padlock.svg" height="85px" width="85px" />' : ''}
+                            ${(controllerData[i].claimed === false ? '<img class="gpu_card_lock" src="/public/padlock.svg" height="85px" width="85px" />' : '')}
                             <img class="gpu_card_img" src="${controllerData[i].cards.image}" alt="card" />
                         </div>
                         <h3>${(currentBalance > controllerData[i].endRange ? controllerData[i].endRange : currentBalance)} / ${controllerData[i].endRange}</h3>
@@ -457,6 +460,9 @@ class Navigator {
         //// Bind open close tabs
         $("#more_card_tab,#more_boost_stake_tab,#more_info_tab").off('click.tabnav').on('click.tabnav', function () { that.#helper.activateTab(this); });
         $("#more_card_tab").click();
+    }
+    toggleFidgetControl() {
+        this.#controller.toggleFidgetControl($("#chkFidgetControl").is(':checked'));
     }
     increaseEnergyValue() {
         this.#controller.increaseEnergyValue();
@@ -506,6 +512,6 @@ $(document).ready(function () {
     $(".leagues_close_icon").click(function () { customNavigator.gotoPlayPage(); });
     $("#btnGoToShopPage").click(function () { customNavigator.gotoShopPage(); });
     $("#btnGoToMorePage").click(function () { customNavigator.gotoMorePage(); });
-
+    $("#chkFidgetControl").change(function () { customNavigator.toggleFidgetControl(); });
 });
 

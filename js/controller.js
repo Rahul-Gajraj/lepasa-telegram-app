@@ -12,7 +12,7 @@ class Controller {
         if (Telegram.WebApp.initData && Telegram.WebApp.initData !== "")
             this.#initData = Telegram.WebApp.initData;
         else
-            this.#initData = 'user=%7B%22id%22%3A6349140823%2C%22first_name%22%3A%22Rudra%22%2C%22last_name%22%3A%22%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F4IQmXsErxMKTxy4bPce_ZxH3MppjWlnUv2ME030zzx96DNIyi-ZnSyPag7bplMcb.svg%22%7D&chat_instance=-6584738475927264663&chat_type=private&auth_date=1735579233&signature=xJubsgO_1N15GlOK4cz6L7s53eJYdo39mahLmor8ctGmoNRJdHrB9Uyx4XyVsz2PgESLSMUMvi8Rn6zzvEw6AA&hash=fb323c60e538e4682559f1e95762e1e1f7857edd7f68cdd224edc8034b1a7b01';
+            this.#initData = 'user=%7B%22id%22%3A6349140823%2C%22first_name%22%3A%22Rudra%22%2C%22last_name%22%3A%22%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2F4IQmXsErxMKTxy4bPce_ZxH3MppjWlnUv2ME030zzx96DNIyi-ZnSyPag7bplMcb.svg%22%7D&chat_instance=3286239363269177920&chat_type=sender&auth_date=1738561988&signature=gbwU9Bg_GoNcvV4dNoH7Yq9Xu1nSZ6kgOh09u9E2bdBlEls_s5wAQlzmsRWRWVpy6AZa9zpgHHLjrifRceOnBg&hash=bf10feafe9493dec967cfc754705cb87800cd1262bba6698a222308452bcab9c';
     }
 
     getLandingPageInfo(successCallback) {
@@ -401,6 +401,26 @@ class Controller {
                     alert("Something went wrong. Please try again later.");
                 }
             });
+        });
+    }
+    toggleFidgetControl(isSwipe) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/update-fidget',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                isSwipe: isSwipe
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.isSwipeFidget = isSwipe === true ? "1" : "0";
+                }
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
     getUserInfoData() {
