@@ -581,11 +581,11 @@ body {
   justify-content: center;
 }
 
-.footer_icon {
+.footer_div.active .footer_icon {
   filter: brightness(0) saturate(100%) invert(90%) sepia(46%) saturate(3516%) hue-rotate(307deg) brightness(94%) contrast(114%);
 }
 
-.footer_p {
+.footer_div.active .footer_p {
   color: #ffae60;
 }
 
