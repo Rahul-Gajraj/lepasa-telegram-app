@@ -311,12 +311,15 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fidget_spinner_logo {
   position: absolute;
-  top: 44%;
-  left: 45%;
+  /* top: 44%; */
+  /* left: 45%; */
 }
 
 .fidget_spinner>h2 {
@@ -831,11 +834,15 @@ body {
   /* text-align: center; */
   color: white;
   height: 100%;
+  overflow: auto;
 }
 
 .drawer_close_icon {
   display: flex;
   justify-content: flex-end;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 }
 
 .drawer_content {
@@ -1032,6 +1039,7 @@ body {
   justify-content: space-between;
   margin-bottom: 10px;
   margin-left: 5px;
+  border-radius: 5px;
 }
 
 .more_info_leaderboard_cards>p {
@@ -1051,7 +1059,7 @@ body {
 .switch {
   position: relative;
   display: block;
-  width: 50px;
+  width: 40px;
   height: 20px;
   padding: 3px;
   border-radius: 18px;
@@ -1088,7 +1096,7 @@ body {
 }
 
 .switch-input:checked~.switch-handle {
-  left: 33px;
+  left: 23px;
 }
 
 .switch-label,
@@ -1503,3 +1511,80 @@ button.disabled {
   top: 0;
   left: 0;
 }
+
+/* referral drawer start */
+.referral_sticky_header {
+  position: sticky;
+  top: -20px;
+  background-color: #0e0b0a;
+  padding: 20px 0px 10px 0px;
+}
+
+#referral_title {
+  margin: 0px;
+}
+
+.referral_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+.referral_p {
+  margin: 0px;
+  font-size: 13px;
+}
+
+#referral_top_100_p {
+  margin-top: 25px;
+}
+
+.referrals_coins {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.custom_card {
+  background: #161716;
+  padding: 10px 20px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0px;
+  border-radius: 6px;
+}
+
+.custom_card_user_info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user_profile_name {
+  background-color: chocolate;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.user_rank_div {
+  align-items: center;
+}
+
+.referral_top_100 {
+  overflow: auto;
+  margin-bottom: 20px;
+}
+/* referral drawer end */

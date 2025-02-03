@@ -4,15 +4,15 @@ var canvas = document.getElementById('spinnerCanvas');
 var ctx = canvas.getContext('2d');
 
 const image = document.createElement("img");
-image.height = 300;
-image.width = 300;
+image.height = 310;
+image.width = 310;
 image.src = "/public/fidget.png";
 image.addEventListener('load', function () {
   var x = canvas.width / 2;
   var y = canvas.height / 2;
   var width = image.width;
   var height = image.height;
-  ctx.drawImage(image, 10, 10, width, height);
+  ctx.drawImage(image, 0, 0, width, height);
 });
 
 
