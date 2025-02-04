@@ -446,8 +446,11 @@ class Controller {
         var energyValue = this.#energyValue;
         if (energyValue > 0) {
             var miningRate = this.#userInfoData.miningRate;
-            var miningEnergy = energyValue > miningRate ? miningRate : energyValue;
-            var pointsGenerated = miningEnergy + this.#userInfoData.rankId;
+            var totalEnergyCapacity = this.#userInfoData.capacityRate;
+            var energyToConsume = Math.ceil(totalEnergyCapacity / 300); //// Energy to conusme per second to make it empty in 5 minutes
+            var miningEnergy = energyValue > energyToConsume ? energyToConsume : energyValue;
+            var pointsGenerated = miningEnergy * (Math.ceil(miningRate / 2) + miningRate);
+
             this.#energyValue -= miningEnergy;
             this.#userInfoData.balance += pointsGenerated;
             this.#balanceToSync += pointsGenerated;
@@ -458,11 +461,13 @@ class Controller {
         }
     }
     consumeAllEnergyValue() {
-        var energyValue = this.#energyValue;
-        if (energyValue > 0) {
+        var energyToConsume = this.#energyValue;
+        if (energyToConsume > 0) {
+            var miningRate = this.#userInfoData.miningRate;
+            var pointsGenerated = energyToConsume * (Math.ceil(miningRate / 2) + miningRate);
             this.#energyValue = 0;
-            this.#userInfoData.balance += energyValue;
-            this.#balanceToSync += energyValue;
+            this.#userInfoData.balance += pointsGenerated;
+            this.#balanceToSync += pointsGenerated;
         }
         ///// Sync to server each 5 seconds
         this.syncBalance();
