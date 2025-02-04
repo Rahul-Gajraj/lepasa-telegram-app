@@ -25,7 +25,7 @@ class Navigator {
             that.#helper.closeDrawer();
         });
     }
-    hideAll() {
+    #hideAll() {
         $(".loading_screen").addClass('hide');
         $(".welcome_screen").addClass('hide');
         $(".welcome_bonus_wrapper").addClass('hide');
@@ -100,7 +100,7 @@ class Navigator {
         ////Continue button's binding is done above in landingPage() function because of data availability
     }
     gotoPlayPage() {
-        this.hideAll();
+        this.#hideAll();
         $(".play_container").removeClass('hide');
         $(".footer").removeClass('hide');
         $(".footer_div.active").removeClass('active');
@@ -142,7 +142,7 @@ class Navigator {
         $("#chkFidgetControl").prop('checked', (userInfoData.isSwipeFidget === "1"));
     }
     gotoRefPage() {
-        this.hideAll();
+        this.#hideAll();
         $(".ref_container").removeClass('hide');
         $(".footer").removeClass('hide');
         $(".footer_div.active").removeClass('active');
@@ -189,7 +189,7 @@ class Navigator {
         $("#CopyRefUrlInput").val(this.#controller.getUserInfoData().referralLink);
     }
     gotoEarnPage() {
-        this.hideAll();
+        this.#hideAll();
         var that = this;
         $(".footer_div.active").removeClass('active');
         $("#btnGoToEarnPage").addClass('active');
@@ -249,7 +249,7 @@ class Navigator {
         $("#currentLeague_Img").attr('src', `/public/leagues/${currentLeague.toLowerCase()}.png`);
     }
     gotoLeagueInfoPage() {
-        this.hideAll();
+        this.#hideAll();
         $(".leagues_container").removeClass('hide');
 
         var that = this;
@@ -296,7 +296,7 @@ class Navigator {
         }
     }
     gotoShopPage() {
-        this.hideAll();
+        this.#hideAll();
         var that = this;
         $(".footer_div.active").removeClass('active');
         $("#btnGoToShopPage").addClass('active');
@@ -332,6 +332,12 @@ class Navigator {
                 toast.show('Booster not ready');
                 return;
             }
+            var userInfo = that.#controller.getUserInfoData();
+            var currentEnergy = that.#controller.getEnergyValue();
+            if ((currentEnergy * 2) > userInfo.capacityRate) {
+                toast.show('Please consume energy before applying the booster.');
+                return;
+            }
             that.hideAllDrawerContents();
             that.#helper.openDrawer();
             $("#shop_booster_update_drawer").removeClass('hide');
@@ -347,6 +353,13 @@ class Navigator {
                 toast.show('Booster not ready');
                 return;
             }
+            var userInfo = that.#controller.getUserInfoData();
+            var currentEnergy = that.#controller.getEnergyValue();
+            if ((currentEnergy * 2) < userInfo.capacityRate) {
+                toast.show('Please fill energy before applying the booster.');
+                return;
+            }
+
             that.hideAllDrawerContents();
             that.#helper.openDrawer();
             $("#shop_booster_update_drawer").removeClass('hide');
@@ -434,7 +447,7 @@ class Navigator {
         });
     }
     gotoMorePage() {
-        this.hideAll();
+        this.#hideAll();
         var that = this;
         $(".footer_div.active").removeClass('active');
         $("#btnGoToMorePage").addClass('active');
@@ -472,6 +485,21 @@ class Navigator {
         //// Bind open close tabs
         $("#more_card_tab,#more_boost_stake_tab,#more_info_tab").off('click.tabnav').on('click.tabnav', function () { that.#helper.activateTab(this); });
         $("#more_card_tab").click();
+        $("#how_to_play_div").off('click').on('click', function () {
+            that.hideAllDrawerContents();
+            that.#helper.openDrawer();
+            $("#how_to_play_drawer").removeClass('hide');
+        });
+        $("#faqs_div").off('click').on('click', function () {
+            that.hideAllDrawerContents();
+            that.#helper.openDrawer();
+            $("#faq_drawer").removeClass('hide');
+        });
+        $("#openMoreInfoLeaderboard_Referral_drawer").off('click').on('click', function () {
+            that.hideAllDrawerContents();
+            that.#helper.openDrawer();
+            $("#leaderdboard_referral_drawer").removeClass('hide');
+        });
     }
     toggleFidgetControl() {
         this.#controller.toggleFidgetControl($("#chkFidgetControl").is(':checked'));
