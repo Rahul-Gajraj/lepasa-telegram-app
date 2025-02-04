@@ -444,6 +444,26 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    getLeaderboardPlayer(successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/leaderboard',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }

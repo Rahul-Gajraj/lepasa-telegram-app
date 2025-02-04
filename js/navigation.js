@@ -51,6 +51,8 @@ class Navigator {
         $("#how_to_play_drawer").addClass('hide');
         $("#faq_drawer").addClass('hide');
         $("#individual_task_drawer").addClass('hide');
+        $("#leaderdboard_referral_drawer").addClass('hide');
+        $("#leaderdboard_player_drawer").addClass('hide');
     }
     landingPage(controllerData) {
         console.log('On landing page');
@@ -504,6 +506,12 @@ class Navigator {
         $("#chkLeaderboard_Referral_Dateflag").off('change').on('change', function () {
             that.#bindLeaderboardReferral();
         });
+        $("#openMoreInfoLeaderboard_Player_drawer").off('click').on('click', function () {
+            that.hideAllDrawerContents();
+            that.#helper.openDrawer();
+            $("#leaderdboard_player_drawer").removeClass('hide');
+            that.#bindLeaderboardPlayer();
+        });
     }
     #bindLeaderboardReferral() {
         var that = this;
@@ -514,23 +522,42 @@ class Navigator {
         that.#controller.getLeaderboardReferral($("#chkLeaderboard_Referral_Dateflag").is(':checked'), function (controllerData) {
             if (controllerData.refferals.length > 0) { //////Bind sub header
 
-                subheader.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.refferals[0]));
+                subheader.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.refferals[0], 0, true));
             }
             //// Bind main data
             if (controllerData.refferals.length > 1) {
                 for (var i = 1; i < controllerData.refferals.length; i++) {
-                    mainContainer.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.refferals[i]));
+                    mainContainer.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.refferals[i], i, true));
                 }
             }
         });
     }
-    #bindMoreInfoLeaderboardCardHtml(data) {
+    #bindLeaderboardPlayer() {
+        var that = this;
+        var subheader = $("#leaderdboard_player_drawer .referral_subheader");
+        var mainContainer = $("#leaderdboard_player_drawer .referral_top_100");
+        subheader.empty();
+        mainContainer.empty();
+        that.#controller.getLeaderboardPlayer(function (controllerData) {
+            if (controllerData.users.length > 0) { //////Bind sub header
+
+                subheader.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.users[0], 0, false));
+            }
+            //// Bind main data
+            if (controllerData.users.length > 1) {
+                for (var i = 1; i < controllerData.users.length; i++) {
+                    mainContainer.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.users[i], i, false));
+                }
+            }
+        });
+    }
+    #bindMoreInfoLeaderboardCardHtml(data, index, isForRefferal) {
         var shortName = '';
         if (data.handle !== null && data.handle.length > 1) {
             shortName = data.handle.substr(0, 2).toUpperCase();
         }
         var html = `
-                    <p class="referral_p">Me</p>
+                    ${(index === 0 ? '<p class="referral_p">Me</p>' : '')}
                     <div class="custom_card">
                         <div class="custom_card_user_info">
                         <div class="user_profile_name">
@@ -540,13 +567,13 @@ class Navigator {
                             <p class="referral_p user_name">${data.handle}</p>
                             <div class="referrals_coins">
                             <img src="/public/coin.png" height="20px" width="20px" />
-                            <p class="referral_p user_referral_count">${data.referral_bonus}</p>
+                            <p class="referral_p user_referral_count">${(isForRefferal === true ? data.referral_bonus : data.points).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                             </div>
                         </div>
                         </div>
                         <div class="user_info user_rank_div">
-                        <p class="referral_p">#${data.rank}</p>
-                        <p class="referral_p">${data.referral_count}</p>
+                        <p class="referral_p">#${(isForRefferal === true ? data.rank : data.user_rank)}</p>
+                        <p class="referral_p ${(isForRefferal === true ? '' : 'hide')}">${data.referral_count}</p>
                         </div>
                     </div>
                     `;
