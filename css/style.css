@@ -499,9 +499,9 @@ body, html {
 }
 
 .task_card_logo {
-  border: 1px solid #272727;
+  /* border: 1px solid #272727;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 .task_card_content_body {

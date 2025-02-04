@@ -221,7 +221,7 @@ class EarnPage {
             var html = `
                 <div class="task_container_card ${dataRow.isOpen === true ? `` : `disabled`}" id="btnDailyTask${dataRow.isOpen === true ? `` : `Non`}Opener_${i}">
                     <div class="task_card_content">
-                        <img class="task_card_logo" src="${dataRow.symbol}" height="30px" width="30px" />
+                        <img class="task_card_logo" src="${dataRow.symbol}" height="40px" width="40px" />
                         <p class="task_name">${dataRow.name}</p>
                         <div class="task_card_content_body">
                             <p class="profit_per_hour">Profit Per Hour</p>
