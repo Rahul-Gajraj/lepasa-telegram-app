@@ -1581,3 +1581,12 @@ button.disabled {
   margin-bottom: 20px;
 }
 /* referral drawer end */
+
+ul {
+  padding-left: 17px;
+  margin-top: 0px;
+}
+
+li {
+  list-style: none;
+}
