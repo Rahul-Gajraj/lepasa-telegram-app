@@ -222,21 +222,21 @@ class EarnPage {
                 <div class="task_container_card ${dataRow.isOpen === true ? `` : `disabled`}" id="btnDailyTask${dataRow.isOpen === true ? `` : `Non`}Opener_${i}">
                     <div class="task_card_content">
                         <img class="task_card_logo" src="${dataRow.symbol}" height="30px" width="30px" />
+                        <p class="task_name">${dataRow.name}</p>
                         <div class="task_card_content_body">
-                            <p>${dataRow.name}</p>
                             <p class="profit_per_hour">Profit Per Hour</p>
                             <div class="task_card_content_footer">
-                                <img src="/public/coin.png" height="20px" width="20px" />
-                                <p>${dataRow.earning}</p>
+                                <img src="/public/coin.png" height="15px" width="15px" />
+                                <p class="task_earnings_amt">${dataRow.earning}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="task_card_footer">
-                        <p class="task_card_footer_p">${dataRow.stage}</p>
-                        <div class="task_card_footer_divider"></div>
-                        <div class="task_card_footer_coin_div">
-                            <img src="/public/coin.png" height="20px" width="20px" />
-                            <p>${dataRow.price}</p>
+                        <div class="task_card_footer">
+                            <p class="task_card_footer_p">${dataRow.stage}</p>
+                            <div class="task_card_footer_divider"></div>
+                            <div class="task_card_footer_coin_div">
+                                <img src="/public/coin.png" height="20px" width="20px" />
+                                <p>${dataRow.price}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
