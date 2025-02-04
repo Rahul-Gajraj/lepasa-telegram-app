@@ -499,7 +499,58 @@ class Navigator {
             that.hideAllDrawerContents();
             that.#helper.openDrawer();
             $("#leaderdboard_referral_drawer").removeClass('hide');
+            that.#bindLeaderboardReferral();
         });
+        $("#chkLeaderboard_Referral_Dateflag").off('change').on('change', function () {
+            that.#bindLeaderboardReferral();
+        });
+    }
+    #bindLeaderboardReferral() {
+        var that = this;
+        var subheader = $("#leaderdboard_referral_drawer .referral_subheader");
+        var mainContainer = $("#leaderdboard_referral_drawer .referral_top_100");
+        subheader.empty();
+        mainContainer.empty();
+        that.#controller.getLeaderboardReferral($("#chkLeaderboard_Referral_Dateflag").is(':checked'), function (controllerData) {
+            if (controllerData.refferals.length > 0) { //////Bind sub header
+
+                subheader.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.refferals[0]));
+            }
+            //// Bind main data
+            if (controllerData.refferals.length > 1) {
+                for (var i = 1; i < controllerData.refferals.length; i++) {
+                    mainContainer.append(that.#bindMoreInfoLeaderboardCardHtml(controllerData.refferals[i]));
+                }
+            }
+        });
+    }
+    #bindMoreInfoLeaderboardCardHtml(data) {
+        var shortName = '';
+        if (data.handle !== null && data.handle.length > 1) {
+            shortName = data.handle.substr(0, 2).toUpperCase();
+        }
+        var html = `
+                    <p class="referral_p">Me</p>
+                    <div class="custom_card">
+                        <div class="custom_card_user_info">
+                        <div class="user_profile_name">
+                            <p>${shortName}</p>
+                        </div>
+                        <div class="user_info">
+                            <p class="referral_p user_name">${data.handle}</p>
+                            <div class="referrals_coins">
+                            <img src="/public/coin.png" height="20px" width="20px" />
+                            <p class="referral_p user_referral_count">${data.referral_bonus}</p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="user_info user_rank_div">
+                        <p class="referral_p">#${data.rank}</p>
+                        <p class="referral_p">${data.referral_count}</p>
+                        </div>
+                    </div>
+                    `;
+        return html;
     }
     toggleFidgetControl() {
         this.#controller.toggleFidgetControl($("#chkFidgetControl").is(':checked'));

@@ -423,6 +423,27 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    getLeaderboardReferral(dateflag, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/fetch-referrals',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                dateflag: dateflag
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    if (successCallback)
+                        successCallback(returnData.data);
+                }
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getUserInfoData() {
         return this.#userInfoData;
     }
