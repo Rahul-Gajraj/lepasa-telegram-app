@@ -29,7 +29,8 @@ class Helper {
         navigator.clipboard.writeText(copyText.value);
 
         // Alert the copied text
-        toast.show("Copied the text: " + copyText.value);
+        // toast.show("Copied the text: " + copyText.value);
+        toast.show("Copied");
     }
     getDateTimeDifference() {
         var timeOffset = new Date().getTimezoneOffset();
