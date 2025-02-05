@@ -50,18 +50,18 @@ class Spinner {
         that.#cords.yUp = originalEvent.changedTouches[0].pageY;
         if (that.#cords.xDown != that.#cords.xUp || that.#cords.yDown != that.#cords.yUp && that.#customNavigator.isSwipeEnabled() === true) {
           console.info('Swiped');
-          that.#increaseSpeed();
+          that.#increaseSpeed(true);
         }
         else if (that.#customNavigator.isSwipeEnabled() === false) {
           console.info('Touched');
-          that.#increaseSpeed();
+          that.#increaseSpeed(false);
         }
       });
     this.#render();
   }
-  #increaseSpeed() {
+  #increaseSpeed(isSwipe) {
     if (this.#speed < 1500)
-      this.#speed += 100;
+      this.#speed += (isSwipe === true ? 200 : 100);
     this.#customNavigator.increaseEnergyValue();
   }
 
