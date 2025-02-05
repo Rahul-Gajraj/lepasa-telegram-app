@@ -6,9 +6,9 @@ class Navigator {
     constructor() {
         this.#earnPage = new EarnPage(this);
     }
-    init() {
+    init(reffUrl) {
         var that = this;
-        this.#controller.getLandingPageInfo(function (controllerData) {
+        this.#controller.getLandingPageInfo(reffUrl, function (controllerData) {
             that.landingPage(controllerData);
             that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
             //// Run function each second to see if energy bar has some value
@@ -617,8 +617,12 @@ class Navigator {
 
 }
 $(document).ready(function () {
+    var reffUrl = '';
+    if (window.location.search && window.location.search !== '') {
+        reffUrl = window.location.search.split('&')[0].replace('?tgWebAppStartParam=', '');
+    }
     var customNavigator = new Navigator();
-    customNavigator.init();
+    customNavigator.init(reffUrl);
     $("#btnGoToRefPage").click(function () { customNavigator.gotoRefPage(); });
     $("#btnGoToPlayPage").click(function () { customNavigator.gotoPlayPage(); });
     $("#btnShareReferral").click(function () { customNavigator.shareReferral(); });
