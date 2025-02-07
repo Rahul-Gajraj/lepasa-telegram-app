@@ -22,6 +22,7 @@ class Navigator {
 
         });
         $("#btnCloseDrawer,#backdrop").click(function () {
+            that.hideAllDrawerContents();
             that.#helper.closeDrawer();
         });
     }
@@ -114,6 +115,7 @@ class Navigator {
         }
     }
     openAutomatedTellerDrawer(vestingAmt) {
+        this.hideAllDrawerContents();
         this.#helper.openDrawer();
         $("#automated_teller_drawer").removeClass('hide');
         $("#txtVestingAmount").text(vestingAmt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));

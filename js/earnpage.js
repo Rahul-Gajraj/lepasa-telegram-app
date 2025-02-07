@@ -1,9 +1,11 @@
 class EarnPage {
     #navigationReference = null;
     #helper = null;
+    #config = null;
     constructor(navigationReference) {
         this.#navigationReference = navigationReference;
         this.#helper = new Helper();
+        this.#config = new Config();
     }
     loadPartners(dataset) {
         var partnerContainer = $(".community_card_partner_content");
@@ -143,6 +145,12 @@ class EarnPage {
                     </div>
                 
             `);
+            if (dataset.walletConnectReport.status === false) {
+                const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+                    manifestUrl: that.#config.getBaseCdnUrl + '/tonconnect-manifest.json',
+                    buttonRootId: 'btnWalletConnect'
+                });
+            }
             $(".earn_container").addClass('hide');
             $(".earn_detail_container").removeClass('hide');
         });
@@ -256,7 +264,7 @@ class EarnPage {
                 $("#individual_task_drawer").removeClass('hide');
                 that.#helper.openDrawer();
 
-                if (dailyTaskData.isOpen === true){
+                if (dailyTaskData.isOpen === true) {
                     $("#btnIndividualTaskClaim").removeClass('hide').off('click.dailytask').on('click.dailytask', function () {
                         that.#navigationReference.claimDailyTask(dailyTaskData.taskId, dailyTaskData.stageId, function (claimResponse) {
                             that.#helper.closeDrawer();
@@ -265,7 +273,7 @@ class EarnPage {
                         });
                     });
                 }
-                else{
+                else {
                     $("#btnIndividualTaskClaim").addClass('hide');
                 }
             });
