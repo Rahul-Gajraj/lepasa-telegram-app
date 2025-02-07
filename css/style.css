@@ -135,7 +135,7 @@ body, html {
 
 .welcome_bonus_body>img {
   position: absolute;
-  top: 25%;
+  top: 20%;
   left: 5%;
 }
 
@@ -719,7 +719,7 @@ body, html {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex: 2;
+  /* flex: 2; */
 }
 
 .shop_item_content {
@@ -746,7 +746,7 @@ body, html {
 .shop_level_list {
   list-style-type: none;
   padding: 0;
-  height: calc(100vh - 242px);
+  /* height: calc(100vh - 242px); */
   overflow: auto;
 }
 

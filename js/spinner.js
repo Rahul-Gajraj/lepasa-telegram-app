@@ -77,11 +77,13 @@ class Spinner {
       var y = this.#canvas.height / 2;
       var width = this.#image.width;
       var height = this.#image.height;
+      var scaleFactor = 0.98;
 
       console.log('Speed ' + this.#speed);
       this.#ctx.translate(x, y);
       this.#ctx.rotate(this.#angle);
-      this.#ctx.drawImage(this.#image, -width / 2, -height / 2, width, height);
+      this.#ctx.drawImage(this.#image, -width / 2 * scaleFactor, -height / 2 * scaleFactor, width * scaleFactor, height * scaleFactor);
+      // this.#ctx.drawImage(this.#image, -width / 2, -height / 2, width, height);
       this.#ctx.rotate(-this.#angle);
       this.#ctx.translate(-x, -y);
     }
