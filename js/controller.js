@@ -257,6 +257,48 @@ class Controller {
             error: function () { alert("Something went wrong. Please try again later."); }
         });
     }
+    claimWalletConnect(accountAddress, successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/connect-wallet',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId,
+                address: accountAddress
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    that.#userInfoData.balance = returnData.data.balance;
+                    if (successCallback)
+                        successCallback(that.#userInfoData);
+                }
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
+    disconnectWalletConnect(successCallback) {
+        var that = this;
+        $.ajax({
+            url: that.#baseApiUrl + '/user/disconnect-wallet',
+            contentType: "application/json",
+            headers: { 'authorization': 'Bearer ' + that.#userInfoData.authorization },
+            type: 'POST',
+            data: JSON.stringify({
+                encryptId: that.#userInfoData.encryptId
+            }),
+            success: function (returnData) {
+                if (returnData.status === true) {
+                    if (successCallback)
+                        successCallback(that.#userInfoData);
+                }
+                else alert(returnData.error);
+            },
+            error: function () { alert("Something went wrong. Please try again later."); }
+        });
+    }
     getLeagueInfo(successCallback) {
         var that = this;
         $.ajax({

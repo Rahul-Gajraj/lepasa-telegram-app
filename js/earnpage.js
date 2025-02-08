@@ -146,13 +146,56 @@ class EarnPage {
                 
             `);
             if (dataset.walletConnectReport.status === false) {
-                const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-                    manifestUrl: that.#config.getBaseCdnUrl + '/tonconnect-manifest.json',
-                    buttonRootId: 'btnWalletConnect'
+                $("#btnWalletConnect").click(function () {
+                    that.#connectToWallet().catch(error => {
+                        console.error("Error connecting to wallet:", error);
+                        toast.show('Unable to connect wallet! Please try again.');
+                    });
+                });
+            }
+            else{
+                $("#btnWalletDisconnect").click(function () {
+                    that.#disConnectToWallet().catch(error => {
+                        console.error("Error connecting to wallet:", error);
+                        toast.show('Unable to disconnect wallet! Please try again.');
+                    });
                 });
             }
             $(".earn_container").addClass('hide');
             $(".earn_detail_container").removeClass('hide');
+        });
+    }
+    async #connectToWallet() {
+        var that = this;
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: `${that.#config.getBaseCdnUrl()}/tonconnect-manifest.json`,
+        });
+        const connectedWallet = await tonConnectUI.connectWallet();
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
+        that.#navigationReference.claimWalletConnect(connectedWallet.account.address, function () {
+            $("#btnGoToEarnPage").click();
+            toast.show('Wallet connected and claimed successfuly.');
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        });
+    }
+    async #disConnectToWallet() {
+        var that = this;
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: `${that.#config.getBaseCdnUrl()}/tonconnect-manifest.json`,
+        });
+        const connectedWallet = await tonConnectUI.connectWallet();
+        await tonConnectUI.disconnect();
+        // Do something with connectedWallet if needed
+        console.log(connectedWallet);
+        that.#navigationReference.disconnectWalletConnect(function () {
+            $("#btnGoToEarnPage").click();
+            toast.show('Wallet disconnected successfuly.');
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
         });
     }
     claimAndVerifyTonFSocialTask($elem) {

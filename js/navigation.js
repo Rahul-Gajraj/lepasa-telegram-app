@@ -237,6 +237,12 @@ class Navigator {
     claimDailyTask(taskId, stageId, callbackFn) {
         this.#controller.claimDailyTask(taskId, stageId, callbackFn);
     }
+    claimWalletConnect(accountAddress, callbackFn) {
+        this.#controller.claimWalletConnect(accountAddress, callbackFn);
+    }
+    disconnectWalletConnect(callbackFn) {
+        this.#controller.disconnectWalletConnect(callbackFn);
+    }
     shareReferral() {
         window.open(this.#controller.getUserInfoData().referralLink, '_blank');
     }
