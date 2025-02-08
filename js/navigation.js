@@ -26,6 +26,12 @@ class Navigator {
             that.#helper.closeDrawer();
         });
     }
+    resetUserInfo() {
+        var that = this;
+        this.#controller.getLandingPageInfo(null, function (controllerData) {
+            that.#controller.getLeagueInfo(function (controllerDataLeague) { that.setLeagueInfoOnPlayPage(controllerDataLeague); });
+        });
+    }
     #hideAll() {
         $(".loading_screen").addClass('hide');
         $(".welcome_screen").addClass('hide');
@@ -54,6 +60,7 @@ class Navigator {
         $("#individual_task_drawer").addClass('hide');
         $("#leaderdboard_referral_drawer").addClass('hide');
         $("#leaderdboard_player_drawer").addClass('hide');
+        $("#league_Claim_drawer").addClass('hide');
     }
     landingPage(controllerData) {
         console.log('On landing page');
@@ -244,7 +251,7 @@ class Navigator {
         this.#controller.disconnectWalletConnect(callbackFn);
     }
     shareReferral() {
-        window.open(this.#controller.getUserInfoData().referralLink, '_blank');
+        window.open('https://t.me/share/url?url='+this.#controller.getUserInfoData().referralLink, '_blank');
     }
     copyToClipboardRefUrl() {
         this.#helper.copyToClipboardRefUrl("CopyRefUrlInput");
@@ -286,7 +293,7 @@ class Navigator {
                             </div>
                         </div>
                         ${(leagueInfo.claimed === false && leagueInfo.status === true ?
-                    `<button class="claim" id="btnLeagueClaim_${i}">Claim</button>`
+                    `<button class="claim" id="btnOpenLeagueClaimDrawer_${i}">Claim</button>`
                     : leagueInfo.claimed === true && leagueInfo.status === false ?
                         `<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />`
                         : ``)}                        
@@ -297,11 +304,29 @@ class Navigator {
                 </div>            
             `;
             leaguesListContainer.append(html);
-            $("#btnLeagueClaim_" + i).off('click').on('click', function () {
-                that.#controller.claimLeagueAmount(function () {
-                    toast.show('Claimed Successfully');
-                    $("#btnGotoLeagueInfoPage").click();
-                });
+            $("#btnOpenLeagueClaimDrawer_" + i).data('leagueInfo', leagueInfo).on('click', function () {
+                var leagueInfo = $(this).data('leagueInfo');
+                if (leagueInfo.cards !== null) {
+                    that.hideAllDrawerContents();
+                    that.#helper.openDrawer();
+                    $("#league_Claim_drawer .league_Claim_drawer_container").empty().append(`<img src="${leagueInfo.cards.image}" style="width:100%;" />`);
+                    $("#league_Claim_drawer").removeClass('hide');
+                    $("#btnLeagueClaim").data('leagueInfo', leagueInfo).off('click').on('click', function () {
+                        that.#controller.claimLeagueAmount(function () {
+                            that.#helper.closeDrawer();
+                            toast.show('Claimed Successfully');
+                            that.resetUserInfo();
+                            $("#btnGotoLeagueInfoPage").click();
+                        });
+                    });
+                }
+                else {
+                    that.#controller.claimLeagueAmount(function () {
+                        toast.show('Claimed Successfully');
+                        that.resetUserInfo();
+                        $("#btnGotoLeagueInfoPage").click();
+                    });
+                }
             });
         }
     }
@@ -450,6 +475,7 @@ class Navigator {
             var type = $(this).data('levelUpgradeType');
             that.#controller.shopUpgradeLevel(type, function (dataset) {
                 $("#shop_level_upgrade_drawer").addClass('hide');
+                that.resetUserInfo();
                 that.#helper.closeDrawer();
                 that.gotoShopPage();
                 toast.show('Claimed Successfully');
@@ -596,6 +622,9 @@ class Navigator {
     }
     isSwipeEnabled() {
         return this.#controller.getUserInfoData().isSwipeFidget === "1";
+    }
+    getCurrentBalance() {
+        return this.#controller.getUserInfoData().balance;
     }
     triggerHapticFeedback() {
         try {

@@ -38,9 +38,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     updateWelcomeClaim(successCallback) {
@@ -59,9 +59,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimVestingAmount(successCallback) {
@@ -81,9 +81,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getReferralList(successCallback) {
@@ -101,9 +101,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimReferralAmount(referralId, successCallback) {
@@ -123,9 +123,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getEarnPageData(successCallback) {
@@ -143,9 +143,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimPartnerTask(taskId, successCallback) {
@@ -165,9 +165,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimTONFiestaSocialTask(socialName, successCallback) {
@@ -188,9 +188,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimDailyRewards(successCallback) {
@@ -209,9 +209,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getDailyTask(successCallback) {
@@ -229,9 +229,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimDailyTask(taskId, stageId, successCallback) {
@@ -252,9 +252,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimWalletConnect(accountAddress, successCallback) {
@@ -274,9 +274,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     disconnectWalletConnect(successCallback) {
@@ -294,9 +294,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getLeagueInfo(successCallback) {
@@ -315,9 +315,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     claimLeagueAmount(successCallback) {
@@ -337,9 +337,9 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getUpgradeList(successCallback) {
@@ -359,9 +359,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     shopUpdateBooster(updateType, successCallback) {
@@ -381,9 +381,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     shopUpgradeLevel(updateType, successCallback) {
@@ -403,9 +403,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     syncBalance(successCallback) {
@@ -436,12 +436,12 @@ class Controller {
                     }
                     else {
                         that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
-                        toastr(returnData.error);
+                        toast.show(returnData.error);
                     }
                 },
-                error: function () {
+                error: function (error) {
                     that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
-                    alert("Something went wrong. Please try again later.");
+                    that.#handleUnexpectedError(error);
                 }
             });
         });
@@ -461,9 +461,9 @@ class Controller {
                 if (returnData.status === true) {
                     that.#userInfoData.isSwipeFidget = isSwipe === true ? "1" : "0";
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getLeaderboardReferral(dateflag, successCallback) {
@@ -482,9 +482,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getLeaderboardPlayer(successCallback) {
@@ -502,9 +502,9 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else toastr(returnData.error);
+                else toast.show(returnData.error);
             },
-            error: function () { alert("Something went wrong. Please try again later."); }
+            error: function (error) { that.#handleUnexpectedError(error); }
         });
     }
     getUserInfoData() {
@@ -562,5 +562,11 @@ class Controller {
     }
     getEnergyValueInPercent() {
         return (this.#energyValue / this.#userInfoData.capacityRate) * 100;
+    }
+    #handleUnexpectedError(error) {
+        if (error.status === 401)
+            toast.show('Multiple login detacted or session expired. Please re-open app on this device.');
+        else
+            alert("Something went wrong. Please try again later.");
     }
 }

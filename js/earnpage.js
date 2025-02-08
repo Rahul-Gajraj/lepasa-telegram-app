@@ -153,7 +153,7 @@ class EarnPage {
                     });
                 });
             }
-            else{
+            else {
                 $("#btnWalletDisconnect").click(function () {
                     that.#disConnectToWallet().catch(error => {
                         console.error("Error connecting to wallet:", error);
@@ -309,6 +309,10 @@ class EarnPage {
 
                 if (dailyTaskData.isOpen === true) {
                     $("#btnIndividualTaskClaim").removeClass('hide').off('click.dailytask').on('click.dailytask', function () {
+                        if (that.#navigationReference.getCurrentBalance() < dailyTaskData.price) {
+                            toast.show('Insufficient balance.');
+                            return false;
+                        }
                         that.#navigationReference.claimDailyTask(dailyTaskData.taskId, dailyTaskData.stageId, function (claimResponse) {
                             that.#helper.closeDrawer();
                             toast.show('Claimed successfully.');
