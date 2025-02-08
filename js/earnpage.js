@@ -176,9 +176,9 @@ class EarnPage {
         that.#navigationReference.claimWalletConnect(connectedWallet.account.address, function () {
             $("#btnGoToEarnPage").click();
             toast.show('Wallet connected and claimed successfuly.');
-            setTimeout(() => {
-                location.reload();
-            }, 3000);
+            // setTimeout(() => {
+            //     location.reload();
+            // }, 3000);
         });
     }
     async #disConnectToWallet() {
@@ -193,9 +193,9 @@ class EarnPage {
         that.#navigationReference.disconnectWalletConnect(function () {
             $("#btnGoToEarnPage").click();
             toast.show('Wallet disconnected successfuly.');
-            setTimeout(() => {
-                location.reload();
-            }, 3000);
+            // setTimeout(() => {
+            //     location.reload();
+            // }, 3000);
         });
     }
     claimAndVerifyTonFSocialTask($elem) {
