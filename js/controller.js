@@ -38,7 +38,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -59,7 +59,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -81,7 +81,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -101,7 +101,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -123,7 +123,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -143,7 +143,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -165,7 +165,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -188,7 +188,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -209,7 +209,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -229,7 +229,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -252,7 +252,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -274,7 +274,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -294,7 +294,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -315,7 +315,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -337,7 +337,7 @@ class Controller {
                     if (successCallback)
                         successCallback(that.#userInfoData);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -359,7 +359,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -381,7 +381,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -403,7 +403,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -436,7 +436,7 @@ class Controller {
                     }
                     else {
                         that.#balanceToSync += balanceToSync; ////Restore balance to sync in case of fail
-                        alert(returnData.error);
+                        toastr(returnData.error);
                     }
                 },
                 error: function () {
@@ -461,7 +461,7 @@ class Controller {
                 if (returnData.status === true) {
                     that.#userInfoData.isSwipeFidget = isSwipe === true ? "1" : "0";
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -482,7 +482,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });
@@ -502,7 +502,7 @@ class Controller {
                     if (successCallback)
                         successCallback(returnData.data);
                 }
-                else alert(returnData.error);
+                else toastr(returnData.error);
             },
             error: function () { alert("Something went wrong. Please try again later."); }
         });

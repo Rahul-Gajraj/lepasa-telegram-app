@@ -258,7 +258,7 @@ class EarnPage {
                 var $elem = $(this);
                 that.#navigationReference.claimDailyRewards(function (claimResponse) {
                     toast.show('Claimed successfully.');
-                    $elem.replaceWith('<button class="claim disabled" disabled="disabled">Check In</button>');
+                    $elem.replaceWith('<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />');
                 });
             });
         }
