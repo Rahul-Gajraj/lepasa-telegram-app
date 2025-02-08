@@ -533,7 +533,8 @@ class Controller {
             var totalEnergyCapacity = this.#userInfoData.capacityRate;
             var energyToConsume = Math.ceil(totalEnergyCapacity / 300); //// Energy to conusme per second to make it empty in 5 minutes
             var miningEnergy = energyValue > energyToConsume ? energyToConsume : energyValue;
-            var pointsGenerated = miningEnergy * (Math.ceil(miningRate / 2) + miningRate);
+            var halfMiningRate = Math.ceil(miningRate / 2);
+            var pointsGenerated = ((halfMiningRate + miningRate) / halfMiningRate) * miningEnergy;
 
             this.#energyValue -= miningEnergy;
             this.#userInfoData.balance += pointsGenerated;

@@ -60,7 +60,7 @@ class Spinner {
     this.#render();
   }
   #increaseSpeed(isSwipe) {
-    if (this.#speed < 1500)
+    if (this.#speed < 600)
       this.#speed += (isSwipe === true ? 200 : 100);
     this.#customNavigator.increaseEnergyValue();
   }
@@ -71,7 +71,7 @@ class Spinner {
       this.#ctx.clearRect(0, 0, 400, 400);
 
       this.#angle += this.#step * this.#speed;
-      this.#speed = Math.max(this.#speed - 3, Math.min(this.#speed + 3, 0));
+      this.#speed = Math.max(this.#speed - 4, Math.min(this.#speed + 4, 0));
 
       var x = this.#canvas.width / 2;
       var y = this.#canvas.height / 2;
