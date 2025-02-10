@@ -196,6 +196,9 @@ class Navigator {
                     });
                 });
             }
+            if (dataList.length > 0) {
+                $("#lblTotalReferralCount").text(dataList[0].current + ' Referrals');
+            }
         });
         $("#CopyRefUrlInput").val(this.#controller.getUserInfoData().referralLink);
     }
@@ -251,7 +254,7 @@ class Navigator {
         this.#controller.disconnectWalletConnect(callbackFn);
     }
     shareReferral() {
-        window.open('https://t.me/share/url?url='+this.#controller.getUserInfoData().referralLink, '_blank');
+        window.open('https://t.me/share/url?url=' + this.#controller.getUserInfoData().referralLink, '_blank');
     }
     copyToClipboardRefUrl() {
         this.#helper.copyToClipboardRefUrl("CopyRefUrlInput");
