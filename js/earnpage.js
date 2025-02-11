@@ -15,14 +15,14 @@ class EarnPage {
         for (var i = 0; i < partnerData.length; i++) {
             var dataRow = partnerData[i];
             var html = `
-            <div class="community_card_content partner_content">
+            <div class="community_card_content partner_content" id="gotoEarnDetailPage_${i}">
                 <div class="community_info">
                     <img src="${dataRow.partner_logo}" alt="logo" height="30px" width="30px" />
                     <div class="community_name">
                     <p>${dataRow.name}</p>
                     </div>
                 </div>
-                <div id="gotoEarnDetailPage_${i}"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path xmlns="http://www.w3.org/2000/svg" fill="white" d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"/></svg></div>
+                <div><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25"><path xmlns="http://www.w3.org/2000/svg" fill="white" d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z"/></svg></div>
             </div>
             `;
             partnerContainer.append(html);
@@ -100,16 +100,21 @@ class EarnPage {
             //// Before showing earn detail page, loop through social and show its task
             for (var i = 0; i < dataset.socialRewardReport.length; i++) {
                 var socialRewardRow = dataset.socialRewardReport[i];
-                if (socialRewardRow.name === "TWITTER")
+                var displayName = "";
+                if (socialRewardRow.name === "TWITTER") {
                     socialRewardRow.logo = "/public/twitter.svg";
-                else if (socialRewardRow.name === "TELEGRAM_CHANNEL")
+                    displayName = "Twitter";
+                }
+                else if (socialRewardRow.name === "TELEGRAM_CHANNEL") {
                     socialRewardRow.logo = "/public/telegram.svg";
+                    displayName = "Telegram Channel";
+                }
                 var taskHtml = `
                     <div class="earn_card_content">
                         <div class="community_info">
                             <img src="${socialRewardRow.logo}" alt="logo" height="25px" width="25px" />
                             <div class="community_name">
-                                <p>${socialRewardRow.name}</p>
+                                <p>${displayName}</p>
                                 <div class="community_desc">
                                     <img height="20px" width="20px" src="/public/coin.png" alt="coin" />
                                     <p>${socialRewardRow.amount}</p>

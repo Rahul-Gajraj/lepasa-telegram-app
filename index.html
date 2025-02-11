@@ -208,14 +208,14 @@
             <p>Lepasa</p>
             <div class="community_body_divider"></div>
           </div>
-          <div class="community_card_content">
+          <div class="community_card_content" id="btnGotoTONFiestaEarnDetails">
             <div class="community_info">
               <img src="/public/logo_white.svg" alt="logo" height="30px" width="30px" />
               <div class="community_name">
                 <p>TON Fiesta</p>
               </div>
             </div>
-            <div id="btnGotoTONFiestaEarnDetails">
+            <div>
               <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
                 <path xmlns="http://www.w3.org/2000/svg" fill="white"
                   d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z" />
@@ -382,12 +382,13 @@
   <!-- earn individual detail community container start -->
   <div class="earn_detail_container hide">
     <div class="back_container">
-      <p id="btnBackToEarnPage"><svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25"
-          height="25">
+      <div id="btnBackToEarnPage" style="display: flex;">
+        <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
           <path fill="white"
             d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z" />
         </svg>
-      <p style="margin: 0;">Earn</p>
+        <p style="margin: 0;margin-top: 2px;">Earn</p>
+      </div>
     </div>
     <div class="title_content">
       <p class="title_content_heading" id="earn_detail_title"></p>
@@ -450,11 +451,6 @@
         <div class="shop_level_item_content">
           <p>Bar Refill Speed</p>
           <div class="shop_level_item_stats">
-            <div class="shop_level_item_coins">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p class="cost-text">4,000</p>
-            </div>
-            <p class="level-text">| 2 level</p>
           </div>
         </div>
       </li>
@@ -464,11 +460,6 @@
         <div class="shop_level_item_content">
           <p>Energy Bar Capacity</p>
           <div class="shop_level_item_stats">
-            <div class="shop_level_item_coins">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p class="cost-text">4,000</p>
-            </div>
-            <p class="level-text">| 2 level</p>
           </div>
         </div>
       </li>
@@ -478,11 +469,6 @@
         <div class="shop_level_item_content">
           <p>GPU Upgrade</p>
           <div class="shop_level_item_stats">
-            <div class="shop_level_item_coins">
-              <img src="/public/coin.png" height="20px" width="20px" />
-              <p class="cost-text">4,000</p>
-            </div>
-            <p class="level-text">| 2 level</p>
           </div>
         </div>
       </li>

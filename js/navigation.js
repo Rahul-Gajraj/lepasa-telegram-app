@@ -354,14 +354,41 @@ class Navigator {
         $("#btnOpenGPUBoosterModal .shop_item_content .shop_item_num")
             .text(dataset.boosterStatus.currentGPUCount + '/' + dataset.boosterStatus.gpuDailyLimit);
 
-        $("#btnOpen_BarRefillSpeed_LevelUpgrade .shop_level_item_stats .cost-text").text(dataset.spinLevel.nextUpgradeCost);
-        $("#btnOpen_BarRefillSpeed_LevelUpgrade .shop_level_item_stats .level-text").text('| ' + (Number(dataset.spinLevel.id) + 1) + ' level');
+        if (dataset.spinLevel.isNext === "1") {
+            $("#btnOpen_BarRefillSpeed_LevelUpgrade .shop_level_item_stats").empty().append(`
+                <div class="shop_level_item_coins">
+                    <img src="/public/coin.png" height="20px" width="20px" />
+                    <p class="cost-text">${dataset.spinLevel.nextUpgradeCost}</p>
+                </div>
+                <p class="level-text">| ${(Number(dataset.spinLevel.id) + 1)} level</p>`);
+        }
+        else {
+            $("#btnOpen_BarRefillSpeed_LevelUpgrade .shop_level_item_stats").empty().append(`<p class="level-text">Maximum Level Reached</p>`);
+        }
 
-        $("#btnOpen_EnergyBarCapacity_LevelUpgrade .shop_level_item_stats .cost-text").text(dataset.capacityLevel.nextUpgradeCost);
-        $("#btnOpen_EnergyBarCapacity_LevelUpgrade .shop_level_item_stats .level-text").text('| ' + (Number(dataset.capacityLevel.id) + 1) + ' level');
+        if (dataset.capacityLevel.isNext === "1") {
+            $("#btnOpen_EnergyBarCapacity_LevelUpgrade .shop_level_item_stats").empty().append(`
+                <div class="shop_level_item_coins">
+                    <img src="/public/coin.png" height="20px" width="20px" />
+                    <p class="cost-text">${dataset.capacityLevel.nextUpgradeCost}</p>
+                </div>
+                <p class="level-text">| ${(Number(dataset.capacityLevel.id) + 1)} level</p>`);
+        }
+        else {
+            $("#btnOpen_EnergyBarCapacity_LevelUpgrade .shop_level_item_stats").empty().append(`<p class="level-text">Maximum Level Reached</p>`);
+        }
 
-        $("#btnOpen_GPUUpgrade_LevelUpgrade .shop_level_item_stats .cost-text").text(dataset.miningLevel.nextUpgradeCost);
-        $("#btnOpen_GPUUpgrade_LevelUpgrade .shop_level_item_stats .level-text").text('| ' + (Number(dataset.miningLevel.id) + 1) + ' level');
+        if (dataset.miningLevel.isNext === "1") {
+            $("#btnOpen_GPUUpgrade_LevelUpgrade .shop_level_item_stats").empty().append(`
+                <div class="shop_level_item_coins">
+                    <img src="/public/coin.png" height="20px" width="20px" />
+                    <p class="cost-text">${dataset.miningLevel.nextUpgradeCost}</p>
+                </div>
+                <p class="level-text">| ${(Number(dataset.miningLevel.id) + 1)} level</p>`);
+        }
+        else {
+            $("#btnOpen_GPUUpgrade_LevelUpgrade .shop_level_item_stats").empty().append(`<p class="level-text">Maximum Level Reached</p>`);
+        }
 
         ////Binding click events for booster update
         $("#btnOpenEnergyBarRefillModal").data('upgradeListData', dataset).off('click').on('click', function () {
@@ -411,6 +438,11 @@ class Navigator {
         ////Binding click events for level upgrade
         $("#btnOpen_BarRefillSpeed_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
+            if (dataset.spinLevel.isNext !== "1") {
+                toast.show('Maximum level reached.');
+                return;
+            }
+
             that.hideAllDrawerContents();
             that.#helper.openDrawer();
             $("#shop_level_upgrade_drawer").removeClass('hide');
@@ -422,6 +454,11 @@ class Navigator {
         });
         $("#btnOpen_EnergyBarCapacity_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
+            if (dataset.capacityLevel.isNext !== "1") {
+                toast.show('Maximum level reached.');
+                return;
+            }
+
             that.hideAllDrawerContents();
             that.#helper.openDrawer();
             $("#shop_level_upgrade_drawer").removeClass('hide');
@@ -433,6 +470,11 @@ class Navigator {
         });
         $("#btnOpen_GPUUpgrade_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
+            if (dataset.miningLevel.isNext !== "1") {
+                toast.show('Maximum level reached.');
+                return;
+            }
+
             that.hideAllDrawerContents();
             that.#helper.openDrawer();
             $("#shop_level_upgrade_drawer").removeClass('hide');
