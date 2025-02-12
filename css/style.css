@@ -299,12 +299,24 @@ body, html {
   color: white;
 }
 
+.main_profit_per_hour {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
 .league_info {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   color: #ffffff;
+}
+
+#currentLeague_Name {
+  margin: 0px;
+  margin-bottom: 3px;
 }
 
 .fidget_spinner {
@@ -444,7 +456,8 @@ body, html {
 .back_container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  /* gap: 3px; */
+  margin-top: 30px;
 }
 
 .title_content_heading {
@@ -712,8 +725,8 @@ body, html {
   justify-content: space-between;
   border-top: 2px solid #171717;
   border-bottom: 2px solid #171717;
-  padding: 10px 0px;
-  margin-top: 20px;
+  /* padding: 10px 0px; */
+  margin-top: 7px;
 }
 
 .shop_item {
@@ -749,6 +762,7 @@ body, html {
   padding: 0;
   /* height: calc(100vh - 242px); */
   overflow: auto;
+  margin-top: 30px;
 }
 
 .shop_level_list li {
@@ -929,7 +943,7 @@ body, html {
 }
 
 .leagues_header_content {
-  text-align: center;
+  /* text-align: center; */
   flex: 1;
   margin-top: 10px;
 }
