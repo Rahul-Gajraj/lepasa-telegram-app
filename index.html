@@ -147,24 +147,32 @@
     <div class="body_content">
       <div class="body_header">
         <div class="speed">
-          <img src="/public/cooling-fan.png" height="30px" width="30px" class="rotate" />
-          <h4 id="txtMiningRate"></h4>
+          <img style="margin-top: 15px;" src="/public/cooling-fan.png" height="30px" width="30px" class="rotate" />
+          <h4 style="margin-bottom: 0;" id="txtMiningRate"></h4>
         </div>
         <div class="coin">
-          <img src="/public/coin.png" height="30px" width="30px" />
-          <h2 id="txtActiveBalance"></h2>
+          <img style="margin-top: 15px;" src="/public/coin.png" height="30px" width="30px" />
+          <h2 style="margin-bottom: 0;" id="txtActiveBalance"></h2>
         </div>
+      </div>
+
+      <div class="main_profit_per_hour">
+        <!-- <h5 style="margin: 0;">Profit</h5> -->
+        <img src="/public/coin.png" height="20px" width="20px" />
+        <h5 class="play_profit_per_hour" id="play_profit_per_hour" style="margin: 0;"></h5>
+        <h5 style="margin: 0;">/</h5>
+        <h5 style="margin: 0;">hr</h5>
       </div>
 
       <div class="league_info">
         <img src="/public/bronze.png" alt="league" height="50px" width="50px" id="currentLeague_Img" />
-        <h3 id="currentLeague_Name" style="margin: 0;">BRONZE</h3>
-        <h3 id="btnGotoLeagueInfoPage" style="margin: 0;">
+        <h3 class="btn_go_to_league_info_page" id="currentLeague_Name">BRONZE</h3>
+        <div class="btn_go_to_league_info_page" id="btnGotoLeagueInfoPage" style="margin: 0;">
           <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
             <path xmlns="http://www.w3.org/2000/svg" fill="white"
               d="M15.4,9.88,10.81,5.29a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L14,11.29a1,1,0,0,1,0,1.42L9.4,17.29a1,1,0,0,0,1.41,1.42l4.59-4.59A3,3,0,0,0,15.4,9.88Z" />
           </svg>
-        </h3>
+        </div>
       </div>
 
       <div class="fidget_spinner">
@@ -382,14 +390,12 @@
 
   <!-- earn individual detail community container start -->
   <div class="earn_detail_container hide">
-    <div class="back_container">
-      <div id="btnBackToEarnPage" style="display: flex;">
-        <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
-          <path fill="white"
-            d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z" />
-        </svg>
-        <p style="margin: 0;margin-top: 2px;">Earn</p>
-      </div>
+    <div id="btnBackToEarnPage" class="back_container">
+      <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="25" height="25">
+        <path fill="white"
+          d="M10.6,12.71a1,1,0,0,1,0-1.42l4.59-4.58a1,1,0,0,0,0-1.42,1,1,0,0,0-1.41,0L9.19,9.88a3,3,0,0,0,0,4.24l4.59,4.59a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.42Z" />
+      </svg>
+      <p style="margin: 0; margin-top: 1.5px;">Earn</p>
     </div>
     <div class="title_content">
       <p class="title_content_heading" id="earn_detail_title"></p>
@@ -579,7 +585,7 @@
           </div>
         </div>
         <div class="more_info_other_cards">
-          <p>Profit per Hour</p>
+          <p>Profit Per Hour</p>
           <p class="more_info_profit_per_hour" id="more_info_profit_per_hour"></p>
         </div>
         <div id="how_to_play_div" class="more_info_other_cards">

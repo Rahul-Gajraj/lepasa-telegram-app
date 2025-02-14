@@ -150,6 +150,7 @@ class Navigator {
             $("#miningAnimationValue").addClass('hide');
 
         $("#more_info_profit_per_hour").text(userInfoData.profitPerHour);
+        $("#play_profit_per_hour").text(userInfoData.profitPerHour);
         $("#chkFidgetControl").prop('checked', (userInfoData.isSwipeFidget === "1"));
     }
     gotoRefPage() {
@@ -319,7 +320,8 @@ class Navigator {
                             that.#helper.closeDrawer();
                             toast.show('Claimed Successfully');
                             that.resetUserInfo();
-                            $("#btnGotoLeagueInfoPage").click();
+                            // $("#btnGotoLeagueInfoPage").click();
+                            $(".btn_go_to_league_info_page").click();
                         });
                     });
                 }
@@ -327,7 +329,8 @@ class Navigator {
                     that.#controller.claimLeagueAmount(function () {
                         toast.show('Claimed Successfully');
                         that.resetUserInfo();
-                        $("#btnGotoLeagueInfoPage").click();
+                        // $("#btnGotoLeagueInfoPage").click();
+                        $(".btn_go_to_league_info_page").click();
                     });
                 }
             });
@@ -714,7 +717,8 @@ $(document).ready(function () {
         $(".earn_container").removeClass('hide');
         $(".earn_detail_container").addClass('hide');
     });
-    $("#btnGotoLeagueInfoPage").click(function () { customNavigator.gotoLeagueInfoPage(); });
+    // $("#btnGotoLeagueInfoPage").click(function () { customNavigator.gotoLeagueInfoPage(); });
+    $(".btn_go_to_league_info_page").click(function () { customNavigator.gotoLeagueInfoPage(); });
     $(".leagues_close_icon").click(function () { customNavigator.gotoPlayPage(); });
     $("#btnGoToShopPage").click(function () { customNavigator.gotoShopPage(); });
     $("#btnGoToMorePage").click(function () { customNavigator.gotoMorePage(); });
