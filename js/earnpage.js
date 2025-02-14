@@ -193,7 +193,6 @@ class EarnPage {
         var that = this;
         await this.#tonConnectUI.disconnect();
         // Do something with connectedWallet if needed
-        console.log(connectedWallet);
         that.#navigationReference.disconnectWalletConnect(function () {
             $("#btnGoToEarnPage").click();
             toast.show('Wallet disconnected successfuly.');
