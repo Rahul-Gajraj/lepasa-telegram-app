@@ -702,14 +702,22 @@ class Navigator {
     }
     #tgDisableSwipeCloser() {
         try {
-            const data1 = JSON.stringify({
-                eventType: 'web_app_setup_swipe_behavior',
-                eventData: {
-                    allow_vertical_swipe: false,
-                },
-            });
+            // const data1 = JSON.stringify({
+            //     eventType: 'web_app_setup_swipe_behavior',
+            //     eventData: {
+            //         allow_vertical_swipe: false,
+            //     },
+            // });
 
-            window.parent.postMessage(data1, 'https://web.telegram.org');
+            // window.parent.postMessage(data1, 'https://web.telegram.org');
+            const data = JSON.stringify({
+                eventType: 'web_app_close',
+                eventData: {
+                  is_visible: true,
+                },
+              });
+              
+              window.parent.postMessage(data, 'https://web.telegram.org');
         }
         catch (ex) {
             console.log(ex);
