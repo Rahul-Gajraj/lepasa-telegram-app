@@ -25,6 +25,7 @@ class Navigator {
             that.hideAllDrawerContents();
             that.#helper.closeDrawer();
         });
+        that.#tgDisableSwipeCloser();
     }
     resetUserInfo() {
         var that = this;
@@ -699,7 +700,21 @@ class Navigator {
             console.warn('ToN:triggerHapticFeedback|' + ex);
         }
     }
+    #tgDisableSwipeCloser() {
+        try {
+            const data1 = JSON.stringify({
+                eventType: 'web_app_setup_swipe_behavior',
+                eventData: {
+                    allow_vertical_swipe: false,
+                },
+            });
 
+            window.parent.postMessage(data1, 'https://web.telegram.org');
+        }
+        catch (ex) {
+            console.log(ex);
+        }
+    }
 }
 $(document).ready(function () {
     var reffUrl = '';
