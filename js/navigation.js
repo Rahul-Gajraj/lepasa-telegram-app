@@ -716,7 +716,7 @@ class Navigator {
                 }), 'https://web.telegram.org');
 
             }
-            alert(navigator.userAgent);
+            // alert(navigator.userAgent);
         }
         catch (ex) {
             console.log(ex);
