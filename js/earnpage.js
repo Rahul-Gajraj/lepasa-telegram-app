@@ -2,6 +2,8 @@ class EarnPage {
     #navigationReference = null;
     #helper = null;
     #config = null;
+    #tonConnectUI = null;
+
     constructor(navigationReference) {
         this.#navigationReference = navigationReference;
         this.#helper = new Helper();
@@ -150,6 +152,10 @@ class EarnPage {
                     </div>
                 
             `);
+            if (that.#tonConnectUI === null)
+                that.#tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+                    manifestUrl: `${that.#config.getBaseCdnUrl()}/tonconnect-manifest.json`,
+                });
             if (dataset.walletConnectReport.status === false) {
                 $("#btnWalletConnect").click(function () {
                     that.#connectToWallet().catch(error => {
@@ -172,10 +178,7 @@ class EarnPage {
     }
     async #connectToWallet() {
         var that = this;
-        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: `${that.#config.getBaseCdnUrl()}/tonconnect-manifest.json`,
-        });
-        const connectedWallet = await tonConnectUI.connectWallet();
+        const connectedWallet = await this.#tonConnectUI.connectWallet();
         // Do something with connectedWallet if needed
         console.log(connectedWallet);
         that.#navigationReference.claimWalletConnect(connectedWallet.account.address, function () {
@@ -188,10 +191,7 @@ class EarnPage {
     }
     async #disConnectToWallet() {
         var that = this;
-        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-            manifestUrl: `${that.#config.getBaseCdnUrl()}/tonconnect-manifest.json`,
-        });
-        const connectedWallet = await tonConnectUI.connectWallet();
+        const connectedWallet = await this.#tonConnectUI.connectWallet();
         await tonConnectUI.disconnect();
         // Do something with connectedWallet if needed
         console.log(connectedWallet);
