@@ -191,8 +191,7 @@ class EarnPage {
     }
     async #disConnectToWallet() {
         var that = this;
-        const connectedWallet = await this.#tonConnectUI.connectWallet();
-        await tonConnectUI.disconnect();
+        await this.#tonConnectUI.disconnect();
         // Do something with connectedWallet if needed
         console.log(connectedWallet);
         that.#navigationReference.disconnectWalletConnect(function () {
