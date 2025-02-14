@@ -705,7 +705,7 @@ class Navigator {
             const data = JSON.stringify({
                 eventType: 'web_app_setup_swipe_behavior',
                 eventData: {
-                    allow_vertical_swipe: true,
+                    allow_vertical_swipe: false,
                 },
               });
               
