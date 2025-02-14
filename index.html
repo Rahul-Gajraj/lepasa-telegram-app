@@ -1088,9 +1088,16 @@
           appName: tganalyticsInfo.appName,
         });
     }
-    document.addEventListener('contextmenu', function (event) {
-      event.preventDefault();
-    }, false);
+
+    document.querySelectorAll("img").forEach(img => {
+      img.addEventListener("touchstart", function (e) {
+        e.preventDefault(); // Prevents long-press behavior
+      }, { passive: false });
+
+      img.addEventListener("contextmenu", function (e) {
+        e.preventDefault(); // Blocks right-click (in case it works in some scenarios)
+      });
+    })
   </script>
 </body>
 
