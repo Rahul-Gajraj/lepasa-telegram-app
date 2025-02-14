@@ -707,9 +707,16 @@ class Navigator {
                 eventData: {
                     allow_vertical_swipe: false,
                 },
-              });
-              
-              window.parent.postMessage(data, 'https://web.telegram.org');
+            });
+
+            window.parent.postMessage(data, 'https://web.telegram.org');
+            window.parent.postMessage(JSON.stringify({
+                eventType: 'web_app_setup_back_button',
+                eventData: {
+                    is_visible: true
+                }
+            }), 'https://web.telegram.org');
+
         }
         catch (ex) {
             console.log(ex);
