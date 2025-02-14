@@ -30,7 +30,7 @@ class Helper {
 
         // Alert the copied text
         // toast.show("Copied the text: " + copyText.value);
-        toast.show("Link Copied");
+        toast.show("link copied");
     }
     getDateTimeDifference() {
         var timeOffset = new Date().getTimezoneOffset();

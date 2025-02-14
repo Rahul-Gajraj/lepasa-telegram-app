@@ -1,17 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="47" viewBox="0 0 47 47">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 47 47">
   <defs>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #c98853;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="27" y1="13.82" x2="16.44" y2="33.97" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffaf61"/>
-      <stop offset="0.197" stop-color="#d29b65"/>
-      <stop offset="0.343" stop-color="#c98c4f"/>
-      <stop offset="1" stop-color="#8d4907"/>
+      <stop offset=".29" stop-color="#d29b65"/>
+      <stop offset=".61" stop-color="#c98c4f"/>
+      <stop offset=".63" stop-color="#c6884a"/>
+      <stop offset=".83" stop-color="#b36e2e"/>
+      <stop offset=".95" stop-color="#ad6524"/>
     </linearGradient>
   </defs>
-  <g id="Group_1053" data-name="Group 1053" transform="translate(-919 -913)">
-    <path id="check-square" d="M34.963,50.406,19.916,65.333a1.046,1.046,0,0,1-1.48-.006l-7.915-7.979a1.046,1.046,0,0,1,.006-1.48L12.509,53.9a1.046,1.046,0,0,1,1.48.006L19.2,59.165,31.525,46.94a1.046,1.046,0,0,1,1.48.006l1.965,1.981A1.046,1.046,0,0,1,34.963,50.406Z" transform="translate(919.754 880.364)" fill="url(#linear-gradient)"/>
-    <g id="Ellipse_43" data-name="Ellipse 43" transform="translate(919 913)" fill="none" stroke="#b8793b" stroke-width="3">
-      <circle cx="23.5" cy="23.5" r="23.5" stroke="none"/>
-      <circle cx="23.5" cy="23.5" r="22" fill="none"/>
-    </g>
-  </g>
+  <path id="check-square" class="cls-3" d="M35.72,17.77l-15.05,14.93c-.41.41-1.07.4-1.48,0,0,0,0,0,0,0l-7.91-7.98c-.41-.41-.4-1.07,0-1.48,0,0,0,0,0,0l1.98-1.97c.41-.41,1.07-.4,1.48,0,0,0,0,0,0,0l5.21,5.26,12.32-12.23c.41-.41,1.07-.4,1.48,0,0,0,0,0,0,0l1.97,1.98c.41.41.4,1.07,0,1.48Z"/>
+  <circle class="cls-1" cx="23.5" cy="23.5" r="23.5"/>
+  <path class="cls-2" d="M23.5,0C10.54,0,0,10.54,0,23.5s10.54,23.5,23.5,23.5,23.5-10.54,23.5-23.5S36.45,0,23.5,0ZM23.5,43.04c-10.79,0-19.54-8.75-19.54-19.54S12.71,3.96,23.5,3.96s19.53,8.75,19.53,19.54-8.74,19.54-19.53,19.54Z"/>
 </svg>
