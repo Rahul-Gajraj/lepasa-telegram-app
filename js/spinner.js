@@ -61,7 +61,7 @@ class Spinner {
   }
   #increaseSpeed(isSwipe) {
     if (this.#speed < 600)
-      this.#speed += (isSwipe === true ? 200 : 100);
+      this.#speed += (isSwipe === true ? 300 : 200);
     this.#customNavigator.increaseEnergyValue();
   }
 

@@ -716,6 +716,8 @@ class Navigator {
                 }), 'https://web.telegram.org');
 
             }
+            
+            window.Telegram.WebApp.lockOrientation();
             // alert(navigator.userAgent);
         }
         catch (ex) {
