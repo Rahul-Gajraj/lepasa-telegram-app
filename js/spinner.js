@@ -4,7 +4,7 @@ class Spinner {
   #ctx = null;
   #image = null;
 
-  #step = 0.1 * Math.PI / 360;
+  #step = 0.09 * Math.PI / 360;
   #angle = 30;
   #speed = 0;
   #cords = { xDown: 0, yDown: 0, xUp: 0, yUp: 0 };
@@ -71,7 +71,7 @@ class Spinner {
       this.#ctx.clearRect(0, 0, 400, 400);
 
       this.#angle += this.#step * this.#speed;
-      this.#speed = Math.max(this.#speed - 4, Math.min(this.#speed + 4, 0));
+      this.#speed = Math.max(this.#speed - 3, Math.min(this.#speed + 3, 0));
 
       var x = this.#canvas.width / 2;
       var y = this.#canvas.height / 2;
