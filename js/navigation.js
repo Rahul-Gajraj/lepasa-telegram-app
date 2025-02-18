@@ -8,24 +8,30 @@ class Navigator {
     }
     init(reffUrl) {
         var that = this;
-        this.#controller.getLandingPageInfo(reffUrl, function (controllerData) {
-            that.landingPage(controllerData);
-            that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
-            //// Run function each second to see if energy bar has some value
-            setInterval(function () {
-                that.#controller.mineEnergyValue(that.#mineSyncCounter);
-                that.#updatePlayePageUi();
-                that.#mineSyncCounter++;
-                if (that.#mineSyncCounter > 50)
-                    that.#mineSyncCounter = 0;
-            }, 1000);
-
-        });
-        $("#btnCloseDrawer,#backdrop").click(function () {
-            that.hideAllDrawerContents();
-            that.#helper.closeDrawer();
-        });
-        that.#tgDisableSwipeCloser();
+        if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            $(".qr_code_div").removeClass('hide');
+        }
+        else {
+            $(".loading_screen").removeClass('hide');
+            this.#controller.getLandingPageInfo(reffUrl, function (controllerData) {
+                that.landingPage(controllerData);
+                that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
+                //// Run function each second to see if energy bar has some value
+                setInterval(function () {
+                    that.#controller.mineEnergyValue(that.#mineSyncCounter);
+                    that.#updatePlayePageUi();
+                    that.#mineSyncCounter++;
+                    if (that.#mineSyncCounter > 50)
+                        that.#mineSyncCounter = 0;
+                }, 1000);
+    
+            });
+            $("#btnCloseDrawer,#backdrop").click(function () {
+                that.hideAllDrawerContents();
+                that.#helper.closeDrawer();
+            });
+            that.#tgDisableSwipeCloser();
+        }
     }
     resetUserInfo() {
         var that = this;
