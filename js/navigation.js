@@ -8,10 +8,10 @@ class Navigator {
     }
     init(reffUrl) {
         var that = this;
-        if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            $(".qr_code_div").removeClass('hide');
-        }
-        else {
+        // if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        //     $(".qr_code_div").removeClass('hide');
+        // }
+        // else {
             $(".loading_screen").removeClass('hide');
             this.#controller.getLandingPageInfo(reffUrl, function (controllerData) {
                 that.landingPage(controllerData);
@@ -31,7 +31,7 @@ class Navigator {
                 that.#helper.closeDrawer();
             });
             that.#tgDisableSwipeCloser();
-        }
+        // }
     }
     resetUserInfo() {
         var that = this;
