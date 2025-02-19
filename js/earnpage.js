@@ -83,7 +83,7 @@ class EarnPage {
             var that = this;
             setTimeout(() => {
                 that.#navigationReference.claimPartnerTask(partnerTaskInfo.id, function (claimPartnerTaskResponse) {
-                    toast.show('Claimed successfully.');
+                    toast.show('claimed successfully.');
                     $elem.replaceWith('<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />');
                 });
             }, 3000);
@@ -160,7 +160,7 @@ class EarnPage {
                 $("#btnWalletConnect").click(function () {
                     that.#connectToWallet().catch(error => {
                         console.error("Error connecting to wallet:", error);
-                        toast.show('Unable to connect wallet! Please try again.');
+                        toast.show('unable to connect wallet! Please try again.');
                     });
                 });
             }
@@ -168,7 +168,7 @@ class EarnPage {
                 $("#btnWalletDisconnect").click(function () {
                     that.#disConnectToWallet().catch(error => {
                         console.error("Error connecting to wallet:", error);
-                        toast.show('Unable to disconnect wallet! Please try again.');
+                        toast.show('unable to disconnect wallet! Please try again.');
                     });
                 });
             }
@@ -183,7 +183,7 @@ class EarnPage {
         console.log(connectedWallet);
         that.#navigationReference.claimWalletConnect(connectedWallet.account.address, function () {
             $("#btnGoToEarnPage").click();
-            toast.show('Wallet connected and claimed successfuly.');
+            toast.show('wallet connected and claimed successfuly.');
             // setTimeout(() => {
             //     location.reload();
             // }, 3000);
@@ -195,7 +195,7 @@ class EarnPage {
         // Do something with connectedWallet if needed
         that.#navigationReference.disconnectWalletConnect(function () {
             $("#btnGoToEarnPage").click();
-            toast.show('Wallet disconnected successfuly.');
+            toast.show('wallet disconnected successfuly.');
             // setTimeout(() => {
             //     location.reload();
             // }, 3000);
@@ -216,11 +216,11 @@ class EarnPage {
             setTimeout(() => {
                 that.#navigationReference.claimTONFiestaSocialTask(socialRewardInfo.name, function (claimResponse) {
                     if (claimResponse.data !== false) {
-                        toast.show('Claimed successfully.');
+                        toast.show('claimed successfully.');
                         $elem.replaceWith('<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />');
                     }
                     else {
-                        toast.show('Unable to claim! Please complete the task.');
+                        toast.show('unable to claim! Please complete the task.');
                         $elem.text('Claim').data('isClaimClicked', null).removeAttr('disabled');
                     }
                 });
@@ -260,7 +260,7 @@ class EarnPage {
             $("#btnDailyRewardClaim_" + i).click(function () {
                 var $elem = $(this);
                 that.#navigationReference.claimDailyRewards(function (claimResponse) {
-                    toast.show('Claimed successfully.');
+                    toast.show('claimed successfully.');
                     $elem.replaceWith('<img class="tick_btn" src="/public/check-square.svg" alt="tick" height="20px" width="20px" />');
                 });
             });
@@ -313,12 +313,12 @@ class EarnPage {
                 if (dailyTaskData.isOpen === true) {
                     $("#btnIndividualTaskClaim").removeClass('hide').off('click.dailytask').on('click.dailytask', function () {
                         if (that.#navigationReference.getCurrentBalance() < dailyTaskData.price) {
-                            toast.show('Insufficient balance.');
+                            toast.show('insufficient balance.');
                             return false;
                         }
                         that.#navigationReference.claimDailyTask(dailyTaskData.taskId, dailyTaskData.stageId, function (claimResponse) {
                             that.#helper.closeDrawer();
-                            toast.show('Claimed successfully.');
+                            toast.show('claimed successfully.');
                             $("#tabDailyTask").trigger('click.load');
                         });
                     });

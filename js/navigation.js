@@ -139,7 +139,7 @@ class Navigator {
                 that.#updatePlayePageUi();
                 $("#automated_teller_drawer").addClass('hide');
                 that.#helper.closeDrawer();
-                toast.show('Claimed Successfully');
+                toast.show('claimed successfully');
             });
         });
     }
@@ -199,7 +199,7 @@ class Navigator {
                 $("#btnReferralClaim_" + i).data('referralId', dataRow.id).click(function () {
                     var referralData = $(this).data('referralId');
                     that.#controller.claimReferralAmount(referralData, function () {
-                        toast.show('Claimed Successfully');
+                        toast.show('claimed successfully');
                         that.gotoRefPage();
                     });
                 });
@@ -325,7 +325,7 @@ class Navigator {
                     $("#btnLeagueClaim").data('leagueInfo', leagueInfo).off('click').on('click', function () {
                         that.#controller.claimLeagueAmount(function () {
                             that.#helper.closeDrawer();
-                            toast.show('Claimed Successfully');
+                            toast.show('claimed successfully');
                             that.resetUserInfo();
                             // $("#btnGotoLeagueInfoPage").click();
                             $(".btn_go_to_league_info_page").click();
@@ -334,7 +334,7 @@ class Navigator {
                 }
                 else {
                     that.#controller.claimLeagueAmount(function () {
-                        toast.show('Claimed Successfully');
+                        toast.show('claimed successfully');
                         that.resetUserInfo();
                         // $("#btnGotoLeagueInfoPage").click();
                         $(".btn_go_to_league_info_page").click();
@@ -404,13 +404,13 @@ class Navigator {
         $("#btnOpenEnergyBarRefillModal").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
             if (dataset.boosterStatus.currentEnergyCount < 1) {
-                toast.show('Booster not ready');
+                toast.show('booster not ready');
                 return;
             }
             var userInfo = that.#controller.getUserInfoData();
             var currentEnergy = that.#controller.getEnergyValue();
             if ((currentEnergy * 2) > userInfo.capacityRate) {
-                toast.show('Please consume energy before applying the booster.');
+                toast.show('please consume energy before applying the booster.');
                 return;
             }
             that.hideAllDrawerContents();
@@ -425,13 +425,13 @@ class Navigator {
         $("#btnOpenGPUBoosterModal").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
             if (dataset.boosterStatus.currentGPUCount < 1) {
-                toast.show('Booster not ready');
+                toast.show('booster not ready');
                 return;
             }
             var userInfo = that.#controller.getUserInfoData();
             var currentEnergy = that.#controller.getEnergyValue();
             if ((currentEnergy * 2) < userInfo.capacityRate) {
-                toast.show('Please fill energy before applying the booster.');
+                toast.show('please fill energy before applying the booster.');
                 return;
             }
 
@@ -449,7 +449,7 @@ class Navigator {
         $("#btnOpen_BarRefillSpeed_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
             if (dataset.spinLevel.isNext !== "1") {
-                toast.show('Maximum level reached.');
+                toast.show('maximum level reached.');
                 return;
             }
 
@@ -465,7 +465,7 @@ class Navigator {
         $("#btnOpen_EnergyBarCapacity_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
             if (dataset.capacityLevel.isNext !== "1") {
-                toast.show('Maximum level reached.');
+                toast.show('maximum level reached.');
                 return;
             }
 
@@ -481,7 +481,7 @@ class Navigator {
         $("#btnOpen_GPUUpgrade_LevelUpgrade").data('upgradeListData', dataset).off('click').on('click', function () {
             var dataset = $(this).data('upgradeListData');
             if (dataset.miningLevel.isNext !== "1") {
-                toast.show('Maximum level reached.');
+                toast.show('maximum level reached.');
                 return;
             }
 
@@ -520,7 +520,7 @@ class Navigator {
                     $("#progressMainPlay").animate({ 'width': '100%' }, 1000);
                 }
                 that.#updatePlayePageUi();
-                toast.show('Boosted Successfully');
+                toast.show('boosted Successfully');
             });
         });
     }
@@ -533,7 +533,7 @@ class Navigator {
                 that.resetUserInfo();
                 that.#helper.closeDrawer();
                 that.gotoShopPage();
-                toast.show('Claimed Successfully');
+                toast.show('claimed Successfully');
             });
         });
     }
