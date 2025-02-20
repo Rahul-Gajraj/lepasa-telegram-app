@@ -365,6 +365,9 @@ class Navigator {
                 window.location.href = dataset.boosterStatus.invoice;
             })
         }
+        else {
+            $(".shop_more_boosts_div").addClass('hide')
+        }
         $("#btnOpenEnergyBarRefillModal .shop_item_content .shop_item_num")
             .text(dataset.boosterStatus.currentEnergyCount + '/' + dataset.boosterStatus.energyDailyLimit);
         $("#btnOpenGPUBoosterModal .shop_item_content .shop_item_num")

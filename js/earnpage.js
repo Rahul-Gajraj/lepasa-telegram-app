@@ -240,6 +240,7 @@ class EarnPage {
             })
         }
         else {
+            $(".missed_streak_div").addClass('hide')
             $('.reward_subtitle').removeClass('hide')
         }
 
