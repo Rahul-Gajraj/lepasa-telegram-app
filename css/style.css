@@ -733,8 +733,7 @@ img {
   align-items: center;
   gap: 10px;
   justify-content: center;
-  margin-top: 7px;
-  margin-bottom: 10px;
+  margin: 10px 0px;
 }
 
 .shop_header {
@@ -1187,7 +1186,8 @@ img {
 
 .reward_subtitle, .star_amount {
   margin: 0px;
-  margin-top: 2px;
+  margin-top: 1.5px !important;
+  font-size: 15px;
 }
 
 .missed_streak_div {
@@ -1203,7 +1203,7 @@ img {
 #missed_streak_btn, #more_boosts_btn {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .rewards_container_content {
