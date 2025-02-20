@@ -234,8 +234,8 @@ class EarnPage {
         var dailyRewards = dataset.dailyReport;
         var streakData = dataset.streakData;
         if(streakData.status) {
-            $('.missed_streak_div').removeClass('hide')
-            $('#missed_streak_btn').click(function () {
+            $(".missed_streak_div").removeClass('hide')
+            $("#missed_streak_btn").click(function () {
                 window.location.href = streakData.invoice;
             })
         }
