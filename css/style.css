@@ -728,6 +728,15 @@ img {
   margin: 0;
 }
 
+.shop_more_boosts_div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
+
 .shop_header {
   display: flex;
   align-items: center;
@@ -1176,9 +1185,25 @@ img {
   margin-top: 15px;
 }
 
-.reward_subtitle {
+.reward_subtitle, .star_amount {
   margin: 0px;
   margin-top: 2px;
+}
+
+.missed_streak_div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.missed_streak_p {
+  margin: 0;
+}
+
+#missed_streak_btn, #more_boosts_btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .rewards_container_content {

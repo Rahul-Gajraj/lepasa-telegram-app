@@ -232,6 +232,17 @@ class EarnPage {
         var dailyRewardContainer = $("#rewards_container_content");
         dailyRewardContainer.empty();
         var dailyRewards = dataset.dailyReport;
+        var streakData = dataset.streakData;
+        if(streakData.status) {
+            $('.missed_streak_div').removeClass('hide')
+            $('#missed_streak_btn').click(function () {
+                window.location.href = streakData.invoice;
+            })
+        }
+        else {
+            $('.reward_subtitle').removeClass('hide')
+        }
+
         //// Loop through dailyRewards dataset
         for (var i = 0; i < dailyRewards.length; i++) {
             var dataRow = dailyRewards[i];
