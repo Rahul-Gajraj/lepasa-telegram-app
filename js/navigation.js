@@ -8,7 +8,7 @@ class Navigator {
     }
     init(reffUrl) {
         var that = this;
-        (async function() {
+        (async function () {
             const deviceInfo = {
                 userAgent: navigator.userAgent, // Browser & OS info
                 platform: navigator.platform, // OS platform
@@ -16,7 +16,7 @@ class Navigator {
                 deviceMemory: navigator.deviceMemory || "Unknown", // Approximate RAM (in GB)
                 gpu: "Unknown"
             };
-        
+
             // Getting GPU details
             try {
                 const canvas = document.createElement("canvas");
@@ -30,33 +30,33 @@ class Navigator {
             } catch (error) {
                 console.warn("WebGL not supported");
             }
-        
+
             console.table(deviceInfo);
         })();
-        
+
         // if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         //     $(".qr_code_div").removeClass('hide');
         // }
         // else {
-            $(".loading_screen").removeClass('hide');
-            this.#controller.getLandingPageInfo(reffUrl, function (controllerData) {
-                that.landingPage(controllerData);
-                that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
-                //// Run function each second to see if energy bar has some value
-                setInterval(function () {
-                    that.#controller.mineEnergyValue(that.#mineSyncCounter);
-                    that.#updatePlayePageUi();
-                    that.#mineSyncCounter++;
-                    if (that.#mineSyncCounter > 50)
-                        that.#mineSyncCounter = 0;
-                }, 1000);
-    
-            });
-            $("#btnCloseDrawer,#backdrop").click(function () {
-                that.hideAllDrawerContents();
-                that.#helper.closeDrawer();
-            });
-            that.#tgDisableSwipeCloser();
+        $(".loading_screen").removeClass('hide');
+        this.#controller.getLandingPageInfo(reffUrl, function (controllerData) {
+            that.landingPage(controllerData);
+            that.#controller.getLeagueInfo(function (controllerData) { that.setLeagueInfoOnPlayPage(controllerData); });
+            //// Run function each second to see if energy bar has some value
+            setInterval(function () {
+                that.#controller.mineEnergyValue(that.#mineSyncCounter);
+                that.#updatePlayePageUi();
+                that.#mineSyncCounter++;
+                if (that.#mineSyncCounter > 50)
+                    that.#mineSyncCounter = 0;
+            }, 1000);
+
+        });
+        $("#btnCloseDrawer,#backdrop").click(function () {
+            that.hideAllDrawerContents();
+            that.#helper.closeDrawer();
+        });
+        that.#tgDisableSwipeCloser();
         // }
     }
     resetUserInfo() {
@@ -124,6 +124,9 @@ class Navigator {
         $(".welcome_screen").addClass('hide');
         $(".login_verification").removeClass('hide');
         var that = this;
+        $(".login_verification_content_box").each(function () {
+            $(this).find('.progress_bar').animate({ width: '100%' }, 2000);
+        });
         $(".login_verification_button").off('click').on('click', function () {
             that.gotoWelcomeBonusPage();
         });
@@ -248,7 +251,7 @@ class Navigator {
         $(".community_div").removeClass('hide');
 
         //// Bind open close tabs
-        if(willRemainAtRewards) {
+        if (willRemainAtRewards) {
             var rewardsTab = $("#tabRewards")[0];
             that.#helper.activateTab(rewardsTab);
         }
@@ -390,7 +393,7 @@ class Navigator {
     }
     #shopPopulatePageUi(dataset) {
         var that = this;
-        if(dataset.boosterStatus.currentEnergyCount == 0 || dataset.boosterStatus.currentGPUCount == 0) {
+        if (dataset.boosterStatus.currentEnergyCount == 0 || dataset.boosterStatus.currentGPUCount == 0) {
             $(".shop_more_boosts_div").removeClass('hide')
             $("#more_boosts_btn").off("click").on("click", function () {
                 window.location.href = dataset.boosterStatus.invoice;
@@ -762,7 +765,7 @@ class Navigator {
                 }), 'https://web.telegram.org');
 
             }
-            
+
             window.Telegram.WebApp.lockOrientation();
             // alert(navigator.userAgent);
         }
