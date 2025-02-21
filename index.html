@@ -259,7 +259,18 @@
 
       <div class="rewards_container tab-container hide">
         <div class="rewards_container_header">
-          <h2 class="reward_title">Daily Reward</h2>
+          <div class="daily_reward_div">
+            <h2 class="reward_title" style="margin: 0;">Daily Reward</h2>
+            <svg id="daily_reward_refresh_btn" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+              fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+              <path
+                d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
+              <path fill-rule="evenodd"
+                d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
+            </svg>
+            <!-- <img src="/public/refresh.svg" alt="refresh" height="15px" width="15px"/> -->
+            <!-- <button class="claim">Refresh</button> -->
+          </div>
           <p class="reward_subtitle hide">Don't break your streak</p>
           <div class="missed_streak_div hide">
             <p class="missed_streak_p">Missed Streak? Restore Now!</p>
@@ -465,12 +476,19 @@
         </div>
       </div>
     </div>
-    <div class="shop_more_boosts_div">
+    <div class="shop_more_boosts_div hide">
       <p>Need More Boosts? Buy Now! </p>
       <button id="more_boosts_btn" class="claim">
         <img src="/public/tg-star.svg" alt="tg_star" height="16px" width="16px" />
         <p class="star_amount">10</p>
       </button>
+    </div>
+    <div class="refresh_div">
+      <button id="shop_refresh_btn" class="claim">Refresh</button>
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+        <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
+        <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
+      </svg> -->
     </div>
 
     <ul class="shop_level_list">

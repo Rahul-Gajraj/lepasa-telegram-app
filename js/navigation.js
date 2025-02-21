@@ -8,6 +8,32 @@ class Navigator {
     }
     init(reffUrl) {
         var that = this;
+        (async function() {
+            const deviceInfo = {
+                userAgent: navigator.userAgent, // Browser & OS info
+                platform: navigator.platform, // OS platform
+                cpuCores: navigator.hardwareConcurrency || "Unknown", // Number of CPU cores
+                deviceMemory: navigator.deviceMemory || "Unknown", // Approximate RAM (in GB)
+                gpu: "Unknown"
+            };
+        
+            // Getting GPU details
+            try {
+                const canvas = document.createElement("canvas");
+                const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+                if (gl) {
+                    const debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+                    if (debugInfo) {
+                        deviceInfo.gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                    }
+                }
+            } catch (error) {
+                console.warn("WebGL not supported");
+            }
+        
+            console.table(deviceInfo);
+        })();
+        
         // if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
         //     $(".qr_code_div").removeClass('hide');
         // }
@@ -210,7 +236,7 @@ class Navigator {
         });
         $("#CopyRefUrlInput").val(this.#controller.getUserInfoData().referralLink);
     }
-    gotoEarnPage() {
+    gotoEarnPage(willRemainAtRewards) {
         this.#hideAll();
         var that = this;
         $(".footer_div.active").removeClass('active');
@@ -222,6 +248,11 @@ class Navigator {
         $(".community_div").removeClass('hide');
 
         //// Bind open close tabs
+        if(willRemainAtRewards) {
+            var rewardsTab = $("#tabRewards")[0];
+            that.#helper.activateTab(rewardsTab);
+        }
+
         $("#tabCommunity,#tabDailyTask,#tabRewards").off('click.tabnav').on('click.tabnav', function () { that.#helper.activateTab(this); });
         this.#controller.getEarnPageData(function (dataset) {
             //// Bind TON Fiesta Earnpage details
@@ -762,6 +793,8 @@ $(document).ready(function () {
     $("#btnGoToShopPage").click(function () { customNavigator.gotoShopPage(); });
     $("#btnGoToMorePage").click(function () { customNavigator.gotoMorePage(); });
     $("#chkFidgetControl").change(function () { customNavigator.toggleFidgetControl(); });
+    $("#shop_refresh_btn").click(function () { customNavigator.gotoShopPage(); })
+    $("#daily_reward_refresh_btn").click(function () { customNavigator.gotoEarnPage(true); })
 
     var customSpinner = new Spinner(customNavigator);
     customSpinner.init();

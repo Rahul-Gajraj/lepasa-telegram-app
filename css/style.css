@@ -1212,6 +1212,21 @@ img {
   margin-top: 15px;
 }
 
+.refresh_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.daily_reward_div {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  gap: 15px;
+  margin-top: 15px;
+}
+
 .daily_reward_card {
   background: #161716;
   padding: 10px;
