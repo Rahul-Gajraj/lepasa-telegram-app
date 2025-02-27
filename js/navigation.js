@@ -390,7 +390,7 @@ class Navigator {
     }
     #shopPopulatePageUi(dataset) {
         var that = this;
-        if(dataset.boosterStatus.currentEnergyCount == 0 || dataset.boosterStatus.currentGPUCount == 0) {
+        if(dataset.boosterStatus.currentEnergyCount == 0 && dataset.boosterStatus.currentGPUCount == 0) {
             $(".shop_more_boosts_div").removeClass('hide')
             $("#more_boosts_btn").off("click").on("click", function () {
                 window.location.href = dataset.boosterStatus.invoice;

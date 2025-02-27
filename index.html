@@ -273,9 +273,10 @@
           </div>
           <p class="reward_subtitle hide">Don't break your streak</p>
           <div class="missed_streak_div hide">
-            <p class="missed_streak_p">Missed Streak? Restore Now!</p>
+            <p class="missed_streak_p">Missed Streak?</p>
             <button id="missed_streak_btn" class="claim">
-              <img src="/public/tg-star.svg" alt="tg_star" height="16px" width="16px" />
+              <p class="missed_streak_p">Restore Now!</p>
+              <img style="margin-top: -2px;" src="/public/tg-star.svg" alt="tg_star" height="15px" width="15px" />
               <p class="star_amount">10</p>
             </button>
           </div>
@@ -459,37 +460,46 @@
   <div class="shop_container hide">
     <div class="shop_header">
       <div class="shop_item" id="btnOpenEnergyBarRefillModal">
-        <img src="/public/shop_energy.svg" height="45px" width="45px" />
+        <img src="/public/shop_energy.svg" height="30px" width="30px" />
         <div class="shop_item_content">
-          <p>Energy Bar Refill</p>
+          <p style="font-size: 15px;">Energy Bar Refill</p>
           <p class="shop_item_num"></p>
         </div>
       </div>
 
-      <div class="shop_header_divider"></div>
+      <svg id="shop_refresh_btn" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+        class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+        <path
+          d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
+        <path fill-rule="evenodd"
+          d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
+      </svg>
+      <!-- <div class="shop_header_divider">
+      </div> -->
 
       <div class="shop_item" id="btnOpenGPUBoosterModal">
-        <img src="/public/shop_gpu.svg" height="45px" width="45px" />
+        <img src="/public/shop_gpu.svg" height="30px" width="30px" />
         <div class="shop_item_content">
-          <p>GPU Booster</p>
+          <p style="font-size: 15px;">GPU Booster</p>
           <p class="shop_item_num"></p>
         </div>
       </div>
     </div>
     <div class="shop_more_boosts_div hide">
-      <p>Need More Boosts? Buy Now! </p>
+      <p>Need More Boosts?</p>
       <button id="more_boosts_btn" class="claim">
-        <img src="/public/tg-star.svg" alt="tg_star" height="16px" width="16px" />
+        <p>Buy Now!</p>
+        <img style="margin-top: -2px;" src="/public/tg-star.svg" alt="tg_star" height="15px" width="15px" />
         <p class="star_amount">10</p>
       </button>
     </div>
-    <div class="refresh_div">
+    <!-- <div class="refresh_div">
       <button id="shop_refresh_btn" class="claim">Refresh</button>
-      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
         <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
         <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
-      </svg> -->
-    </div>
+      </svg>
+    </div> -->
 
     <ul class="shop_level_list">
       <li class="shop_level_item" id="btnOpen_BarRefillSpeed_LevelUpgrade">
@@ -1100,6 +1110,42 @@
     //   });
     // })
   </script>
+
+
+  <script type="text/javascript">
+    window.oncontextmenu = function (event) {
+      let hasTouchScreen = false;
+      if ("maxTouchPoints" in navigator) {
+        hasTouchScreen = navigator.maxTouchPoints > 0;
+      } else if ("msMaxTouchPoints" in navigator) {
+        hasTouchScreen = navigator.msMaxTouchPoints > 0;
+      } else {
+        const mQ = window.matchMedia && matchMedia("(pointer:coarse)");
+        if (mQ && mQ.media === "(pointer:coarse)") {
+          hasTouchScreen = !!mQ.matches;
+        } else if ("orientation" in window) {
+          hasTouchScreen = true; // deprecated, but good fallback
+        } else {
+          // Only as a last resort, fall back to user agent sniffing
+          var UA = navigator.userAgent;
+          hasTouchScreen =
+            /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+            /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA);
+        }
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      return false;
+      if (hasTouchScreen) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      }
+      return true;
+    };
+  </script>
+
+
 </body>
 
 </html>
