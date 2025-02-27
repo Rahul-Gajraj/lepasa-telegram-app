@@ -122,14 +122,29 @@ class Navigator {
     }
     gotoLoginVerificationPage() {
         $(".welcome_screen").addClass('hide');
+        $(".login_verification_footer").addClass('hide');
         $(".login_verification").removeClass('hide');
         var that = this;
-        $(".login_verification_content_box").each(function () {
-            $(this).find('.progress_bar').animate({ width: '100%' }, 2000);
-        });
+        // $(".login_verification_content_box").each(function () {
+        //     $(this).find('.progress_bar').animate({ width: '100%' }, 2000);
+        // });
+        this.fillProgressBars(0);
         $(".login_verification_button").off('click').on('click', function () {
             that.gotoWelcomeBonusPage();
         });
+    }
+    fillProgressBars(index = 0) {
+        let boxes = $(".login_verification_content_box");
+        if(index == boxes.length) {
+            $(".login_verification_footer").removeClass('hide');
+            return;
+        }
+        
+        if (index < boxes.length) {
+            $(boxes[index]).find('.progress_bar').animate({ width: '100%' }, 750, () => {
+                this.fillProgressBars(index + 1);
+            });
+        }
     }
     gotoWelcomeBonusPage() {
         $(".login_verification").addClass('hide');

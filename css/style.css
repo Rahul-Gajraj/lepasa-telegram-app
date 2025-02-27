@@ -32,9 +32,6 @@ img {
   height: 20px;
   height: auto;
   position: absolute;
-  /* top: 10px; */
-  /* right: 10px; */
-  /* background-color: #7e5730; */
   background-color: rgba(126, 87, 48, 0.75);
   bottom: 23%;
   right: 25%;
@@ -46,7 +43,6 @@ img {
   -webkit-box-shadow: 0px 0px 15px -1px rgba(56, 56, 56, 1);
   -moz-box-shadow: 0px 0px 15px -1px rgba(56, 56, 56, 1);
   box-shadow: 0px 0px 15px -1px rgba(56, 56, 56, 1);
-  /* z-index: 1; */
   z-index: 1000;
 }
 
@@ -62,7 +58,6 @@ img {
   width: 100%;
   height: 8px;
   border-radius: 10px;
-  /* border: 2px solid #ffaf611a; */
   border: 2px solid #ffaf6138;
   background-color: #ffaf6108;
   padding: 1px;
@@ -71,7 +66,6 @@ img {
 .progress_bar {
   width: 0%;
   background-color: #b8793b9c;
-  /* background-color: #FAB97F; */
   height: 8px;
   border-radius: 10px;
 }
@@ -134,39 +128,41 @@ img {
   background: transparent url(/public/background_img.jpg) 0% 0% no-repeat
     padding-box;
   background-size: cover;
+  height: 100vh;
 }
 
 /* welcome bonus screen start */
 .welcome_bonus {
-  height: 100vh;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .welcome_bonus > h1 {
   margin: 0;
-  position: absolute;
-  top: 5%;
+  margin-top: 30px;
+}
+
+.welcome_bonus_body {
+  position: relative;
+  height: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .welcome_bonus_body > img {
   position: absolute;
-  top: 20%;
-  left: 5%;
 }
 
 .welcome_bonus_body > p {
   position: absolute;
-  top: -18.5%;
-  left: 30%;
+  margin: 15px 0px 0px 15px;
   font-size: 260px;
 }
 
 .continue_btn {
-  position: absolute;
-  bottom: 5%;
   height: 45px;
   width: 80%;
   border-radius: 5px;
@@ -197,17 +193,10 @@ img {
 
 /* welcome reward screen start */
 .welcome_reward {
-  height: 100vh;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.welcome_reward_header {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  justify-content: center;
 }
 
 .welcome_reward_header > h1 {
@@ -218,22 +207,20 @@ img {
   margin: 0px;
 }
 
-.welcome_reward_body > img {
-  position: absolute;
-  top: 30%;
-  left: 25%;
+.welcome_reward_body {
+  height: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .welcome_reward_body > p {
-  position: absolute;
-  top: 47%;
-  left: 35%;
-  font-size: 50px;
+  font-size: 25px;
 }
 
 .thanks_message {
-  position: absolute;
-  bottom: 17.5%;
   font-size: 13px;
 }
 
@@ -401,13 +388,6 @@ img {
   gap: 10px;
 }
 
-/* .earn_body {
-  height: calc(100vh - 225px);
-  height: calc(100vh - 151px);
-  padding: 0px;
-  overflow: auto;
-} */
-
 .community_body_divider {
   background: #272727;
   border-radius: 5px;
@@ -474,7 +454,6 @@ img {
 .back_container {
   display: flex;
   align-items: center;
-  /* gap: 3px; */
   margin-top: 30px;
 }
 
@@ -528,12 +507,6 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 5px;
-}
-
-.task_card_logo {
-  /* border: 1px solid #272727;
-  padding: 5px;
-  border-radius: 10px; */
 }
 
 .task_card_content_body {
@@ -750,9 +723,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border-top: 2px solid #171717;
-  border-bottom: 2px solid #171717; */
-  /* padding: 10px 0px; */
   margin-top: 7px;
   margin-right: 3px;
 }
@@ -767,16 +737,11 @@ img {
 .shop_item_content {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid red; */
-  /* justify-content: last baseline;
-  align-items: last baseline; */
-  /* gap: 5px; */
 }
 
 .shop_item_num {
   background-color: #171717;
   width: fit-content;
-  /* padding: 3px 7px; */
   font-size: 12px;
   border-radius: 15px;
 }
@@ -791,7 +756,6 @@ img {
 .shop_level_list {
   list-style-type: none;
   padding: 0;
-  /* height: calc(100vh - 242px); */
   overflow: auto;
   margin-top: 30px;
 }
@@ -918,7 +882,6 @@ img {
 }
 
 .drawer_button {
-  /* text-align: center; */
   width: 50%;
   padding: 10px 50px;
   background: #b8793b9c;
@@ -980,7 +943,6 @@ img {
 }
 
 .leagues_header_content {
-  /* text-align: center; */
   flex: 1;
   margin-top: 10px;
 }
@@ -1243,7 +1205,6 @@ img {
 .daily_reward_div {
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   gap: 15px;
   margin-top: 15px;
 }
