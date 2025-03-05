@@ -410,6 +410,7 @@ class Navigator {
         var that = this;
         if(dataset.boosterStatus.currentEnergyCount == 0 && dataset.boosterStatus.currentGPUCount == 0) {
             $(".shop_more_boosts_div").removeClass('hide')
+            $("#boosts_star_amount").text(dataset.boosterStatus.amount)
             $("#more_boosts_btn").off("click").on("click", function () {
                 window.location.href = dataset.boosterStatus.invoice;
             })
@@ -578,7 +579,7 @@ class Navigator {
                     $("#progressMainPlay").animate({ 'width': '100%' }, 1000);
                 }
                 that.#updatePlayePageUi();
-                toast.show('boosted Successfully');
+                toast.show('boosted successfully');
             });
         });
     }

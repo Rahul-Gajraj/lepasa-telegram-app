@@ -235,6 +235,7 @@ class EarnPage {
         var streakData = dataset.streakData;
         if(streakData.status) {
             $(".missed_streak_div").removeClass('hide')
+            $("#streak_star_amount").text(dataset.streakData.amount)
             $("#missed_streak_btn").off("click").on("click", function () {
                 window.location.href = streakData.invoice;
             })
