@@ -9,15 +9,15 @@ class Controller {
   #helper = new Helper();
   constructor() {
     var config = new Config();
-    if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      $(".qr_code_div").removeClass("hide");
-    } else {
-      $(".loading_screen").removeClass("hide");
-      this.#baseApiUrl = config.getBaseApiUrl();
-      if (Telegram.WebApp.initData && Telegram.WebApp.initData !== "")
-        this.#initData = Telegram.WebApp.initData;
-      else this.#initData = config.getDevInitData();
-    }
+    // if (!/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    //   $(".qr_code_div").removeClass("hide");
+    // } else {
+    $(".loading_screen").removeClass("hide");
+    this.#baseApiUrl = config.getBaseApiUrl();
+    if (Telegram.WebApp.initData && Telegram.WebApp.initData !== "")
+      this.#initData = Telegram.WebApp.initData;
+    else this.#initData = config.getDevInitData();
+    // }
   }
 
   getLandingPageInfo(reffUrl, successCallback) {
